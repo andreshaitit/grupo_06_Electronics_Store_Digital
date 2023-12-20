@@ -21,3 +21,5 @@ Nuestro Market Place se centra en la venta de productos de informática y comput
 
 
 "Hola, soy Claudua gisela Lima, estudiante de APU de Jujuy, tengo 27 años.Me gusta todo lo relacionado a la computacion, programacion.
+
+Hola mi nombre es José León, tengo 34 años, trabajo en la facultad de humanidades, "administrativo", me gusta el deporte mas especificamente el futbol, tambien tengo conociemto en programacion lo basico.
