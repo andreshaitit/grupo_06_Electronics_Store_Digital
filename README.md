@@ -14,14 +14,11 @@ Nuestro Market Place se centra en la venta de productos de informática y comput
 
 ## Integrantes del equipo
 
-*Integrante 1*: Breve descripción...
-*Integrante 2*: Breve descripción...
-*Integrante 3*: Breve descripción...
-
-
-
+*Integrante 1*: 
 "Hola, soy Claudua gisela Lima, estudiante de APU de Jujuy, tengo 27 años.Me gusta todo lo relacionado a la computacion, programacion.
 
-Integrante: Brian Luciano Valeriano Jurado
+*Integrante 2*: Brian Luciano Valeriano Jurado
 "Hola, soy estudiante en Ingenieria en Informatica en la Facultad de Ingenieria - Unju. Apasionado por la programacion y
 en el desarrollo de proyectos de software."
+
+*Integrante 3*: Breve descripción...
