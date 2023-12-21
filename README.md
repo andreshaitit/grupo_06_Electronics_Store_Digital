@@ -22,3 +22,5 @@ Nuestro Market Place se centra en la venta de productos de informática y comput
 en el desarrollo de proyectos de software."
 
 *Integrante 3*: Breve descripción...
+
+Hola mi nombre es José León, tengo 34 años, trabajo en la facultad de humanidades, "administrativo", me gusta el deporte mas especificamente el futbol, tambien tengo conociemto en programacion lo basico.
