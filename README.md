@@ -21,6 +21,8 @@ Nuestro Market Place se centra en la venta de productos de informática y comput
 "Hola, soy estudiante en Ingenieria en Informatica en la Facultad de Ingenieria - Unju. Apasionado por la programacion y
 en el desarrollo de proyectos de software."
 
-*Integrante 3*: Breve descripción...
+*Integrante 3*:Hola mi nombre es karen tengo 25 años soy Tec .en Redes informaticas y estudiante en el profesorado de educación inicial ,tengo conocimiento en programación nivel basico.
 
-Hola mi nombre es José León, tengo 34 años, trabajo en la facultad de humanidades, "administrativo", me gusta el deporte mas especificamente el futbol, tambien tengo conociemto en programacion lo basico.
+*Integrante 4*:Hola mi nombre es José León, tengo 34 años, trabajo en la facultad de humanidades, "administrativo", me gusta el deporte mas especificamente el futbol, tambien tengo conociemto en programacion lo basico.
+
+*Integrante 5*:Hola mi nombre es Andrés Haitit, tengo 24 años, trabajo de Desarrollador Front end en el diario la Voz, soy recibido de Analista de Sistema
