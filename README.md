@@ -27,6 +27,8 @@ en el desarrollo de proyectos de software."
 
 *Integrante 5*:Hola mi nombre es Andrés Haitit, tengo 24 años, trabajo de Desarrollador Front end en el diario la Voz, soy recibido de Analista de Sistema
 
-## Referentes del mercado 
+## Sitios de referencia
 
-Referencia 1: 
+Sitio: Mebac
+URL: https://www.mebac.com.ar/jujuy/
+Motivo: Elegimos esta pagina dado que muestra una interfaz limpia y minimalista, sin mucho contenido.
