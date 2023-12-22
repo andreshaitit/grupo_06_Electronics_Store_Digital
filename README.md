@@ -26,3 +26,7 @@ en el desarrollo de proyectos de software."
 *Integrante 4*:Hola mi nombre es José León, tengo 34 años, trabajo en la facultad de humanidades, "administrativo", me gusta el deporte mas especificamente el futbol, tambien tengo conociemto en programacion lo basico.
 
 *Integrante 5*:Hola mi nombre es Andrés Haitit, tengo 24 años, trabajo de Desarrollador Front end en el diario la Voz, soy recibido de Analista de Sistema
+
+## Referentes del mercado 
+
+Referencia 1: 
