@@ -35,4 +35,5 @@ Motivo: Elegimos esta pagina dado que muestra una interfaz limpia y minimalista,
 
 Sitio 2: compragamer
 URL:https://compragamer.com/
+
 Motivo: Seleccionamos compragamer como referencia debido a la estética visual y el diseño atractivo de su plataforma. Se destaca por su presentación visual agradable, con imágenes de productos nítidas, colores atractivos y una disposición ordenada que facilita la búsqueda de productos. 
