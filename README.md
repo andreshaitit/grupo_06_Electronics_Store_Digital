@@ -29,7 +29,7 @@ en el desarrollo de proyectos de software."
 
 ## Sitios de referencia
 
-Sitio: Mebac
+Sitio 1: Mebac
 URL: https://www.mebac.com.ar/jujuy/
 Motivo: Elegimos esta pagina dado que muestra una interfaz limpia y minimalista, sin mucho contenido.
 
@@ -37,3 +37,16 @@ Sitio 2: compragamer
 URL:https://compragamer.com/
 
 Motivo: Seleccionamos compragamer como referencia debido a la estética visual y el diseño atractivo de su plataforma. Se destaca por su presentación visual agradable, con imágenes de productos nítidas, colores atractivos y una disposición ordenada que facilita la búsqueda de productos. 
+
+Sitio 3: Tecno Compro
+URL: https://www.tecnocompro.com 
+
+Motivo: Nos agrado la forma en como se interactua con el carrito de compras, al agregar un producto al carrito se abre una pequeña ventana con detalles del mismo.
+
+Sitio 4: Mecado Libre
+URL: https://www.mercadolibre.com.ar
+Motivo: La informacion de los productos es clara, conteniendo todos los detalles necesarios para saber que es lo que estamos comprando.
+
+Sitio 5: Ebay
+URL: https://www.ebay.com 
+Morivo: Encontramos una gran cantidad de productos que nos sirven de referencia como contenido del ecomerce que se desarrolla.
