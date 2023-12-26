@@ -1,0 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul, li, a{
+    display: inline;
+    text-decoration: none;
+}
