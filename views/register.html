@@ -37,7 +37,35 @@
 <!--Cuerpo-->
 <main>
     <section>
-        <h1>Registro</h1>
+        <h1>Registrarse</h1>
+        <p>Ingresa tus datos para crear una cuenta</p>
+        <form action="/registro" method="POST" class="formulario">
+            <div class="control-formulario">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" class="control">
+
+                <label for="nombre">Apellido:</label>
+                <input type="text" name="apellido" id="apellido" class="control">
+            </div>
+
+            <div class="control-formulario">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" class="control">
+            </div>
+
+            <div class="control-formulario">
+                <label for="telefono">Contraseña:</label>
+                <input type="password" name="contra" id="contra" class="control">
+            </div>
+
+            <div class="control-formulario">
+                <label for="telefono">Repetir Contraseña:</label>
+                <input type="password" name="contra1" id="contra1" class="control">
+            </div>
+
+            <button type="submit" class="boton-formulario">Registrarme</button>
+            <button type="reset" class="boton-formulario">Cancelar</button>
+        </form>
     </section>
 </main>
 <!--Fin Cuerpo-->

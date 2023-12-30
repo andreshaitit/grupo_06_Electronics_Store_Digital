@@ -54,14 +54,34 @@
     text-align: center;
 }
 
-.contenedor{
-    width: 90%;
-    max-width: 1200px;
-    padding: 20px;
-    border: solid 5px black;
-    background-color: blueviolet;
-    margin: auto;
+/*Formulario*/
+.formulario{
+padding: 20px 15px; 
 }
+
+.control-formulario{
+   margin-bottom: 15px;
+}
+
+.control-formulario label{
+    margin-bottom: 5px;
+    font-style: italic;
+    display: block;
+ }
+
+ .control{
+    width: 100%;
+    padding: 8px;
+ }
+
+ .boton-formulario{
+    background-color: blueviolet;
+    border: none;
+    font-size: 20px;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+ }
 
 /*Media Query*/
 @media (min-width: 768px){
