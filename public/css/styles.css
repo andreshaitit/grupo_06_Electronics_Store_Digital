@@ -112,7 +112,7 @@ padding: 20px 15px;
     flex-grow: 1;
 }
  .login-formulario{
-    padding: 20px;
+    padding: 5px 15px;
     border-right: solid salmon;
  }
 .login-formulario p{
@@ -135,6 +135,10 @@ form input{
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
+}
+.buton a{
+    text-decoration: none;
+    color: white;
 }
 .butonP{
     text-align: center;
@@ -160,7 +164,6 @@ form input{
  }
  .login-descripcion p{
     text-align: justify;
-    margin-bottom: 20px;
     margin: 5px 30px;
  }
  .butonn{
@@ -170,6 +173,11 @@ form input{
     border: 5px solid #FF6347;
     color: white;
     padding: 5px 10px;
+    margin-top: 20px
+}
+.butonn a{
+    text-decoration: none;
+    color: white;
 }
 
 
