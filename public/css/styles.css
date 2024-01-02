@@ -125,6 +125,7 @@ padding: 20px 15px;
 form input{
     margin-bottom: 10px;
     padding: 8px;
+    width: 100%;
 }
 .buton{
     align-items: center;
@@ -150,7 +151,6 @@ form input{
  .login-descripcion{
     text-align: center;
     position: relative;
-    right: 40px;
     padding: 20px;
  }
  .login-descripcion h2{
