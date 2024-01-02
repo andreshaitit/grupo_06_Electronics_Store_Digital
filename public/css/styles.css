@@ -2,12 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Gill Sans", sans-serif;
 }
 
 /*Header*/
 .main-header{
-    background-color: #0684B1;
-    padding: 15px;
+    background-color: #5E5992;
+    padding: 10px 25px;
 }
 
 .main-header-bar{
@@ -52,11 +53,18 @@
 .titulo-logo{
     font-weight: 400;
     text-align: center;
+    color: salmon;
+    font-weight: bold;
+}
+.titulo-login h1{
+    font-size: 40px;
+    margin-bottom: 10px;
 }
 
 /*Formulario*/
 .formulario{
-padding: 20px 15px; 
+padding: 20px 15px;
+
 }
 
 .control-formulario{
@@ -75,7 +83,7 @@ padding: 20px 15px;
  }
 
  .boton-formulario{
-    background-color: blueviolet;
+    background-color: rgb(21, 255, 0);
     border: none;
     font-size: 20px;
     color: white;
@@ -83,12 +91,93 @@ padding: 20px 15px;
     border-radius: 5px;
  }
 
+ /*Formulario login*/
+ .titulo-login{
+    padding: 10px;
+    size: 20px;
+    text-align: center;
+ }
+ .login{
+    margin: 20px auto;
+    width: 70%;
+    resize: both;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 10px;
+    border: 10px solid salmon;
+ }
+.item-flex{
+    flex-basis: 100px;
+    flex-grow: 1;
+}
+ .login-formulario{
+    padding: 20px;
+    border-right: solid salmon;
+ }
+.login-formulario p{
+    padding: 5px;
+}
+.login-formulario h2{
+    margin-bottom: 5px;
+    margin: 20px;
+}
+form input{
+    margin-bottom: 10px;
+    padding: 8px;
+}
+.buton{
+    align-items: center;
+    font-size: 15px;
+    background-color: #FF6347;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.butonP{
+    text-align: center;
+}
+.butonC{
+    font-size: 15px;
+    background-color: #FF6347;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+ .login-descripcion{
+    text-align: center;
+    position: relative;
+    right: 40px;
+    padding: 20px;
+ }
+ .login-descripcion h2{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+ }
+ .login-descripcion p{
+    text-align: justify;
+    margin-bottom: 20px;
+    margin: 5px 30px;
+ }
+ .butonn{
+    align-items: center;
+    font-size: 15px;
+    background-color:#777777;
+    border: 5px solid #FF6347;
+    color: white;
+    padding: 5px 10px;
+}
+
+
 /*Media Query*/
 @media (min-width: 768px){
     .main-header-bar{
         display: flex;
         justify-content: space-between;
-        margin-top: 20px;
         align-items: center;
     }
     

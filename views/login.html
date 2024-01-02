@@ -36,23 +36,42 @@
 
 <!--Cuerpo-->
 <main>
-    <section>
-        <h1>Login</h1>
+    <div class="titulo-login">
+        <h1>Ingresar</h1>
+        <p>Ingresa tus datos para acceder a tu cuenta</p>
+    </div>
+    
+<section class="login">
+    <div class="login-formulario item-flex">
+        <h2><i class="fa-solid fa-user"></i> Accdeer</h2>
         <form action="/login" method="POST">
             <div>
-                <label>Correo:</label>
-                <input type="text" name="usuario">
+                <input type="text" name="usuario" placeholder="Usuario">
             </div>
-
             <div>
-                <label>Contraseña:</label>
-                <input type="email" name="email">
+                <input type="email" name="email" placeholder="Correo">
             </div>
             
-            <button type="submit" class="boton-formulario">Iniciar Sesion</button>
-            
+            <button type="submit" class="butonC">Conectarse</button>
             </form>
-    </section>
+
+            <label>
+            <input type="checkbox" id="cbox1" value="first_checkbox"/> Recordar correo</label><br/>
+            <p>¿Olvidaste tu contraseña?</p>
+
+            <div class="butonP">
+                <p>-------o inicie sesión con--------</p>
+                <button type="submit" class="buton"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</button>
+                <button type="submit" class="buton"><i class="fa fa-google" aria-hidden="true"></i> Google</button>
+            </div>
+    </div>
+    <div class="login-descripcion item-flex">
+        <h2>¿No tienes cuenta?</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam repudiandae maxime et reiciendis, nemo dolores, facilis excepturi rem necessitatibus voluptates a officia accusantium possimus impedit ipsum, temporibus similique hic id?</p>
+        <a href="/register"><button type="submit" class="butonn">Registrese</button></a>
+    </div>
+    
+</section>
 </main>
 <!--Fin Cuerpo-->
 
