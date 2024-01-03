@@ -185,6 +185,16 @@ form input{
     width: 5%;
 }
 
+/*Footer*/
+footer {
+    background-color: #5E5992;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    color: white;
+}
+
+
 /*Media Query*/
 @media (min-width: 768px){
     .main-header-bar{
