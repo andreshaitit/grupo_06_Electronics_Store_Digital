@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/aad721d8a3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Registro</title>
+</head>
+<body>
+     <!--Menu-->
+     <header class="main-header">
+        <div class="main-header-bar">
+            <img src="/img/logo.jpeg" alt="" class="logo">
+            <h1 class="titulo-logo">Digital Store</h1>
+        </div>
+
+        <a href="#" class="hamburguer-button">
+            <i class="fa-solid fa-bars"></i>
+        </a>
+
+        <nav class="menu">
+        <ul class="menu-izquierdo">
+            <li><a href="/"><i class="fa-solid fa-house"></i> Inicio</a></li>
+            <li><a href="/productDetail"><i class="fa-solid fa-computer"></i> Productos</a></li>
+            <li><a href="/productCart"><i class="fa-solid fa-cart-shopping"></i> Carrito</a></li>
+            
+        </ul>
+        <ul class="menu-login">
+            <li><a href="/register"><i class="fa-solid fa-user"></i> Registro</a></li>
+            <li><a href="/login"><i class="fa-solid fa-right-to-bracket"></i> Acceso</a></li>
+        </ul>
+        </nav>
+    </header>
+    <!--Fin Menu-->
+
+<!--Cuerpo-->
+<main>
+        <div class="titulo-login">
+            <h1>Ingresar</h1>
+            <p>Ingresa tus datos para acceder a tu cuenta</p>
+        </div>
+
+        <section class="login">
+            <div class="login-formulario item-flex">
+                <h2><i class="fa-solid fa-user"></i> Registrarse</h2>
+                <form action="/register" method="POST">
+                    <div class="nom-ape">
+                        <input type="text" name="nombre" placeholder="Nombre">
+                        <input type="text" name="apellido" placeholder="Apellido">
+                    </div>
+                    <div class="inputForm">
+                        <input type="email" name="email" required placeholder="Correo">
+                    </div>
+
+                    <div class="inputForm">
+                        <input type="password" name="password" required placeholder="Contraseña">
+                    </div>
+
+                    <div class="inputForm">
+                        <input type="password" name="password1" required placeholder="Repetir Contraseña">
+                    </div>
+
+                    <div class="butonP">
+                        <button type="submit" class="buton"> Registrarme</button>
+                    </div>
+
+                    <label>
+                        <input type="checkbox" id="cbox1" value="first_checkbox" class="checkbox" required/> Al registrarse acepta nuestro <a href="#" style="color: red;">términos y condiciones</a> 
+                    </label>
+                    </form>
+            </div>
+            <div class="login-descripcion item-flex">
+                <h2>¿Ya tienes cuenta?</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam repudiandae maxime et reiciendis, nemo dolores, facilis excepturi rem necessitatibus voluptates a officia accusantium possimus impedit ipsum, temporibus similique hic id?</p>
+                <button type="submit" class="butonn"><a href="/register"> Iniciar Sesión</a></button>
+            </div>
+        </section>
+
+        <!--<form action="/registro" method="POST" class="formulario">
+            <div class="control-formulario">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" class="control">
+
+                <label for="nombre">Apellido:</label>
+                <input type="text" name="apellido" id="apellido" class="control">
+            </div>
+
+            <div class="control-formulario">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" class="control">
+            </div>
+
+            <div class="control-formulario">
+                <label for="telefono">Contraseña:</label>
+                <input type="password" name="contra" id="contra" class="control">
+            </div>
+
+            <div class="control-formulario">
+                <label for="telefono">Repetir Contraseña:</label>
+                <input type="password" name="contra1" id="contra1" class="control">
+            </div>
+
+            <button type="submit" class="boton-formulario">Registrarme</button>
+            <button type="reset" class="boton-formulario">Cancelar</button>
+        </form>-->
+</main>
+<!--Fin Cuerpo-->
+
+<!--Pie de Página-->
+<footer>
+
+</footer>
+ <!--Fin Pie de Página-->
+</body>
+</html>

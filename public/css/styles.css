@@ -1,0 +1,237 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Gill Sans", sans-serif;
+}
+
+/*Header*/
+.main-header{
+    background-color: #5E5992;
+    padding: 10px 25px;
+}
+
+.main-header-bar{
+    margin-bottom: 15px;
+}
+
+.hamburguer-button{
+    background-color: blue;
+    color: white;
+    display: block;
+    max-width: 50px;
+    padding: 10px 0;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 18px;
+    margin: auto;
+}
+
+.logo{
+    width: 200px;
+}
+
+/*Menu*/
+.menu{
+    display: none;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu a{
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    display: 5px 0;
+    font-size: 17px;
+}
+
+.titulo-logo{
+    font-weight: 400;
+    text-align: center;
+    color: salmon;
+    font-weight: bold;
+}
+.titulo-login h1{
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/*Formulario Registro
+.formulario{
+padding: 20px 15px;
+}
+
+.control-formulario{
+   margin-bottom: 15px;
+}
+
+.control-formulario label{
+    margin-bottom: 5px;
+    font-style: italic;
+    display: block;
+ }
+
+ .control{
+    width: 100%;
+    padding: 8px;
+ }
+
+ .boton-formulario{
+    background-color: rgb(21, 255, 0);
+    border: none;
+    font-size: 20px;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+ }*/
+
+ /*Formulario login*/
+ .titulo-login{
+    padding: 10px;
+    size: 20px;
+    text-align: center;
+ }
+ .login{
+    margin: 20px auto;
+    width: 70%;
+    resize: both;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 10px;
+    border: 10px solid salmon;
+ }
+.item-flex{
+    flex-basis: 100px;
+    flex-grow: 1;
+}
+ .login-formulario{
+    padding: 5px 15px;
+    border-right: solid salmon;
+ }
+.login-formulario p{
+    padding: 5px;
+}
+.login-formulario h2{
+    margin-bottom: 5px;
+    margin: 20px;
+}
+
+form input{
+    margin-bottom: 10px;
+    padding: 8px;
+    width: 100%;
+}
+.buton{
+    align-items: center;
+    font-size: 15px;
+    background-color: #FF6347;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.buton a{
+    text-decoration: none;
+    color: white;
+}
+.butonP{
+    text-align: center;
+    padding: 10px;
+}
+.butonC{
+    font-size: 15px;
+    background-color: #FF6347;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+ .login-descripcion{
+    text-align: center;
+    position: relative;
+    padding: 20px;
+ }
+ .login-descripcion h2{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+ }
+ .login-descripcion p{
+    text-align: justify;
+    margin: 5px 30px;
+ }
+ .butonn{
+    align-items: center;
+    font-size: 15px;
+    background-color:#777777;
+    border: 5px solid #FF6347;
+    color: white;
+    padding: 5px 10px;
+    margin-top: 20px
+}
+.butonn a{
+    text-decoration: none;
+    color: white;
+}
+.checkbox{
+    margin-right: 5px;
+    width: 5%;
+}
+
+/*Media Query*/
+@media (min-width: 768px){
+    .main-header-bar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .titulo-logo{
+        max-width: 350px;
+        text-align: right;
+        font-size: 50px;
+        margin: 0;
+    }
+    .hamburguer-button{
+        display: none;
+    }
+    .menu{
+        display: flex;
+        justify-content: space-between;
+    }
+    .menu ul{
+        display: flex;
+    }
+    .menu li {
+        margin: 0 10px;
+    }
+}
+
+@media (min-width: 1200px){
+    .main-header-bar, .menu{
+        max-width: 1200px;
+        margin: auto;
+        margin-top: 20px;
+    }
+    .main-header-bar{
+        align-items: center;
+    }
+    .menu li {
+        margin: 0 10px;
+    }
+    .menu a {
+        font-size: 20px;
+    }
+    .titulo-logo{
+        max-width: none;
+        font-size: 50px;
+        margin: 0;
+    }
+}
