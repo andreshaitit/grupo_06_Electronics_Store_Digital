@@ -7,7 +7,7 @@
 
 /*Header*/
 .main-header{
-    background-color: #5E5992;
+
     padding: 10px 25px;
 }
 
@@ -34,6 +34,8 @@
 /*Menu*/
 .menu{
     display: none;
+    background-color: #5E5992;
+    padding: 10px;
 }
 
 .menu ul {
@@ -258,14 +260,44 @@ form input{
 }
 
 /*Footer*/
-footer {
+.footer {
     background-color: #5E5992;
     bottom: 0;
     width: 100%;
-    height: 40px;
+    height: 250px;
     color: white;
 }
 
+.container-footer {
+    display: flex; 
+    justify-content: space-between;
+}
+
+.footer section{
+    width: 30%;
+    padding: 20px;
+}
+
+.redes{
+    padding: 20px;
+}
+
+.footer section h2 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.text-center{
+    text-align: center;
+}
+
+/* Ajusta los estilos según tus necesidades */
 
 /*Media Query*/
 @media (min-width: 768px){
