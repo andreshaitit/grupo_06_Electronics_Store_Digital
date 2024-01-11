@@ -491,3 +491,83 @@ form input{
         margin: 0;
     }
 }
+
+.contenedor-detalle {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: auto;
+    gap:50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.imagenes {
+    display: flex;
+    align-items: center;
+}
+
+.imagenes, .detalle, .precio {
+    flex: 1 1 0px;
+}
+
+.lista-descripcion {
+    margin-top: 50px;
+    list-style: none;    
+}
+
+.lista-descripcion li {
+    margin-top: 10px;
+}
+
+.precio-item {
+    display: flex;
+    margin: 10px;
+}
+
+.form-control {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content:center ;
+}
+
+.w-10 {
+    width: 10%;
+}
+.w-30 {
+    width: 30%;
+}
+
+.btn-comprar {
+    width: 100%;
+    background-color: #5E5992;
+    color: white;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.btn-agregar {
+    width: 100%;
+    background-color: #ccc;
+    color: #FF6347;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.caracteristicas{
+    max-width: 1200px;
+    margin: auto;
+    padding-bottom: 50px;
+}
+
+.caracteristicas h1{
+    margin-top: 40px;
+}
+.caracteristicas p{
+    margin-top: 40px;
+}
+
+.detalle h1 {
+    margin-top: 20px;
+}
