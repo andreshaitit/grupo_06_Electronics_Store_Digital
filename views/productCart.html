@@ -5,13 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/aad721d8a3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/carrito.css">
     <title>Carrito de Compra</title>
 </head>
 <body>
-     <!--Menu-->
-     <header class="main-header">
+    <!--Menu-->
+    <header class="main-header">
         <div class="main-header-bar">
             <img src="/img/logo.1.jpg" alt="" class="logo">
+
+            <form class="header_search">
+                <input type="search" id="busqueda" name="busqueda" placeholder="Buscar productos, marcas y mas..." aria-label="Campo de búsqueda" />
+                <i class="fas fa-search"></i>
+            </form>
+
+            <a class="main-header-trolley" href="/productCart">
+                <span class="cart-text">Ver carrito</span>
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+
         </div>
 
         <a href="#" class="hamburguer-button">
@@ -22,7 +34,8 @@
         <ul class="menu-izquierdo">
             <li><a href="/"><i class="fa-solid fa-house"></i> Inicio</a></li>
             <li><a href="/productDetail"><i class="fa-solid fa-computer"></i> Productos</a></li>
-            <li><a href="/productCart"><i class="fa-solid fa-cart-shopping"></i> Carrito</a></li>
+            <li><a href="/">Sobre nosotros</a></li>
+            <li><a href="/">Contacto</a></li>
             
         </ul>
         <ul class="menu-login">
@@ -34,17 +47,188 @@
     <!--Fin Menu-->
 
 <!--Cuerpo-->
-<main>
-    <section>
-        <h1>Carrito</h1>
+<main class="cart">
+
+    <section class="cart-list">
+
+        <article class="cart-item">
+
+            <img src="/img/macbook_pro.png" alt="Nombre del producto">
+            
+            <div class="item-details">
+                <h3>Nombre del producto</h3>
+                <p>Descripción del producto</p>
+            </div>
+
+            <div class="item-amount">
+                <label>
+                    <button class="more-less">+</button>
+                    <input type="number" id="cantidad" name="cantidad" min="1" max="10" value="1">
+                    <button class="more-less">-</button>
+                </label>
+                <p>Unidades disponibles: 2</p>
+            </div>
+
+            <div class="item-price">
+                <p>Precio unitario: $20.00</p>
+            </div>
+
+            <div class="item-actions">
+                <button class="btn-delete">Eliminar</button>
+                <button class="btn-buy">Comprar</button>
+            </div>
+
+        </article>
+
+        <article class="cart-item">
+
+            <img src="/img/monitor-dell.png" alt="Nombre del producto">
+            
+            <div class="item-details">
+                <h3>Nombre del producto</h3>
+                <p>Descripción del producto</p>
+            </div>
+
+            <div class="item-amount">
+                <label>
+                    <button class="more-less">+</button>
+                    <input type="number" id="cantidad" name="cantidad" min="1" max="10" value="1">
+                    <button class="more-less">-</button>
+                </label>
+                <p>Unidades disponibles: 2</p>
+            </div>
+
+            <div class="item-price">
+                <p>Precio unitario: $20.00</p>
+            </div>
+
+            <div class="item-actions">
+                <button class="btn-delete">Eliminar</button>
+                <button class="btn-buy">Comprar</button>
+            </div>
+
+        </article>
+
+        <article class="cart-item">
+
+            <img src="/img/pc-escritorio.png" alt="Nombre del producto">
+            
+            <div class="item-details">
+                <h3>Nombre del producto</h3>
+                <p>Descripción del producto</p>
+            </div>
+
+            <div class="item-amount">
+                <label>
+                    <button class="more-less">+</button>
+                    <input type="number" id="cantidad" name="cantidad" min="1" max="10" value="1">
+                    <button class="more-less">-</button>
+                </label>
+                <p>Unidades disponibles: 2</p>
+            </div>
+
+            <div class="item-price">
+                <p>Precio unitario: $20.00</p>
+            </div>
+
+            <div class="item-actions">
+                <button class="btn-delete">Eliminar</button>
+                <button class="btn-buy">Comprar</button>
+            </div>
+
+        </article>
+
+        <article class="cart-item">
+
+            <img src="/img/teclado-asus.png" alt="Nombre del producto">
+            
+            <div class="item-details">
+                <h3>Nombre del producto</h3>
+                <p>Descripción del producto</p>
+            </div>
+
+            <div class="item-amount">
+                <label>
+                    <button class="more-less">+</button>
+                    <input type="number" id="cantidad" name="cantidad" min="1" max="10" value="1">
+                    <button class="more-less">-</button>
+                </label>
+                <p>Unidades disponibles: 2</p>
+            </div>
+
+            <div class="item-price">
+                <p>Precio unitario: $20.00</p>
+            </div>
+
+            <div class="item-actions">
+                <button class="btn-delete">Eliminar</button>
+                <button class="btn-buy">Comprar</button>
+            </div>
+
+        </article>
+          
     </section>
+
+    <div class="cart-total">
+        <p>Total: $40.00</p>
+    </div>
+
+    <div class="payment-method">
+        <label>Medio de pago</label>
+        <label><input type="radio" name="payment-method" value="1">Deposio o Transferencia Bancaria</label>
+        <label><input type="radio" name="payment-method" value="2">Mercadopago - Tarjetas online, PagoFacil, RapiPagp</label>
+        <label><input type="radio" name="payment-method" value="3">Tarjeta de credito ¡Hasta 12 cuotas!</label>
+    </div>
+
+    
+    <button class="btn-checkout">Completar transacción</button>
+
 </main>
 <!--Fin Cuerpo-->
 
-<!--Pie de Página-->
-<footer>
-
-</footer>
- <!--Fin Pie de Página-->
+    <!--Pie de Página-->
+    <footer class="footer">
+        <div class="container-footer">
+            <section>
+                <h2>Tu cuenta</h2>
+                <ul>
+                    <li><a href="#">Acceder/Registrarme</a></li>
+                    <li><a href="#">¿Olvidaste tu contraseña?</a></li>
+                    <li><a href="#">Carrito</a></li>
+                    <li><a href="#">Tu pedido</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Categorias</h2>
+                <ul>
+                    <li><a href="#">Notebook</a></li>
+                    <li><a href="#">PC de escritorio</a></li>
+                    <li><a href="#">Monitores</a></li>
+                    <li><a href="#">Teclados</a></li>
+                    <li><a href="#">Mouse</a></li>
+                    <li><a href="#">Almacenamiento</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Informacion</h2>
+                <ul>
+                    <li><a href="#">Numero de telefono</a></li>
+                    <li><a href="#">info@eSdigital.com</a></li>
+                    <p>4600, San Salvador de Jujuy, Jujuy, Argentina</p>
+                </ul>
+            </section>
+            <section>
+                <h2>Seguinos en</h2>
+                <div class="redes">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-youtube"></i>
+                </div>
+            </section>
+        </div>
+        
+        <p class="text-center">Copirigth © 2023-2024. Electronics Store Digital. Todos los derechos reservados</p>
+    </footer>
+     <!--Fin Pie de Página-->
 </body>
 </html>
