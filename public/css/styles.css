@@ -610,6 +610,7 @@ form input{
   .product-card {
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
+    text-align: center;
   }
 
   
@@ -621,5 +622,10 @@ form input{
   .product-card img {
     width: 70%;
     height: 70%;
+  }
+  
+  .product-card a {
+    text-decoration: none;
+    color: black;
   }
   
