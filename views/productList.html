@@ -21,7 +21,7 @@
         <nav class="menu">
         <ul class="menu-izquierdo">
             <li><a href="/"><i class="fa-solid fa-house"></i> Inicio</a></li>
-            <li><a href="/productDetail"><i class="fa-solid fa-computer"></i> Productos</a></li>
+            <li><a href="/productList"><i class="fa-solid fa-computer"></i> Productos</a></li>
             <li><a href="/productCart"><i class="fa-solid fa-cart-shopping"></i> Carrito</a></li>
             
         </ul>
@@ -35,186 +35,167 @@
 
 <!--Cuerpo-->
 <main>
-    <section>
-    </section>
-    <div class="contenedor-detalle">
-        <div class="imagenes">
-            <img src="/img/macbook-2024.webp"  width="480px" height="480px" />
-        </div>
-        <div class="detalle">
-            <span>Nuevo</span>
-            <h1>Apple Macbook Pro 13 M2 8gb 256gb Gris Esp Ñ</h1>
-            <ul class="lista-descripcion">
-                <li>Capacidad:<strong>8 GB RAM | 256 GB SSD</strong></li>
-                <li>Procesador:<strong>8 GB RAM | 256 GB SSD</strong></li>
-                <li>Placa de video:<strong>8 GB RAM | 256 GB SSD</strong></li>
-                <li>Color :<strong>8 GB RAM | 256 GB SSD</strong></li>
-            </ul>
-        </div>
-        <div class="precio">
-            <div class="precio-item">
-                <div>
-                    <h2>Precio especial:</h2>
-                </div>
-                <div>
-                    <h2>$2.350.000</h2>
-                </div>
-            </div>
-            <div class="precio-item">
-                <div>
-                    <h2>Precio de lista:</h2>
-                </div>
-                <div>
-                    <h2>$3.150.000</h2>
-                </div>
-            </div>
-            
-            <hr />
-            
+    <div class="cabecera-lista-producto">
+        <div><h1>Nuestros Productos</h1></div>
+        <div class="filtros-productos">
             <form>
-                <div class="form-control">
-                    <input class="w-10" type="checkbox" id="warranty" name="warranty">
-                    <label for="warranty">Garantía de 12 meses</label><br>
-                </div>
-                
-                <div class="form-control">
-                    <input class="w-10" type="checkbox" id="shipping" name="shipping">
-                    <label for="shipping">Envío gratis</label><br>
-                </div>
-              
-                <div class="form-control">
-                    <label for="quantity">Cantidad:</label>
-                    <input class="w-30" type="number" id="quantity" name="quantity" value="1" max="100">
-                </div>
-                <hr>
-                
-                <button class="btn-comprar" type="button" style="width:100%">Comprar ahora</button>
-                <button class="btn-agregar" type="button" style="width:100%">Agregar al carrito</button>
-                
-                <hr>
-              </form>
+                <label for="sort">Ordenar por:</label>
+                <select id="sort" name="sort">
+                  <option value="price-asc">Precio: Menor a Mayor</option>
+                  <option value="price-desc">Precio: Mayor a Menor</option>
+                  <option value="rating">Calificación</option>
+                  <option value="popularity">Popularidad</option>
+                  <option value="newest">Más reciente</option>
+                </select>
+              </form>              
         </div>
     </div>
-    <div class="caracteristicas">
-        <hr />
-        <h1>Caracteristicas</h1>
-        <p>MacBook Air 13 " Apple chip M2- 8 core CPU - 10 GPU - 512GB
-
-            Chip M2 de Apple
-            CPU de 8 nucleos con 4 nucleos de rendimiento y 4 de eficiencia
-            GPU de 10 nucleos
-            Neural Engine de 16 nucleos
-            100 GB/s de ancho de banda de memoria
-            
-            Motor multimedia.
-            
-            H.264, HEVC, ProRes y ProRes RAW con aceleracion por hardware
-            Motor de decodificacion/codificacion de video y ProRes
-            
-            Pantalla Liquid Retina
-            
-            Pantalla de 13.6 pulgadas (diagonal) retroiluminada por LED con tecnologia IPS;1.
-            Resolucion nativa de 2560 x 1664 a 224 pixeles por pulgada compatible con 1,000 millones de colores.
-            Brillo de 500 nits
-            Tecnologia True Tone
-            
-            Bateria y energia
-            
-            Hasta 18 horas de reproduccion de video en la app Apple TV
-            Hasta 15 horas de navegacion web inalambrica
-            Bateria de polimero de litio de 52.6 Wh
-            Cable de USB-C a MagSafe 3
-            Carga rapida con el adaptador de corriente USB-C de 67 W.
-            
-            Carga y expansion
-            
-            Puerto de carga MagSafe 3
-            Entrada de 3.5 mm para audifonos
-            Dos puertos Thunderbolt/USB 4 compatibles con carga.
-            DisplayPort, Thunderbolt 3 (hasta 40 Gb/s), USB 4 (hasta 40 Gb/s) y USB 3.1 de segunda generacion (hasta 10 Gb/s)
-            
-            Memoria: 8 GB
-            
-            
-            Almacenamiento
-            
-            512 GB SSD de 512 GB
-            
-            
-            Teclado y trackpad
-            
-            Magic Keyboard retroiluminado
-            
-            Conexion inalambrica
-            
-            Conexion inalambrica Wi-Fi 6 802.11ax
-            Compatible con IEEE 802.11a/b/g/n/ac
-            Bluetooth
-            
-            Tecnologia inalambrica Bluetooth 5.0
-            
-            Camara
-            1080p
-            Camara FaceTime HD
-            
-            Audio
-            Sistema de sonido de cuatro bocinas
-            Amplio sonido estereo
-            Sistema de tres microfonos con tecnologia beamforming direccional
-            Entrada de 3.5 mm para audifonos con compatibilidad avanzada para audifonos de alta impedancia
-            
-            Compatibilidad con monitores
-            
-            Es compatible simultaneamente con la resolucion nativa de la pantalla integrada en 1,000 millones de colores y:
-            
-            Un monitor externo con resolucion de hasta 6K a 60 Hz
-            Salida de video digital Thunderbolt 3
-            
-            Salida DisplayPort nativa a traves de USB-C
-            Compatible con salidas VGA, HDMI, DVI y Thunderbolt 2 mediante adaptadores (se venden por separado)
-            
-            Reproduccion de video
-            Los formatos compatibles incluyen HEVC, H.264 y ProRes
-            HDR con Dolby Vision, HDR10 y HLG
-            
-            Reproduccion de audio
-            
-            Los formatos compatibles incluyen AAC, MP3, Apple Lossless, FLAC, Dolby Digital, Dolby Digital Plus y Dolby Atmos
-            
-            Requisitos operativos
-            
-            Tension electrica: 100-240 V CA
-            Frecuencia: 50 Hz a 60 Hz
-            Temperatura operativa: 10 a 35 *C
-            
-            
-            Tamano y peso
-            
-            Grosor: 1.13 cm
-            Ancho: 30.41 cm
-            Profundidad: 21.50 cm
-            Peso: 1.24 kg
-            
-            Sistema operativo. macOS
-            
-            Accesibilidad
-            
-            Las funcionalidades de accesibilidad ayudan a las personas con alguna discapacidad a aprovechar al maximo su nueva MacBook Air. Gracias al soporte integrado para vision, audicion, motricidad y aprendizaje, crear y hacer cosas asombrosas esta al alcance de todos.
-            
-            En la caja
-            
-            MacBook Air
-            Adaptador de corriente USB-C de 30 W
-            Adaptador de corriente compacto de 35 W con dos puertos USB-C
-            Cable de USB-C a MagSafe</p>
-    </div>
+    <div class="container">
+        <div class="filters">
+            <form>
+              <h2 for="brand">Marca:</h2>
+              <ul id="brand" name="brand">
+                <li>Apple<li>
+                <li>Dell<li>
+                <li>HP<li>
+                <li>Lenovo<li>
+                <li>Asus<li>
+                <!-- Añade más marcas según sea necesario -->
+              </ul>
+          
+              <label for="max-price">Precio máximo:</label>
+              <input type="number" id="max-price" name="max-price">
+          
+              <label for="min-price">Precio mínimo:</label>
+              <input type="number" id="min-price" name="min-price">
+            </form>
+          </div>
+          
+        <div class="products">
+          <div class="product-card">
+            <img src="/img/monitor-dell.png" alt="Imagen del producto">
+            <h2>Monitor Dell</h2>
+            <p>Precio especial: $500.000</p>
+            <p>Precio de lista: $800.000</p>
+          </div>
+          <div class="product-card">
+            <a href="/productDetail">    
+            <img src="/img/macbook-2024.webp" alt="Imagen del producto">
+                <h2>Macbook Pro</h2>
+                <p>Precio especial: $1.500.000</p>
+                <p>Precio de lista: $2.000.000</p>
+            </a>
+          </div>
+          <div class="product-card">
+            <img src="/img/Macbook_pro.png" alt="Imagen del producto">
+            <h2>Macbook_pro.png</h2>
+            <p>Precio especial: $1.900.000</p>
+            <p>Precio de lista: $2.300.000</p>
+          </div>
+          <div class="product-card">
+            <img src="/img/tablet-sony.png" alt="Imagen del producto">
+            <h2>Tablet Sony</h2>
+            <p>Precio especial: $500.000</p>
+            <p>Precio de lista: $900.000</p>
+          </div>
+          <div class="product-card">
+            <img src="/img/pc-escritorio.png" alt="Imagen del producto">
+            <h2>PC Gamer</h2>
+            <p>Precio especial: $650.000</p>
+            <p>Precio de lista: $1.000.000</p>
+          </div>
+          <div class="product-card">
+            <img src="/img/teclado-asus.png" alt="Imagen del producto">
+            <h2>Teclado Asus</h2>
+            <p>Precio especial: $150.000</p>
+            <p>Precio de lista: $210.000</p>
+          </div>
+          <div class="product-card">
+            <img src="/img/monitor-dell.png" alt="Imagen del producto">
+            <h2>Monitor Dell</h2>
+            <p>Precio especial: $500.000</p>
+            <p>Precio de lista: $800.000</p>
+          </div>
+          <div class="product-card">
+            <img src="/img/macbook-2024.webp" alt="Imagen del producto">
+            <h2>Macbook Pro</h2>
+            <p>Precio especial: $1.500.000</p>
+            <p>Precio de lista: $2.000.000</p>
+          </div>
+          <div class="product-card">
+            <img src="/img/Macbook_pro.png" alt="Imagen del producto">
+            <h2>Macbook_pro.png</h2>
+            <p>Precio especial: $1.900.000</p>
+            <p>Precio de lista: $2.300.000</p>
+          </div>
+          <div class="product-card">
+            <img src="/img/tablet-sony.png" alt="Imagen del producto">
+            <h2>Tablet Sony</h2>
+            <p>Precio especial: $500.000</p>
+            <p>Precio de lista: $900.000</p>
+          </div>
+          <div class="product-card">
+            <img src="/img/pc-escritorio.png" alt="Imagen del producto">
+            <h2>PC Gamer</h2>
+            <p>Precio especial: $650.000</p>
+            <p>Precio de lista: $1.000.000</p>
+          </div>
+          <div class="product-card">
+            <img src="/img/teclado-asus.png" alt="Imagen del producto">
+            <h2>Teclado Asus</h2>
+            <p>Precio especial: $150.000</p>
+            <p>Precio de lista: $210.000</p>
+          </div>
+          <!-- Repite el div .product-card para cada producto -->
+        </div>
+      </div>
 </main>
 <!--Fin Cuerpo-->
 
 <!--Pie de Página-->
-<footer>
-
-</footer>
+    <!--Pie de Página-->
+    <footer class="footer">
+        <div class="container-footer">
+            <section>
+                <h2>Tu cuenta</h2>
+                <ul>
+                    <li><a href="#">Acceder/Registrarme</a></li>
+                    <li><a href="#">¿Olvidaste tu contraseña?</a></li>
+                    <li><a href="#">Carrito</a></li>
+                    <li><a href="#">Tu pedido</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Categorias</h2>
+                <ul>
+                    <li><a href="#">Notebook</a></li>
+                    <li><a href="#">PC de escritorio</a></li>
+                    <li><a href="#">Monitores</a></li>
+                    <li><a href="#">Teclados</a></li>
+                    <li><a href="#">Mouse</a></li>
+                    <li><a href="#">Almacenamiento</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Informacion</h2>
+                <ul>
+                    <li><a href="#">Numero de telefono</a></li>
+                    <li><a href="#">info@eSdigital.com</a></li>
+                    <p>4600, San Salvador de Jujuy, Jujuy, Argentina</p>
+                </ul>
+            </section>
+            <section>
+                <h2>Seguinos en</h2>
+                <div class="redes">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-youtube"></i>
+                </div>
+            </section>
+        </div>
+        
+        <p class="text-center">Copirigth © 2023-2024. Electronics Store Digital. Todos los derechos reservados</p>
+    </footer>
  <!--Fin Pie de Página-->
 </body>
 </html>
