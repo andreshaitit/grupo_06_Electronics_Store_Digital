@@ -10,40 +10,7 @@
 </head>
 <body>
     <!--Menu-->
-    <header class="main-header">
-        <div class="main-header-bar">
-            <img src="/img/logo.1.jpg" alt="" class="logo">
-
-            <form class="header_search">
-                <input type="search" id="busqueda" name="busqueda" placeholder="Buscar productos, marcas y mas..." aria-label="Campo de búsqueda" />
-                <i class="fas fa-search"></i>
-            </form>
-
-            <a class="main-header-trolley" href="/productCart">
-                <span class="cart-text">Ver carrito</span>
-                <i class="fa-solid fa-cart-shopping"></i>
-            </a>
-
-        </div>
-
-        <a href="#" class="hamburguer-button">
-            <i class="fa-solid fa-bars"></i>
-        </a>
-
-        <nav class="menu">
-        <ul class="menu-izquierdo">
-            <li><a href="/"><i class="fa-solid fa-house"></i> Inicio</a></li>
-            <li><a href="/product/list"><i class="fa-solid fa-computer"></i> Productos</a></li>
-            <li><a href="/">Sobre nosotros</a></li>
-            <li><a href="/">Contacto</a></li>
-            
-        </ul>
-        <ul class="menu-login">
-            <li><a href="/user/register"><i class="fa-solid fa-user"></i> Registro</a></li>
-            <li><a href="/user/login"><i class="fa-solid fa-right-to-bracket"></i> Acceso</a></li>
-        </ul>
-        </nav>
-    </header>
+    <%- include('./partials/header.ejs') %>
     <!--Fin Menu-->
 
 <!--Cuerpo-->
@@ -215,48 +182,7 @@
 <!--Fin Cuerpo-->
 
     <!--Pie de Página-->
-    <footer class="footer">
-        <div class="container-footer">
-            <section>
-                <h2>Tu cuenta</h2>
-                <ul>
-                    <li><a href="#">Acceder/Registrarme</a></li>
-                    <li><a href="#">¿Olvidaste tu contraseña?</a></li>
-                    <li><a href="#">Carrito</a></li>
-                    <li><a href="#">Tu pedido</a></li>
-                </ul>
-            </section>
-            <section>
-                <h2>Categorias</h2>
-                <ul>
-                    <li><a href="#">Notebook</a></li>
-                    <li><a href="#">PC de escritorio</a></li>
-                    <li><a href="#">Monitores</a></li>
-                    <li><a href="#">Teclados</a></li>
-                    <li><a href="#">Mouse</a></li>
-                    <li><a href="#">Almacenamiento</a></li>
-                </ul>
-            </section>
-            <section>
-                <h2>Informacion</h2>
-                <ul>
-                    <li><a href="#">Numero de telefono</a></li>
-                    <li><a href="#">info@eSdigital.com</a></li>
-                    <p>4600, San Salvador de Jujuy, Jujuy, Argentina</p>
-                </ul>
-            </section>
-            <section>
-                <h2>Seguinos en</h2>
-                <div class="redes">
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-instagram"></i>
-                    <i class="fa-brands fa-youtube"></i>
-                </div>
-            </section>
-        </div>
-        
-        <p class="text-center">Copirigth © 2023-2024. Electronics Store Digital. Todos los derechos reservados</p>
-    </footer>
+    <%- include('./partials/footer.ejs') %>
      <!--Fin Pie de Página-->
 </body>
 </html>

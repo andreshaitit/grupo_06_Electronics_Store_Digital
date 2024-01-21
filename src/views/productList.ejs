@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/aad721d8a3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Detalle de Producto</title>
+</head>
+<body>
+    <!--Menu-->
+    <%- include('./partials/header.ejs') %>
+    <!--Fin Menu-->
+
+    <!--Cuerpo-->
+    <main>
+          <div class="cabecera-lista-producto">
+              <div><h1>Nuestros Productos</h1></div>
+              <div class="filtros-productos">
+                  <form>
+                      <label for="sort">Ordenar por:</label>
+                      <select id="sort" name="sort">
+                        <option value="price-asc">Precio: Menor a Mayor</option>
+                        <option value="price-desc">Precio: Mayor a Menor</option>
+                        <option value="rating">Calificación</option>
+                        <option value="popularity">Popularidad</option>
+                        <option value="newest">Más reciente</option>
+                      </select>
+                    </form>              
+              </div>
+          </div>
+          <div class="container">
+              <div class="filters">
+                  <form>
+                    <h2 for="brand">Marca:</h2>
+                    <ul id="brand" name="brand">
+                      <li>Apple<li>
+                      <li>Dell<li>
+                      <li>HP<li>
+                      <li>Lenovo<li>
+                      <li>Asus<li>
+                      <!-- Añade más marcas según sea necesario -->
+                    </ul>
+                
+                    <label for="max-price">Precio máximo:</label>
+                    <input type="number" id="max-price" name="max-price">
+                
+                    <label for="min-price">Precio mínimo:</label>
+                    <input type="number" id="min-price" name="min-price">
+                  </form>
+                </div>
+                
+              <div class="products">
+                <div class="product-card">
+                  <img src="/img/monitor-dell.png" alt="Imagen del producto">
+                  <h2>Monitor Dell</h2>
+                  <p>Precio especial: $500.000</p>
+                  <p>Precio de lista: $800.000</p>
+                </div>
+                <div class="product-card">
+                  <a href="/product/detail">    
+                  <img src="/img/macbook-2024.webp" alt="Imagen del producto">
+                      <h2>Macbook Pro</h2>
+                      <p>Precio especial: $1.500.000</p>
+                      <p>Precio de lista: $2.000.000</p>
+                  </a>
+                </div>
+                <div class="product-card">
+                  <img src="/img/Macbook_pro.png" alt="Imagen del producto">
+                  <h2>Macbook_pro.png</h2>
+                  <p>Precio especial: $1.900.000</p>
+                  <p>Precio de lista: $2.300.000</p>
+                </div>
+                <div class="product-card">
+                  <img src="/img/tablet-sony.png" alt="Imagen del producto">
+                  <h2>Tablet Sony</h2>
+                  <p>Precio especial: $500.000</p>
+                  <p>Precio de lista: $900.000</p>
+                </div>
+                <div class="product-card">
+                  <img src="/img/pc-escritorio.png" alt="Imagen del producto">
+                  <h2>PC Gamer</h2>
+                  <p>Precio especial: $650.000</p>
+                  <p>Precio de lista: $1.000.000</p>
+                </div>
+                <div class="product-card">
+                  <img src="/img/teclado-asus.png" alt="Imagen del producto">
+                  <h2>Teclado Asus</h2>
+                  <p>Precio especial: $150.000</p>
+                  <p>Precio de lista: $210.000</p>
+                </div>
+                <div class="product-card">
+                  <img src="/img/monitor-dell.png" alt="Imagen del producto">
+                  <h2>Monitor Dell</h2>
+                  <p>Precio especial: $500.000</p>
+                  <p>Precio de lista: $800.000</p>
+                </div>
+                <div class="product-card">
+                  <img src="/img/macbook-2024.webp" alt="Imagen del producto">
+                  <h2>Macbook Pro</h2>
+                  <p>Precio especial: $1.500.000</p>
+                  <p>Precio de lista: $2.000.000</p>
+                </div>
+                <div class="product-card">
+                  <img src="/img/Macbook_pro.png" alt="Imagen del producto">
+                  <h2>Macbook_pro.png</h2>
+                  <p>Precio especial: $1.900.000</p>
+                  <p>Precio de lista: $2.300.000</p>
+                </div>
+                <div class="product-card">
+                  <img src="/img/tablet-sony.png" alt="Imagen del producto">
+                  <h2>Tablet Sony</h2>
+                  <p>Precio especial: $500.000</p>
+                  <p>Precio de lista: $900.000</p>
+                </div>
+                <div class="product-card">
+                  <img src="/img/pc-escritorio.png" alt="Imagen del producto">
+                  <h2>PC Gamer</h2>
+                  <p>Precio especial: $650.000</p>
+                  <p>Precio de lista: $1.000.000</p>
+                </div>
+                <div class="product-card">
+                  <img src="/img/teclado-asus.png" alt="Imagen del producto">
+                  <h2>Teclado Asus</h2>
+                  <p>Precio especial: $150.000</p>
+                  <p>Precio de lista: $210.000</p>
+                </div>
+                <!-- Repite el div .product-card para cada producto -->
+              </div>
+            </div>
+    </main>
+    <!--Fin Cuerpo-->
+
+    <!--Pie de Página-->
+    <%- include('./partials/footer.ejs') %>
+    <!--Fin Pie de Página-->
+</body>
+</html>

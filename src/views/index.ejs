@@ -11,40 +11,7 @@
 </head>
 <body>
     <!--Menu-->
-    <header class="main-header">
-        <div class="main-header-bar">
-            <img src="/img/logo.1.jpg" alt="" class="logo">
-
-            <form class="header_search">
-                <input type="search" id="busqueda" name="busqueda" placeholder="Buscar productos, marcas y mas..." aria-label="Campo de búsqueda" />
-                <i class="fas fa-search"></i>
-            </form>
-
-            <a class="main-header-trolley" href="/productCart">
-                <span class="cart-text">Ver carrito</span>
-                <i class="fa-solid fa-cart-shopping"></i>
-            </a>
-
-        </div>
-
-        <a href="#" class="hamburguer-button">
-            <i class="fa-solid fa-bars"></i>
-        </a>
-
-        <nav class="menu">
-        <ul class="menu-izquierdo">
-            <li><a href="/"><i class="fa-solid fa-house"></i> Inicio</a></li>
-            <li><a href="/productList"><i class="fa-solid fa-computer"></i> Productos</a></li>
-            <li><a href="/">Sobre nosotros</a></li>
-            <li><a href="/">Contacto</a></li>
-            
-        </ul>
-        <ul class="menu-login">
-            <li><a href="/register"><i class="fa-solid fa-user"></i> Registro</a></li>
-            <li><a href="/login"><i class="fa-solid fa-right-to-bracket"></i> Acceso</a></li>
-        </ul>
-        </nav>
-    </header>
+    <%- include('./partials/header.ejs') %>
     <!--Fin Menu-->
 
     <!--Cuerpo-->
@@ -80,7 +47,7 @@
                 <div class="contenido-card">
                     <h3>Macbook Pro</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto delectus id veritatis totam obcaecati commodi, ipsa, recusandae voluptate accusantium, doloremque perferendis ad cum consectetur incidunt quod? Ipsam, nesciunt asperiores! Quam?</p>
-                    <a href="#">Comprar</a>
+                    <a href="/product/detail">Ver mas</a>
                 </div>
             </div>
 
@@ -91,7 +58,7 @@
                 <div class="contenido-card">
                     <h3>Monitor Dell</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores voluptatem est modi rem? Animi quas iure architecto, aspernatur neque soluta nulla recusandae ullam, dicta incidunt distinctio temporibus et! Dolores, minus.</p>
-                    <a href="#">Comprar</a>
+                    <a href="/product/detail">Ver mas</a>
                 </div>
             </div>
 
@@ -102,7 +69,7 @@
                 <div class="contenido-card">
                     <h3>PC escritorio</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eum porro dolorum dolore necessitatibus corrupti vel voluptas autem molestias. Dolores, obcaecati ad. Odio culpa fuga, necessitatibus labore similique sint sunt?</p>
-                    <a href="#">Comprar</a>
+                    <a href="/product/detail">Ver mas</a>
                 </div>
             </div>
 
@@ -113,7 +80,7 @@
                 <div class="contenido-card">
                     <h3>Teclado Asus</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quas quae perferendis corrupti, aliquid officia minima error. Magni, in numquam! Quis velit a incidunt, aliquam tempore odio adipisci consectetur facere.</p>
-                    <a href="#">Comprar</a>
+                    <a href="/product/detail">Ver mas</a>
                 </div>
             </div>
         </div>
@@ -185,48 +152,7 @@
     <!--Fin Cuerpo-->
 
     <!--Pie de Página-->
-    <footer class="footer">
-        <div class="container-footer">
-            <section>
-                <h2>Tu cuenta</h2>
-                <ul>
-                    <li><a href="#">Acceder/Registrarme</a></li>
-                    <li><a href="#">¿Olvidaste tu contraseña?</a></li>
-                    <li><a href="#">Carrito</a></li>
-                    <li><a href="#">Tu pedido</a></li>
-                </ul>
-            </section>
-            <section>
-                <h2>Categorias</h2>
-                <ul>
-                    <li><a href="#">Notebook</a></li>
-                    <li><a href="#">PC de escritorio</a></li>
-                    <li><a href="#">Monitores</a></li>
-                    <li><a href="#">Teclados</a></li>
-                    <li><a href="#">Mouse</a></li>
-                    <li><a href="#">Almacenamiento</a></li>
-                </ul>
-            </section>
-            <section>
-                <h2>Informacion</h2>
-                <ul>
-                    <li><a href="#">Numero de telefono</a></li>
-                    <li><a href="#">info@eSdigital.com</a></li>
-                    <p>4600, San Salvador de Jujuy, Jujuy, Argentina</p>
-                </ul>
-            </section>
-            <section>
-                <h2>Seguinos en</h2>
-                <div class="redes">
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-instagram"></i>
-                    <i class="fa-brands fa-youtube"></i>
-                </div>
-            </section>
-        </div>
-        
-        <p class="text-center">Copirigth © 2023-2024. Electronics Store Digital. Todos los derechos reservados</p>
-    </footer>
-     <!--Fin Pie de Página-->
+    <%- include('./partials/footer.ejs') %>
+    <!--Fin Pie de Página-->
 </body>
 </html>
