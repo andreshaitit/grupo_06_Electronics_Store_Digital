@@ -37,6 +37,7 @@ body {
     border: none;
     border-right: 2px solid #ebebeb;
     margin-bottom: 0;
+    outline: none;
 }
 
 .fas.fa-search{
@@ -109,24 +110,31 @@ body {
     margin-bottom: 10px;
 }
 
+.slider-container img{
+    max-width: 100%;
+    height: auto;
+}
+
 /*Cards*/
 .container-card{
 	width: 100%;
 	display: flex;
 	max-width: 1200px;
 	margin: auto;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
 }
 .title-cards{
 	width: 100%;
 	max-width: 1080px;
 	margin: auto;
 	padding: 20px;
-	margin-top: 20px;
 	text-align: center;
 	color: #7a7a7a;
 }
 .card{
-	width: 100%;
+	width: 300px;
 	margin: 10px;
 	border-radius: 6px;
 	overflow: hidden;
@@ -468,6 +476,8 @@ form input{
     .header_search{
         width: 400px;
     }
+
+    
 }
 
 @media (min-width: 1200px){
@@ -490,6 +500,10 @@ form input{
         font-size: 50px;
         margin: 0;
     }
+
+    .container-card{
+		flex-wrap: nowrap;
+	}
 }
 
 .contenedor-detalle {

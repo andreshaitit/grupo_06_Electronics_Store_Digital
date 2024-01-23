@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/aad721d8a3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Login</title>
+</head>
+<body>
+    <!--Menu-->
+    <%- include('./partials/header.ejs') %>
+    <!--Fin Menu-->
+
+<!--Cuerpo-->
+<main>
+    <div class="titulo-login">
+        <h1>Ingresar</h1>
+        <p>Ingresa tus datos para acceder a tu cuenta</p>
+    </div>
+
+<section class="login">
+    <div class="login-formulario item-flex">
+        <h2><i class="fa-solid fa-user"></i> Accdeer</h2>
+        <form action="/login" method="POST">
+            <div>
+                <input type="text" name="usuario" placeholder="Usuario">
+            </div>
+            <div>
+                <input type="email" name="email" placeholder="Correo">
+            </div>
+            
+            <button type="submit" class="butonC">Conectarse</button>
+            </form>
+
+            <label>
+            <input type="checkbox" id="cbox1" value="first_checkbox"/> Recordar correo</label><br/>
+            <p>¿Olvidaste tu contraseña?</p>
+
+            <div class="butonP">
+                <p>-------o inicie sesión con--------</p>
+                <button type="submit" class="buton"><i class="fa fa-facebook" aria-hidden="true"></i><a href="#"> Facebook </a></button>
+                <button type="submit" class="buton"><i class="fa fa-google" aria-hidden="true"></i><a href="#"> Google </a></button>
+            </div>
+    </div>
+    <div class="login-descripcion item-flex">
+        <h2>¿No tienes cuenta?</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam repudiandae maxime et reiciendis, nemo dolores, facilis excepturi rem necessitatibus voluptates a officia accusantium possimus impedit ipsum, temporibus similique hic id?</p>
+        <button type="submit" class="butonn"><a href="/register"> Registrese</a></button>
+    </div>
+    
+</section>
+</main>
+<!--Fin Cuerpo-->
+
+    <!--Pie de Página-->
+    <%- include('./partials/footer.ejs') %>
+     <!--Fin Pie de Página-->
+</body>
+</html>

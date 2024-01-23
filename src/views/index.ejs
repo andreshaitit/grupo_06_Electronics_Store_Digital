@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://kit.fontawesome.com/aad721d8a3.js" crossorigin="anonymous"></script>
+    <title>Electronic Digital Store</title>
+</head>
+<body>
+    <!--Menu-->
+    <%- include('./partials/header.ejs') %>
+    <!--Fin Menu-->
+
+    <!--Cuerpo-->
+    <main>
+        <!--Slider-->
+        <div class="swiffy-slider">
+            <ul class="slider-container">
+                <li><img src="/img/Banner-productos.jpg"></li>
+                <li><img src="/img/Banner-lenovo.jpg"></li>
+                <li><img src="/img/Banner-LG.png"></li>
+            </ul>
+        
+            <button type="button" class="slider-nav"></button>
+            <button type="button" class="slider-nav slider-nav-next"></button>
+        
+            <div class="slider-indicators">
+                <button class="active"></button>
+                <button></button>
+            </div>
+        </div>
+        <!--Fin Slider-->
+
+        <!--Tarjetas-->
+        <div class="title-cards">
+            <h2>Últimas Novedades</h2>
+        </div>
+
+        <div class="container-card">
+            <div class="card">
+                <figure>
+                    <img src="/img/macbook_pro.png">
+                </figure>
+                <div class="contenido-card">
+                    <h3>Macbook Pro</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto delectus id veritatis totam obcaecati commodi, ipsa, recusandae voluptate accusantium, doloremque perferendis ad cum consectetur incidunt quod? Ipsam, nesciunt asperiores! Quam?</p>
+                    <a href="/product/detail">Ver mas</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <figure>
+                    <img src="/img/monitor-dell.png">
+                </figure>
+                <div class="contenido-card">
+                    <h3>Monitor Dell</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores voluptatem est modi rem? Animi quas iure architecto, aspernatur neque soluta nulla recusandae ullam, dicta incidunt distinctio temporibus et! Dolores, minus.</p>
+                    <a href="/product/detail">Ver mas</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <figure>
+                    <img src="/img/pc-escritorio.png">
+                </figure>
+                <div class="contenido-card">
+                    <h3>PC escritorio</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eum porro dolorum dolore necessitatibus corrupti vel voluptas autem molestias. Dolores, obcaecati ad. Odio culpa fuga, necessitatibus labore similique sint sunt?</p>
+                    <a href="/product/detail">Ver mas</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <figure>
+                    <img src="/img/teclado-asus.png">
+                </figure>
+                <div class="contenido-card">
+                    <h3>Teclado Asus</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quas quae perferendis corrupti, aliquid officia minima error. Magni, in numquam! Quis velit a incidunt, aliquam tempore odio adipisci consectetur facere.</p>
+                    <a href="/product/detail">Ver mas</a>
+                </div>
+            </div>
+        </div>
+        <!--Fin   Tarjetas-->
+
+        <!--Slider-->
+        <div class="swiffy-slider">
+            <ul class="slider-container">
+                <li><img src="/img/Banner-Promociones-bancarias.png"></li>
+                <li><img src="/img/BANNER-CREDICOOP.jpg"></li>
+                <li><img src="/img/Banner-Provincia.png"></li>
+            </ul>
+
+            <button type="button" class="slider-nav"></button>
+            <button type="button" class="slider-nav slider-nav-next"></button>
+
+            <div class="slider-indicators">
+                <button class="active"></button>
+                <button></button>
+            </div>
+        </div>
+        <!--Fin Slider-->
+
+        <!--<article class="contenedor">
+            <h2>Articulo 1</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores consequatur illum assumenda tenetur distinctio! Atque distinctio natus aspernatur accusamus eius repudiandae harum blanditiis mollitia adipisci, dicta deleniti, sint quidem voluptatibus.</p>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores consequatur illum assumenda tenetur distinctio! Atque distinctio natus aspernatur accusamus eius repudiandae harum blanditiis mollitia adipisci, dicta deleniti, sint quidem voluptatibus.</p>
+        </article>
+        <div class="cont1">
+            <h2>Contenido 1</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium nesciunt blanditiis ipsa quis architecto eaque mollitia obcaecati, itaque non fugit repudiandae quia ipsam tempora iste aperiam? Sit odit fuga libero?</p>
+        </div>
+        <div class="cont2">
+            <h2>Contenido 1</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium nesciunt blanditiis ipsa quis architecto eaque mollitia obcaecati, itaque non fugit repudiandae quia ipsam tempora iste aperiam? Sit odit fuga libero?</p>
+        </div>-->
+        <div class="main-info">
+            <section>
+                <figure>
+                    <i class="fa-solid fa-credit-card"></i>
+                </figure>
+                <div class="contenido-card">
+                    <h3>Pagá con tarjeta o en efectivo</h3>
+                    <p>Con Mercado Pago, tenés cuotas sin interés con tarjeta o efectivo en puntos de pago. ¡Y siempre es seguro!</p>
+                </div>
+            </section>
+            <section>
+                <figure>
+                    <i class="fa-solid fa-truck"></i>
+                </figure>
+                <div class="contenido-card">
+                    <h3>Envío rápido y seguro</h3>
+                    <p>Elegí Mercado Envíos y seguí tu compra hasta que llegue a tus manos.</p>
+                </div>
+            </section>
+            <section>
+                <figure>
+                    <i class="fa-solid fa-shield-halved"></i>
+                </figure>
+                <div class="contenido-card">
+                    <h3>Compra Protegida</h3>
+                    <p>Te acompañamos hasta que recibas lo que compraste. Y si no es lo que esperabas, te devolvemos el dinero.</p>
+                </div>
+            </section>
+        </div>
+
+    </main>
+    <!--Fin Cuerpo-->
+
+    <!--Pie de Página-->
+    <%- include('./partials/footer.ejs') %>
+    <!--Fin Pie de Página-->
+</body>
+</html>
