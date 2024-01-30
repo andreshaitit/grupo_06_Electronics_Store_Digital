@@ -555,10 +555,11 @@ form input{
 
 .btn-comprar {
     width: 100%;
-    background-color: #5E5992;
+    background-color:#7b3ec8;
     color: white;
     padding: 20px;
     margin-top: 10px;
+    border-radius: 5px;
 }
 
 .btn-agregar {
@@ -567,6 +568,7 @@ form input{
     color: #FF6347;
     padding: 20px;
     margin-top: 10px;
+    border-radius: 5px;
 }
 
 .caracteristicas{

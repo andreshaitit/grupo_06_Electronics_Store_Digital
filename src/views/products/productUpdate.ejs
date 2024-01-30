@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/aad721d8a3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Edicion de Producto</title>
+</head>
+<body>
+    <!--Menu-->
+    <%- include('../partials/header.ejs') %>
+    <!--Fin Menu-->
+
+<!--Cuerpo-->
+<main>
+    <form>
+        <h2 class="contenedor-detalle">Formulario de edición</h2>
+        <div class="contenedor-detalle">
+            
+            <div class="imagenes">
+                <img src="/img/macbook-2024.webp"  width="480px" height="480px" />
+                <!--AQUI SE INGRESAN LAS IMAGENES-->
+            </div>
+            <div class="detalle">
+                <div>
+                    <label for="mark">Marca</label>
+                    <input type="text" name="mark" id="mark" placeholder="Apple">
+                </div>
+                <!--AQUI SE INGRESA LA MARCA DEL PRODUCTO-->
+                <!--<h1>Apple Macbook Pro 13 M2 8gb 256gb Gris Esp Ñ</h1>
+                AQUI SE INGRESA EN NOMBRE DEL PRODUCTO-->
+                <div>
+                    <label for="name">Nombre del producto</label>
+                    <input type="text" name="name" id="name" 
+                    placeholder="Apple Macbook Pro 13 M2 8gb 256gb Gris Esp Ñ">
+                </div>
+
+                <!--AQUI SE INGRESA LAS CARACTERISTICAS DEL PRODUCTO-->
+
+                <div>
+                    <h2>Caracteristicas</h2>
+                    <!--AQUI SE INGRESAN LAs caracteristicas-->
+                    <textarea name="characteristics" id="characteristics" style="width: 100%; height: 200px;">
+                    Capacidad: 8 GB RAM | 256 GB SSD
+                    Procesador: 8 GB RAM | 256 GB SSD
+                    Placa de video: 8 GB RAM | 256 GB SSD
+                    Color : 8 GB RAM | 256 GB SSD
+                    </textarea>
+                </div>
+                
+                <!--<ul class="lista-descripcion">
+                    <li>Capacidad:<strong>8 GB RAM | 256 GB SSD</strong></li>
+                    <li>Procesador:<strong>8 GB RAM | 256 GB SSD</strong></li>
+                    <li>Placa de video:<strong>8 GB RAM | 256 GB SSD</strong></li>
+                    <li>Color :<strong>8 GB RAM | 256 GB SSD</strong></li>
+                </ul>-->
+            </div>
+            <div class="precio">
+                <div class="precio-item">
+                    <div>
+                        <h2>Precio de lista:</h2>
+                    </div>
+                    <div>
+                        <!--<h2>$2.350.000</h2> AQUI SE MUESTRA EL PRECIO-->
+                        <!--<label for="price">Precio de Lista</label>-->
+                        <input type="text" name="price" id="price" placeholder="$2.350.000">
+                    </div>
+                </div>
+                <div class="precio-item">
+                    <div>
+                        <h2>Descuento:</h2>
+                    </div>
+                    <div>
+                        <!--<h2>$3.150.000</h2> AQUI SE MUESTRA EL DESCUENTO-->
+                        <input type="text" name="discount" id="discount" placeholder="25% OFF">
+                    </div>
+                </div>
+                
+                <hr />
+                
+                <div>
+                    <div class="form-control">
+                        <!--<input class="w-10" type="checkbox" id="warranty" name="warranty">
+                        AQUI SE INGRESA LA GARANTIA-->
+                        <label for="warranty">Garantía:</label><br>
+                        <input type="text" name="warranty" id="warranty" placeholder="12 meses">
+                    </div>
+                    
+                    <div class="form-control">
+                        <!--<input class="w-10" type="checkbox" id="shipping" name="shipping">
+                        AQUI SE INGRESA EL COSTO DEL ENVIO-->
+                        <label for="shipping">Envío:</label>
+                        <input type="text" name="shipping" id="shipping" placeholder="Gratis">
+                        <br>
+                    </div>
+                  
+                    <div class="form-control">
+                        <label for="stock">Stock:</label>
+                        <input type="number" name="stock" id="stock" placeholder="50 unidades">
+                        <!--<input class="w-30" type="number" id="quantity" name="quantity" value="1" max="100">
+                        AQUI SE INGRESA EL STOCK DISPONIBLE-->
+                    </div>
+                    <hr>
+                    
+                    <div>
+                        <!--AQUI SE INGRESA LA CARACTERISTICA-->
+                        <div style="padding: 20px;">
+                            <label for="category">Categoria </label>
+                            <select id="category" name="category">
+                                <option value="notebook">Notebook</option>
+                                <option value="pc-escritorio">PC de escritorio</option>
+                                <option value="monitor">Monitor</option>
+                                <option value="teclado">Teclado</option>
+                                <option value="mouse">Mouse</option>
+                                <option value="almacenamiento">Almacenamiento</option>
+                            </select>
+                        </div>
+                        <!--AQUI SE INGRESA EL ESTADO-->
+                        <div style="padding: 20px;">
+                            <label for="state">Estado</label>
+                            <select name="state" id="state">
+                                <option value="DISPONIBLE">DISPONIBLE</option>
+                                <option value="PAUSADO">PAUSADO</option>
+                                <option value="NUEVO">NUEVO</option>
+                                <option value="NO DISPONIBLE"></option>
+                            </select>
+                        </div>
+                    </div>
+                 
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="caracteristicas">
+            <hr />
+            <h1>Descripción</h1>
+                <!--AQUI SE INGRESAN LA DESCRIPCION-->
+                <textarea name="description" id="description" style="width: 100%; height: 400px;">
+                    MacBook Air 13 " Apple chip M2- 8 core CPU - 10 GPU - 512GB
+    
+                Chip M2 de Apple
+                CPU de 8 nucleos con 4 nucleos de rendimiento y 4 de eficiencia
+                GPU de 10 nucleos
+                Neural Engine de 16 nucleos
+                100 GB/s de ancho de banda de memoria
+                
+                Motor multimedia.
+                
+                H.264, HEVC, ProRes y ProRes RAW con aceleracion por hardware
+                Motor de decodificacion/codificacion de video y ProRes
+                
+                Pantalla Liquid Retina
+                
+                Pantalla de 13.6 pulgadas (diagonal) retroiluminada por LED con tecnologia IPS;1.
+                Resolucion nativa de 2560 x 1664 a 224 pixeles por pulgada compatible con 1,000 millones de colores.
+                Brillo de 500 nits
+                Tecnologia True Tone
+                
+                Bateria y energia
+                
+                Hasta 18 horas de reproduccion de video en la app Apple TV
+                Hasta 15 horas de navegacion web inalambrica
+                Bateria de polimero de litio de 52.6 Wh
+                Cable de USB-C a MagSafe 3
+                Carga rapida con el adaptador de corriente USB-C de 67 W.
+                
+                Carga y expansion
+                
+                Puerto de carga MagSafe 3
+                Entrada de 3.5 mm para audifonos
+                Dos puertos Thunderbolt/USB 4 compatibles con carga.
+                DisplayPort, Thunderbolt 3 (hasta 40 Gb/s), USB 4 (hasta 40 Gb/s) y USB 3.1 de segunda generacion (hasta 10 Gb/s)
+                
+                Memoria: 8 GB
+                
+                
+                Almacenamiento
+                
+                512 GB SSD de 512 GB
+                
+                
+                Teclado y trackpad
+                
+                Magic Keyboard retroiluminado
+                
+                Conexion inalambrica
+                
+                Conexion inalambrica Wi-Fi 6 802.11ax
+                Compatible con IEEE 802.11a/b/g/n/ac
+                Bluetooth
+                
+                Tecnologia inalambrica Bluetooth 5.0
+                
+                Camara
+                1080p
+                Camara FaceTime HD
+                
+                Audio
+                Sistema de sonido de cuatro bocinas
+                Amplio sonido estereo
+                Sistema de tres microfonos con tecnologia beamforming direccional
+                Entrada de 3.5 mm para audifonos con compatibilidad avanzada para audifonos de alta impedancia
+                
+                Compatibilidad con monitores
+                
+                Es compatible simultaneamente con la resolucion nativa de la pantalla integrada en 1,000 millones de colores y:
+                
+                Un monitor externo con resolucion de hasta 6K a 60 Hz
+                Salida de video digital Thunderbolt 3
+                
+                Salida DisplayPort nativa a traves de USB-C
+                Compatible con salidas VGA, HDMI, DVI y Thunderbolt 2 mediante adaptadores (se venden por separado)
+                
+                Reproduccion de video
+                Los formatos compatibles incluyen HEVC, H.264 y ProRes
+                HDR con Dolby Vision, HDR10 y HLG
+                
+                Reproduccion de audio
+                
+                Los formatos compatibles incluyen AAC, MP3, Apple Lossless, FLAC, Dolby Digital, Dolby Digital Plus y Dolby Atmos
+                
+                Requisitos operativos
+                
+                Tension electrica: 100-240 V CA
+                Frecuencia: 50 Hz a 60 Hz
+                Temperatura operativa: 10 a 35 *C
+                
+                
+                Tamano y peso
+                
+                Grosor: 1.13 cm
+                Ancho: 30.41 cm
+                Profundidad: 21.50 cm
+                Peso: 1.24 kg
+                
+                Sistema operativo. macOS
+                
+                Accesibilidad
+                
+                Las funcionalidades de accesibilidad ayudan a las personas con alguna discapacidad a aprovechar al maximo su nueva MacBook Air. Gracias al soporte integrado para vision, audicion, motricidad y aprendizaje, crear y hacer cosas asombrosas esta al alcance de todos.
+                
+                En la caja
+                
+                MacBook Air
+                Adaptador de corriente USB-C de 30 W
+                Adaptador de corriente compacto de 35 W con dos puertos USB-C
+                Cable de USB-C a MagSafe
+                </textarea>
+
+        </div>
+
+        <div class="contenedor-detalle">
+            <button class="btn-agregar" type="button" style="width:100px">Cancelar</button>
+            <button class="btn-comprar" type="button" style="width:100px">Guardar</button>
+        </div>
+    
+    </form>
+</main>
+<!--Fin Cuerpo-->
+
+    <!--Pie de Página-->
+    <%- include('../partials/footer.ejs') %>
+     <!--Fin Pie de Página-->
+</body>
+</html>

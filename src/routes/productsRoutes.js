@@ -7,4 +7,8 @@ router.get('/detail', productsController.detail);
 
 router.get('/list', productsController.list);
 
+router.get('/create', productsController.create);
+
+router.get('/update', productsController.update);
+
 module.exports = router
