@@ -57,7 +57,7 @@ const productsController = {
                 state: req.body.state,
                 description: req.body.description,
                 visualizations: 0,
-                image: req.file?.filename || '/images/products/default-img.png'
+                image: req.file?.filename || "/images/products/default-image.png"
             }
 
             //Agregmos el nuevo producto al listado

@@ -14,7 +14,14 @@
 
 <!--Cuerpo-->
 <main>
-    <section>
+    <section class="action-admin">
+        <h2>Opciones de administrador</h2>
+        <form action="/product/edit/<%= product.id %>" method="GET" style="display: inline-flex">
+            <button type="submit" class="action-button edit">EDITAR</button>
+        </form>
+        <form action="/product/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+            <button type="submit" class="action-button delete">ELIMINAR</button>
+        </form>
     </section>
     <div class="contenedor-detalle">
         <div class="imagenes">

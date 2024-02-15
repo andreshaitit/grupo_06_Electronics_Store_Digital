@@ -425,6 +425,12 @@ form input{
 
 /* Ajusta los estilos según tus necesidades */
 
+.action-admin{
+    display: flex;
+    justify-content: space-evenly;
+    color: red
+}
+
 /*Media Query*/
 @media (min-width: 768px){
 
