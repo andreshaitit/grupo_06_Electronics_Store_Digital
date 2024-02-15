@@ -14,13 +14,17 @@
 
 <!--Cuerpo-->
 <main>
-    <form>
+    <form action="/product/create" method="POST" enctype="multipart/form-data">
         <h2 class="contenedor-detalle">Formulario de creacion</h2>
         <div class="contenedor-detalle">
             
-            <div class="imagenes">
-                <img src="/img/macbook-2024.webp"  width="480px" height="480px" />
+            <div class="imagenes" style="flex-direction: column;">
+                <img src="/images/products/default-image.png"   width="360px" height="360px" />
                 <!--AQUI SE INGRESAN LAS IMAGENES-->
+                <div>
+                    <label for="image">Imagen:</label>
+				    <input type="file" name="image" id="image">
+                </div>
             </div>
             <div class="detalle">
                 <div>
@@ -120,7 +124,7 @@
                                 <option value="DISPONIBLE">DISPONIBLE</option>
                                 <option value="PAUSADO">PAUSADO</option>
                                 <option value="NUEVO">NUEVO</option>
-                                <option value="NO DISPONIBLE"></option>
+                                <option value="NO DISPONIBLE">NO DISPONIBLE</option>
                             </select>
                         </div>
                     </div>
@@ -141,7 +145,7 @@
 
         <div class="contenedor-detalle">
             <button class="btn-agregar" type="button" style="width:100px">Cancelar</button>
-            <button class="btn-comprar" type="button" style="width:100px">Guardar</button>
+            <button class="btn-comprar" type="submit" style="width:100px">Guardar</button>
         </div>
     
     </form>

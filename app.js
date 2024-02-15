@@ -5,16 +5,24 @@ const path = require ('path');
 const app = express();
 const port = 3005;
 
+const methodOverride = require('method-override');
+
 const mainRoutes = require('./src/routes/mainRoutes');
 const productsRoutes = require('./src/routes/productsRoutes');
 const usersController = require('./src/routes/usersRoutes');
 
 //configuracion
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public'))) // Necesario para los archivos estáticos en el folder /public
+app.use(express.urlencoded({extended: false})); //Permite configurar el servidor para recivir los datos del formulario
+app.use(express.json());
+app.use(methodOverride('_methos')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
 
 //Configuracion de motor de vista o template engine
 app.set('view engine', 'ejs');
 app.set('views',path.join(__dirname, 'src', 'views'));
+
+//Middlewares
+
 
 //Configuracion de rutas
 app.use('/',mainRoutes);

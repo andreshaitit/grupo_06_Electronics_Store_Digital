@@ -51,81 +51,19 @@
                 </div>
                 
               <div class="products">
-                <div class="product-card">
-                  <img src="/img/monitor-dell.png" alt="Imagen del producto">
-                  <h2>Monitor Dell</h2>
-                  <p>Precio especial: $500.000</p>
-                  <p>Precio de lista: $800.000</p>
-                </div>
-                <div class="product-card">
-                  <a href="/product/detail">    
-                  <img src="/img/macbook-2024.webp" alt="Imagen del producto">
-                      <h2>Macbook Pro</h2>
-                      <p>Precio especial: $1.500.000</p>
-                      <p>Precio de lista: $2.000.000</p>
-                  </a>
-                </div>
-                <div class="product-card">
-                  <img src="/img/Macbook_pro.png" alt="Imagen del producto">
-                  <h2>Macbook_pro.png</h2>
-                  <p>Precio especial: $1.900.000</p>
-                  <p>Precio de lista: $2.300.000</p>
-                </div>
-                <div class="product-card">
-                  <img src="/img/tablet-sony.png" alt="Imagen del producto">
-                  <h2>Tablet Sony</h2>
-                  <p>Precio especial: $500.000</p>
-                  <p>Precio de lista: $900.000</p>
-                </div>
-                <div class="product-card">
-                  <img src="/img/pc-escritorio.png" alt="Imagen del producto">
-                  <h2>PC Gamer</h2>
-                  <p>Precio especial: $650.000</p>
-                  <p>Precio de lista: $1.000.000</p>
-                </div>
-                <div class="product-card">
-                  <img src="/img/teclado-asus.png" alt="Imagen del producto">
-                  <h2>Teclado Asus</h2>
-                  <p>Precio especial: $150.000</p>
-                  <p>Precio de lista: $210.000</p>
-                </div>
-                <div class="product-card">
-                  <img src="/img/monitor-dell.png" alt="Imagen del producto">
-                  <h2>Monitor Dell</h2>
-                  <p>Precio especial: $500.000</p>
-                  <p>Precio de lista: $800.000</p>
-                </div>
-                <div class="product-card">
-                  <img src="/img/macbook-2024.webp" alt="Imagen del producto">
-                  <h2>Macbook Pro</h2>
-                  <p>Precio especial: $1.500.000</p>
-                  <p>Precio de lista: $2.000.000</p>
-                </div>
-                <div class="product-card">
-                  <img src="/img/Macbook_pro.png" alt="Imagen del producto">
-                  <h2>Macbook_pro.png</h2>
-                  <p>Precio especial: $1.900.000</p>
-                  <p>Precio de lista: $2.300.000</p>
-                </div>
-                <div class="product-card">
-                  <img src="/img/tablet-sony.png" alt="Imagen del producto">
-                  <h2>Tablet Sony</h2>
-                  <p>Precio especial: $500.000</p>
-                  <p>Precio de lista: $900.000</p>
-                </div>
-                <div class="product-card">
-                  <img src="/img/pc-escritorio.png" alt="Imagen del producto">
-                  <h2>PC Gamer</h2>
-                  <p>Precio especial: $650.000</p>
-                  <p>Precio de lista: $1.000.000</p>
-                </div>
-                <div class="product-card">
-                  <img src="/img/teclado-asus.png" alt="Imagen del producto">
-                  <h2>Teclado Asus</h2>
-                  <p>Precio especial: $150.000</p>
-                  <p>Precio de lista: $210.000</p>
-                </div>
+                
                 <!-- Repite el div .product-card para cada producto -->
+                <% products.forEach(product => { %>
+                  <div class="product-card">
+                    <a href="/product/detail/<%= product.id %>">    
+                    <img src="/images/products/<%= product.image %>" alt="Imagen del producto">
+                        <h2><%= product.name %></h2>
+                        <p>Precio especial: $<%= product.discount %></p>
+                        <p>Precio de lista: $<%= product.price %></p>
+                    </a>
+                  </div>
+                <% }) %>                
+               
               </div>
             </div>
     </main>
