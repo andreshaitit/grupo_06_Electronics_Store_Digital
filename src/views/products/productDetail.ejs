@@ -15,12 +15,12 @@
 <!--Cuerpo-->
 <main>
     <section class="action-admin">
-        <h2>Opciones de administrador</h2>
+        <h2><i class="fas fa-tools"></i> Opciones de administrador</h2>
         <form action="/product/edit/<%= product.id %>" method="GET" style="display: inline-flex">
-            <button type="submit" class="action-button edit">EDITAR</button>
+            <button type="submit" class="action-button edit"><i class="fas fa-edit"></i> EDITAR</button>
         </form>
         <form action="/product/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
-            <button type="submit" class="action-button delete">ELIMINAR</button>
+            <button type="submit" class="action-button delete"><i class="fas fa-trash-alt"></i> ELIMINAR</button>
         </form>
     </section>
     <div class="contenedor-detalle">
@@ -69,6 +69,7 @@
                     <label for="quantity">Cantidad:</label>
                     <input class="w-30" type="number" id="quantity" name="quantity" value="1" max="100">
                 </div>
+                <p style="text-align: center;">Unidades disponibles <%= product.stock %></p>
                 <hr>
                 
                 <button class="btn-comprar" type="button" style="width:100%">Comprar ahora</button>

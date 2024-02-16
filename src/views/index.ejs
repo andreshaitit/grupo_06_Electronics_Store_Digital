@@ -36,55 +36,52 @@
 
         <!--Tarjetas-->
         <div class="title-cards">
-            <h2>Últimas Novedades</h2>
+            <h2>Nuestras Ofertas</h2>
         </div>
 
         <div class="container-card">
-            <div class="card">
-                <figure>
-                    <img src="/img/macbook_pro.png">
-                </figure>
-                <div class="contenido-card">
-                    <h3>Macbook Pro</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto delectus id veritatis totam obcaecati commodi, ipsa, recusandae voluptate accusantium, doloremque perferendis ad cum consectetur incidunt quod? Ipsam, nesciunt asperiores! Quam?</p>
-                    <a href="/product/detail">Ver mas</a>
-                </div>
-            </div>
 
-            <div class="card">
-                <figure>
-                    <img src="/img/monitor-dell.png">
-                </figure>
-                <div class="contenido-card">
-                    <h3>Monitor Dell</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores voluptatem est modi rem? Animi quas iure architecto, aspernatur neque soluta nulla recusandae ullam, dicta incidunt distinctio temporibus et! Dolores, minus.</p>
-                    <a href="/product/detail">Ver mas</a>
+            <% productsByPrice.forEach(product => { %>
+                <div class="card">
+                    <figure>
+                        <img src="/images/products/<%= product.image %>">
+                    </figure>
+                    <div class="contenido-card">
+                        <h3><%= product.name %></h3>
+                        <p>Precio especial: $<%= product.discount %></p>
+                        <p>Precio de lista: $<%= product.price %></p>
+                        <a href="/product/detail/<%= product.id %>">Ver mas</a>
+                    </div>
                 </div>
-            </div>
+            <% }) %>
 
-            <div class="card">
-                <figure>
-                    <img src="/img/pc-escritorio.png">
-                </figure>
-                <div class="contenido-card">
-                    <h3>PC escritorio</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eum porro dolorum dolore necessitatibus corrupti vel voluptas autem molestias. Dolores, obcaecati ad. Odio culpa fuga, necessitatibus labore similique sint sunt?</p>
-                    <a href="/product/detail">Ver mas</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <figure>
-                    <img src="/img/teclado-asus.png">
-                </figure>
-                <div class="contenido-card">
-                    <h3>Teclado Asus</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quas quae perferendis corrupti, aliquid officia minima error. Magni, in numquam! Quis velit a incidunt, aliquam tempore odio adipisci consectetur facere.</p>
-                    <a href="/product/detail">Ver mas</a>
-                </div>
-            </div>
         </div>
         <!--Fin   Tarjetas-->
+
+        <!--Tarjetas-->
+        <div class="title-cards">
+            <h2>Los mas vistos</h2>
+        </div>
+
+        <div class="container-card">
+
+            <% productsByVisualizations.forEach(product => { %>
+                <div class="card">
+                    <figure>
+                        <img src="/images/products/<%= product.image %>">
+                    </figure>
+                    <div class="contenido-card">
+                        <h3><%= product.name %></h3>
+                        <p>Precio especial: $<%= product.discount %></p>
+                        <p>Precio de lista: $<%= product.price %></p>
+                        <a href="/product/detail/<%= product.id %>">Ver mas</a>
+                    </div>
+                </div>
+            <% }) %>
+
+        </div>
+        <!--Fin   Tarjetas-->
+
 
         <!--Slider-->
         <div class="swiffy-slider">
