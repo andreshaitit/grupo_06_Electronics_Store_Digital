@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/aad721d8a3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <title>Registro</title>
 </head>
 <body>
@@ -14,74 +15,32 @@
 
 <!--Cuerpo-->
 <main>
-        <div class="titulo-login">
-            <h1>Registrarse</h1>
-            <p>Ingresa tus datos para crear una cuenta</p>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>Registrarse</h1>
+                <p>Ingresá tus datos para crear tu cuenta</p>
+            </div>
+            <div class="offset-lg-4 col-lg-4 text-center">
+                <form action="/login" method="POST">
+                    
+                    <input class="form-control" type="text" name="usuario" placeholder="Usuario">
+
+                    <input class="form-control" type="email" name="email" placeholder="Correo">
+                    
+                    <button class="btn btn-primary w-100 mt-3" type="submit">Registrarme</button>
+                </form>
+                    
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                    
+                    <div>
+                        <p class="mt-2">o Inicia sesión con</p>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-facebook me-1" aria-hidden="true"></i>Facebook</button>
+                        <button type="submit" class="btn btn-info"><i class="fa fa-google me-1" aria-hidden="true"></i>Google</button>
+                    </div>
+            </div>
         </div>
-
-        <section class="login">
-            <div class="login-formulario item-flex">
-                <h2><i class="fa-solid fa-user"></i> Registrarse</h2>
-                <form action="/register" method="POST">
-                    <div class="nom-ape">
-                        <input type="text" name="nombre" placeholder="Nombre">
-                        <input type="text" name="apellido" placeholder="Apellido">
-                    </div>
-                    <div class="inputForm">
-                        <input type="email" name="email" required placeholder="Correo">
-                    </div>
-
-                    <div class="inputForm">
-                        <input type="password" name="password" required placeholder="Contraseña">
-                    </div>
-
-                    <div class="inputForm">
-                        <input type="password" name="password1" required placeholder="Repetir Contraseña">
-                    </div>
-
-                    <div class="butonP">
-                        <button type="submit" class="buton"> Registrarme</button>
-                    </div>
-
-                    <label>
-                        <input type="checkbox" id="cbox1" value="first_checkbox" class="checkbox" required/> Al registrarse acepta nuestro <a href="#" style="color: #7b3ec8;">términos y condiciones</a> 
-                    </label>
-                    </form>
-            </div>
-            <div class="login-descripcion item-flex">
-                <h2>¿Ya tienes cuenta?</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam repudiandae maxime et reiciendis, nemo dolores, facilis excepturi rem necessitatibus voluptates a officia accusantium possimus impedit ipsum, temporibus similique hic id?</p>
-                <button type="submit" class="butonn"><a href="/login"> Iniciar Sesión</a></button>
-            </div>
-        </section>
-
-        <!--<form action="/registro" method="POST" class="formulario">
-            <div class="control-formulario">
-                <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" id="nombre" class="control">
-
-                <label for="nombre">Apellido:</label>
-                <input type="text" name="apellido" id="apellido" class="control">
-            </div>
-
-            <div class="control-formulario">
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" class="control">
-            </div>
-
-            <div class="control-formulario">
-                <label for="telefono">Contraseña:</label>
-                <input type="password" name="contra" id="contra" class="control">
-            </div>
-
-            <div class="control-formulario">
-                <label for="telefono">Repetir Contraseña:</label>
-                <input type="password" name="contra1" id="contra1" class="control">
-            </div>
-
-            <button type="submit" class="boton-formulario">Registrarme</button>
-            <button type="reset" class="boton-formulario">Cancelar</button>
-        </form>-->
+    </div>
 </main>
 <!--Fin Cuerpo-->
 

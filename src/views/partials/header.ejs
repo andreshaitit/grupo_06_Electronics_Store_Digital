@@ -1,34 +1,50 @@
-<header class="main-header">
-    <div class="main-header-bar">
-        <img src="/img/logo.1.jpg" alt="" class="logo">
-
-        <form class="header_search">
-            <input type="search" id="busqueda" name="busqueda" placeholder="Buscar productos, marcas y mas..." aria-label="Campo de búsqueda" />
-            <i class="fas fa-search"></i>
-        </form>
-
-        <a class="main-header-trolley" href="/productCart">
-            <span class="cart-text">Ver carrito</span>
-            <i class="fa-solid fa-cart-shopping"></i>
-        </a>
-
-    </div>
-
-    <a href="#" class="hamburguer-button">
-        <i class="fa-solid fa-bars"></i>
-    </a>
-
-    <nav class="menu">
-    <ul class="menu-izquierdo">
-        <li><a href="/"><i class="fa-solid fa-house"></i> Inicio</a></li>
-        <li><a href="/product/list"><i class="fa-solid fa-computer"></i> Productos</a></li>
-        <li><a href="/">Sobre nosotros</a></li>
-        <li><a href="/">Contacto</a></li>
+<header class="pb-5 pb-lg-0">
+    <div class="container-fluid">
+        <div class="container-fluid bg-white">
+            
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-3 text-center">
+                    <img src="/img/logo.1.jpg" alt="" class="logo">
+                </div>
+                
+                <div class="col-12 col-lg-9">
+                    <div class="row">                        
+                        <div class="col-8 pt-lg-4">
+                            <form class="header_search">
+                                <input type="search" id="busqueda" name="busqueda" placeholder="Buscar productos, marcas y mas..." aria-label="Campo de búsqueda" />
+                                <i class="fas fa-search"></i>
+                            </form>
+                        </div>
+                        <div class="col-2 pt-lg-4">
+                            <a class="main-header-trolley" href="/productCart">
+                                <span class="cart-text">Ver carrito</span>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
         
-    </ul>
-    <ul class="menu-login">
-        <li><a href="/user/register"><i class="fa-solid fa-user"></i> Registro</a></li>
-        <li><a href="/user/login"><i class="fa-solid fa-right-to-bracket"></i> Acceso</a></li>
-    </ul>
-    </nav>
+        
+        <div class="container-fluid bg-menu">
+            <div class="container bg-menu">
+                <nav class="menu bg-menu">
+                    <ul class="menu-izquierdo">
+                        <li><a href="/"><i class="fa-solid fa-house"></i> Inicio</a></li>
+                        <li><a href="/product/list"><i class="fa-solid fa-computer"></i> Productos</a></li>
+                        <li><a href="/">Sobre nosotros</a></li>
+                        <li><a href="/">Contacto</a></li>
+                        
+                    </ul>
+                    <ul class="menu-login">
+                        <li><a href="/user/register"><i class="fa-solid fa-user"></i> Registro</a></li>
+                        <li><a href="/user/login"><i class="fa-solid fa-right-to-bracket"></i> Acceso</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
 </header>

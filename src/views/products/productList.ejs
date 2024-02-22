@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/aad721d8a3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <title>Lista de Producto</title>
 </head>
 <body>
@@ -15,63 +16,88 @@
     <!--Cuerpo-->
     <main>
 
-      <section class="action-admin">
-        <h2><i class="fas fa-tools"></i> Opciones de administrador</h2>
-        <a href="/product/create"><i class="fas fa-dolly-flatbed"></i> Agregar un nuevo producto</a>
-      </section>
-
-          <div class="cabecera-lista-producto">
-
-              <div><h1>Nuestros Productos</h1></div>
-              <div class="filtros-productos">
-                  <form>
-                      <label for="sort">Ordenar por:</label>
-                      <select id="sort" name="sort">
-                        <option value="price-asc">Precio: Menor a Mayor</option>
-                        <option value="price-desc">Precio: Mayor a Menor</option>
-                        <option value="rating">Calificación</option>
-                        <option value="popularity">Popularidad</option>
-                        <option value="newest">Más reciente</option>
-                      </select>
-                    </form>              
-              </div>
+      <div class="container border rounded py-5 mt-5">
+        <div class="row">
+          <div class="col-lg-6">
+            <h2></i> Opciones de administrador</h2>
           </div>
-          <div class="container">
-              <div class="filters">
-                  <form>
-                    <h2 for="brand">Marca:</h2>
-                    <ul id="brand" name="brand">
-                      <li>Apple<li>
-                      <li>Dell<li>
-                      <li>HP<li>
-                      <li>Lenovo<li>
-                      <li>Asus<li>
-                      <!-- Añade más marcas según sea necesario -->
-                    </ul>
-                
-                    <label for="max-price">Precio máximo:</label>
-                    <input type="number" id="max-price" name="max-price">
-                
-                    <label for="min-price">Precio mínimo:</label>
-                    <input type="number" id="min-price" name="min-price">
-                  </form>
-                </div>
-                
-              <div class="products">
-                
-                <!-- Repite el div .product-card para cada producto -->
-                <% products.forEach(product => { %>
-                  <div class="product-card">
-                    <a href="/product/detail/<%= product.id %>">    
-                    <img src="/images/products/<%= product.image %>" alt="Imagen del producto">
-                        <h2><%= product.name %></h2>
-                        <p>Precio especial: $<%= product.discount %></p>
-                        <p>Precio de lista: $<%= product.price %></p>
-                    </a>
-                  </div>
-                <% }) %>                
-               
+          <div class="col-lg-4 offset-lg-2 items-end">
+          <a class="btn btn-primary" href="/product/create"><i class="fas fa-dolly-flatbed"></i> Agregar un nuevo producto</a>
+          </div>
+        </div>
+      </div>
+      
+      
+
+          <div class="container my-lg-5">
+            <div class="row">
+              <div class="col-lg-4">
+                <h1>Nuestros Productos</h1>
               </div>
+              <div class="col-lg-4 offset-lg-4">
+                <form class="d-flex">
+                  <label for="sort">Ordenar por:</label>
+                  <select id="sort" name="sort" class="form-control">
+                    <option value="price-asc">Precio: Menor a Mayor</option>
+                    <option value="price-desc">Precio: Mayor a Menor</option>
+                    <option value="rating">Calificación</option>
+                    <option value="popularity">Popularidad</option>
+                    <option value="newest">Más reciente</option>
+                  </select>
+                </form>              
+              </div>
+            </div>
+          </div>
+          
+          
+          
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-3 filters d-none d-lg-block">
+                <div class="border rounded p-3">                  
+                  <form>
+                    <h2>Marca:</h2>
+                    <label for="apple">Apple</label>
+                    <input type="checkbox" id="apple" name="brand" value="Apple">
+                    <label for="dell">Dell</label>
+                    <input type="checkbox" id="dell" name="brand" value="Dell">
+                    <label for="hp">HP</label>
+                    <input type="checkbox" id="hp" name="brand" value="HP">
+                    <label for="lenovo">Lenovo</label>
+                    <input type="checkbox" id="lenovo" name="brand" value="Lenovo">
+                    <label for="asus">Asus</label>
+                    <input type="checkbox" id="asus" name="brand" value="Asus">
+                    <!-- Añade más marcas según sea necesario -->
+                  
+                    <label class="label-control" for="max-price">Precio máximo:</label>
+                    <input class="form-control" type="number" id="max-price" name="max-price">
+                  
+                    <label class="label-control" for="min-price">Precio mínimo:</label>
+                    <input class="form-control" type="number" id="min-price" name="min-price">
+                  </form>
+                  
+                </div>
+              </div>
+                
+              <div class="col-12 col-lg-9">
+                <div class="row product-container">
+                  <!-- Repite el div .product-card para cada producto -->
+                  <% products.forEach(product => { %>
+                    <div class="col-12 col-lg-4">
+                      <div class="product-card card">
+                        <a href="/product/detail/<%= product.id %>">    
+                          <img src="/images/products/<%= product.image %>" alt="Imagen del producto">
+                          <h2><%= product.name %></h2>
+                          <p>Precio especial: $<%= product.discount %></p>
+                          <p>Precio de lista: $<%= product.price %></p>
+                        </a>
+                      </div>
+                    </div>
+                  <% }) %>                
+                </div>
+              </div>
+            </div>
             </div>
     </main>
     <!--Fin Cuerpo-->
