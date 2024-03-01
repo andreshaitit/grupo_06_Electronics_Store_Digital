@@ -22,19 +22,26 @@
 <section class="login">
     <div class="login-formulario item-flex">
         <h2><i class="fa-solid fa-user"></i> Accdeer</h2>
-        <form action="/login" method="POST">
-            <div>
-                <input type="text" name="usuario" placeholder="Usuario">
-            </div>
+        <form action="/user/login" method="POST">
             <div>
                 <input type="email" name="email" placeholder="Correo">
             </div>
+            <div>
+                <input type="password" name="password" placeholder="Contraseña">
+            </div>
             
-            <button type="submit" class="butonC">Conectarse</button>
-            </form>
+            <div>
+                <label>
+                    <input type="checkbox" id="cbox1" name="remember_user" style="width: auto;
+                    margin-right: 5px "/> Recordar mi usuario
+                </label> 
+            </div>
 
-            <label>
-            <input type="checkbox" id="cbox1" value="first_checkbox"/> Recordar correo</label><br/>
+            <button type="submit" class="butonC">Conectarse</button>
+
+            <br/>
+         </form>    
+            
             <p>¿Olvidaste tu contraseña?</p>
 
             <div class="butonP">
@@ -46,7 +53,7 @@
     <div class="login-descripcion item-flex">
         <h2>¿No tienes cuenta?</h2>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam repudiandae maxime et reiciendis, nemo dolores, facilis excepturi rem necessitatibus voluptates a officia accusantium possimus impedit ipsum, temporibus similique hic id?</p>
-        <button type="submit" class="butonn"><a href="/register"> Registrese</a></button>
+        <button type="submit" class="butonn"><a href="/user/register"> Registrese</a></button>
     </div>
     
 </section>

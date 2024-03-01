@@ -22,10 +22,10 @@
         <section class="login">
             <div class="login-formulario item-flex">
                 <h2><i class="fa-solid fa-user"></i> Registrarse</h2>
-                <form action="/register" method="POST">
+                <form action="/user/register" method="POST" enctype="multipart/form-data">
                     <div class="nom-ape">
-                        <input type="text" name="nombre" placeholder="Nombre">
-                        <input type="text" name="apellido" placeholder="Apellido">
+                        <input type="text" name="firstName" placeholder="Nombre">
+                        <input type="text" name="lastName" placeholder="Apellido">
                     </div>
                     <div class="inputForm">
                         <input type="email" name="email" required placeholder="Correo">
@@ -39,6 +39,11 @@
                         <input type="password" name="password1" required placeholder="Repetir Contraseña">
                     </div>
 
+                    <div class="inputForm">
+                        <label for="image">Imagen de perfil:</label>
+                        <input type="file" name="image" id="image">
+                    </div>
+
                     <div class="butonP">
                         <button type="submit" class="buton"> Registrarme</button>
                     </div>
@@ -46,12 +51,13 @@
                     <label>
                         <input type="checkbox" id="cbox1" value="first_checkbox" class="checkbox" required/> Al registrarse acepta nuestro <a href="#" style="color: #7b3ec8;">términos y condiciones</a> 
                     </label>
-                    </form>
+
+                </form>
             </div>
             <div class="login-descripcion item-flex">
                 <h2>¿Ya tienes cuenta?</h2>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam repudiandae maxime et reiciendis, nemo dolores, facilis excepturi rem necessitatibus voluptates a officia accusantium possimus impedit ipsum, temporibus similique hic id?</p>
-                <button type="submit" class="butonn"><a href="/login"> Iniciar Sesión</a></button>
+                <button type="submit" class="butonn"><a href="/user/login"> Iniciar Sesión</a></button>
             </div>
         </section>
 
