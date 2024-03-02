@@ -74,9 +74,11 @@ body {
 }
 
 /*Menu*/
+.bg-menu{
+    background-color: #7b3ec8;
+}
 .menu{
     display: none;
-    background-color: #7b3ec8;
     padding: 10px;
     border-radius: 5px;
 }
@@ -363,22 +365,7 @@ form input{
 /*Footer*/
 .footer {
     background-color: #6d6d6d;
-    bottom: 0;
-    width: 100%;
     color: white;
-}
-
-.container-footer {
-    display: flex;
-    width: 100%; 
-    flex-wrap: wrap;
-    padding-left: 20px;
-    justify-content: space-evenly;
-}
-
-.footer section{
-    width: 200px;
-    padding: 20px;
 }
 
 .redes{
@@ -489,8 +476,6 @@ form input{
 @media (min-width: 1200px){
     .main-header-bar, .menu{
         max-width: 1200px;
-        margin: 0 auto;
-        margin-top: 20px;
     }
     .main-header-bar{
         align-items: center;
@@ -606,27 +591,11 @@ form input{
 .filtros-productos {
     justify-content: center;
 }
-
-.container {
-    display: flex;
-    margin-top: 50px;
-    max-width: 1200px;
-    margin: auto;
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
   
   .filters {
     flex: 1;
     padding: 30px;
     /* Añade estilos para tus filtros aquí */
-  }
-  
-  .products {
-    flex: 3;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
   }
   
   .product-card {
@@ -642,8 +611,8 @@ form input{
   }
   
   .product-card img {
-    width: 70%;
-    height: 70%;
+    width: 50%;
+    height: 50%;
   }
   
   .product-card a {
