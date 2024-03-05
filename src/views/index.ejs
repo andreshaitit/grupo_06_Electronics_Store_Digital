@@ -18,66 +18,75 @@
     <!--Cuerpo-->
     <main>
         <!--Slider-->
-        <div class="swiffy-slider">
-            <ul class="slider-container">
-                <li><img class="w-100" src="/img/Banner-productos.jpg"></li>
-                <li><img class="w-100" src="/img/Banner-lenovo.jpg"></li>
-                <li><img class="w-100" src="/img/Banner-LG.png"></li>
-            </ul>
-        
-            <button type="button" class="slider-nav"></button>
-            <button type="button" class="slider-nav slider-nav-next"></button>
-        
-            <div class="slider-indicators">
-                <button class="active"></button>
-                <button></button>
+            <div class="swiffy-slider">
+                <ul class="slider-container">
+                    <li><img class="w-100" src="/img/Banner-productos.jpg"></li>
+                    <li><img class="w-100" src="/img/Banner-lenovo.jpg"></li>
+                    <li><img class="w-100" src="/img/Banner-LG.png"></li>
+                </ul>
+            
+                <button type="button" class="slider-nav"></button>
+                <button type="button" class="slider-nav slider-nav-next"></button>
+            
+                <div class="slider-indicators">
+                    <button class="active"></button>
+                    <button></button>
+                </div>
             </div>
-        </div>
+
         <!--Tarjetas-->
-        <div class="title-cards">
-            <h2>Nuestras Ofertas</h2>
-        </div>
+        <div class="container mb-lg-5">
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <h2>Nuestras Ofertas</h2>
+                </div>
 
-        <div class="container-card">
-
-            <% productsByPrice.forEach(product => { %>
-                <div class="card">
-                    <figure>
-                        <img src="/images/products/<%= product.image %>">
-                    </figure>
-                    <div class="contenido-card">
-                        <h3><%= product.name %></h3>
-                        <p>Precio especial: $<%= product.discount %></p>
-                        <p>Precio de lista: $<%= product.price %></p>
-                        <a href="/product/detail/<%= product.id %>">Ver mas</a>
+                <div class="col-12">
+                    <div class="row">
+                        <% productsByPrice.forEach(product => { %>
+                            <div class="col-lg-3">
+                                <div class="card">
+                                    <img class="card-img-top" src="/images/products/<%= product.image %>">
+                                    <div class="card-body">
+                                        <h3 class="card-title"><%= product.name %></h3>
+                                        <p>Precio especial: $<%= product.discount %></p>
+                                        <p>Precio de lista: $<%= product.price %></p>
+                                        <a href="/product/detail/<%= product.id %>">Ver mas</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }) %>
                     </div>
                 </div>
-            <% }) %>
-
+            </div>
         </div>
         <!--Fin   Tarjetas-->
 
         <!--Tarjetas-->
-        <div class="title-cards">
-            <h2>Los mas vistos</h2>
-        </div>
+        <div class="container my-lg-5">
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <h2>Los más vistos</h2>
+                </div>
 
-        <div class="container-card">
-
-            <% productsByVisualizations.forEach(product => { %>
-                <div class="card">
-                    <figure>
-                        <img src="/images/products/<%= product.image %>">
-                    </figure>
-                    <div class="contenido-card">
-                        <h3><%= product.name %></h3>
-                        <p>Precio especial: $<%= product.discount %></p>
-                        <p>Precio de lista: $<%= product.price %></p>
-                        <a href="/product/detail/<%= product.id %>">Ver mas</a>
+                <div class="col-12">
+                    <div class="row">
+                        <% productsByPrice.forEach(product => { %>
+                            <div class="col-lg-3">
+                                <div class="card">
+                                    <img class="card-img-top" src="/images/products/<%= product.image %>">
+                                    <div class="card-body">
+                                        <h3 class="card-title"><%= product.name %></h3>
+                                        <p>Precio especial: $<%= product.discount %></p>
+                                        <p>Precio de lista: $<%= product.price %></p>
+                                        <a href="/product/detail/<%= product.id %>">Ver mas</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }) %>
                     </div>
                 </div>
-            <% }) %>
-
+            </div>
         </div>
         <!--Fin   Tarjetas-->
 
