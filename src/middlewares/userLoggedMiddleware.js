@@ -1,3 +1,5 @@
+//Obtinene los datos de sesion del usuario a traves de la cookie
+
 const users = require('../data/users.json')
 
 function userLoggedMiddleware(req, res, next){

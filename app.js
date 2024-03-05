@@ -65,7 +65,7 @@ app.get('/login', (req, res)=>{
 
 app.get('/register', (req, res)=>{
   res.sendFile(path.join(__dirname, 'views', 'register.html'))
-})*/
+})
 
 app.post('/register', (req, res)=>{
   console.log("Recibimos la informacion");
@@ -74,7 +74,7 @@ app.post('/register', (req, res)=>{
 
 app.get('/productCart', (req, res)=>{
   res.sendFile(path.join(__dirname, 'views', 'productCart.html'))
-})
+})*/
 
 app.listen(port, ()=>{
   console.log(`Nuestra app corre en http://localhost:${port}`);

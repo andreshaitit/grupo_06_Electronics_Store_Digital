@@ -55,7 +55,7 @@
   "lastName": "Valeriano",
   "email": "brian_dh@gmail.com",
   "password": "$2a$10$QxTFOi18IwrLpnnqtcDBPeDhEAQMCYpvXhVuHf/aqLDpkieyzcqwy",
-  "category": "Usuario",
+  "category": "Admin",
   "lastAccess": "2024-02-23T04:33:10.835Z",
   "image": "/images/users/default-image.jpg"
  }

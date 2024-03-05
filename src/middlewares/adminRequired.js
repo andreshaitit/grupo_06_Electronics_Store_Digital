@@ -1,7 +1,7 @@
-//Se encarga de verificar si hay un usuario loggeado antes de mostrar una ventana protegida
+//Se encarga de verificar si el usuario es un administrador
 
 function authMiddleware(req, res, next){
-    if(!req.session.userLogged){
+    if(!req.session.userLogged.category == "Admin"){
         return res.redirect('/user/login');
     }
 

@@ -12,13 +12,13 @@ const isLogged = require('../middlewares/authMiddleware');
 router.get('/register', checkLogged, usersController.register)
 
 //Procesar el registro
-router.post('/register',update.single('image'),  usersController.processRegister)
+router.post('/register', checkLogged, update.single('image'),  usersController.processRegister)
 
 //Formulario de login
 router.get('/login', checkLogged, usersController.login)
 
 //Procesar el login
-router.post('/login', usersController.processLogin)
+router.post('/login', checkLogged, usersController.processLogin)
 
 //Perfil del usuario
 router.get('/profile', isLogged, usersController.profile)

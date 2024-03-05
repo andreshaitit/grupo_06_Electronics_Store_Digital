@@ -14,15 +14,21 @@
 
 <!--Cuerpo-->
 <main>
-    <section class="action-admin">
-        <h2><i class="fas fa-tools"></i> Opciones de administrador</h2>
-        <form action="/product/edit/<%= product.id %>" method="GET" style="display: inline-flex">
-            <button type="submit" class="action-button edit"><i class="fas fa-edit"></i> EDITAR</button>
-        </form>
-        <form action="/product/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
-            <button type="submit" class="action-button delete"><i class="fas fa-trash-alt"></i> ELIMINAR</button>
-        </form>
-    </section>
+
+    <% //if (locals.userLogged.category == "Admin") { %>
+     
+        <section class="action-admin">
+            <h2><i class="fas fa-tools"></i> Opciones de administrador</h2>
+            <form action="/product/edit/<%= product.id %>" method="GET" style="display: inline-flex">
+                <button type="submit" class="action-button edit"><i class="fas fa-edit"></i> EDITAR</button>
+            </form>
+            <form action="/product/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+                <button type="submit" class="action-button delete"><i class="fas fa-trash-alt"></i> ELIMINAR</button>
+            </form>
+        </section>
+
+    <% //} %>
+
     <div class="contenedor-detalle">
         <div class="imagenes">
             <img src="/images/products/<%= product.image %>"  width="480px" height="480px" />
