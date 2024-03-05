@@ -18,10 +18,10 @@
 
       <div class="container border rounded py-5 mt-5">
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-12 col-lg-6">
             <h2></i> Opciones de administrador</h2>
           </div>
-          <div class="col-lg-4 offset-lg-2 items-end">
+          <div class="col-12 col-lg-4 offset-lg-2 items-end">
           <a class="btn btn-primary" href="/product/create"><i class="fas fa-dolly-flatbed"></i> Agregar un nuevo producto</a>
           </div>
         </div>
@@ -31,10 +31,10 @@
 
           <div class="container my-lg-5">
             <div class="row">
-              <div class="col-lg-4">
+              <div class="col-12 col-lg-4">
                 <h1>Nuestros Productos</h1>
               </div>
-              <div class="col-lg-4 offset-lg-4">
+              <div class="col-12 col-lg-4 offset-lg-4">
                 <form class="d-flex">
                   <label for="sort">Ordenar por:</label>
                   <select id="sort" name="sort" class="form-control">
@@ -54,7 +54,7 @@
           
           <div class="container">
             <div class="row">
-              <div class="col-3 filters d-none d-lg-block">
+              <div class="col-12 mt-3 col-lg-3">
                 <div class="border rounded p-3">                  
                   <form>
                     <h2>Marca:</h2>
@@ -81,18 +81,18 @@
               </div>
                 
               <div class="col-12 col-lg-9">
-                <div class="row product-container">
+                <div class="row">
                   <!-- Repite el div .product-card para cada producto -->
                   <% products.forEach(product => { %>
-                    <div class="col-12 col-lg-4">
-                      <div class="product-card card">
-                        <a href="/product/detail/<%= product.id %>">    
-                          <img src="/images/products/<%= product.image %>" alt="Imagen del producto">
-                          <h2><%= product.name %></h2>
-                          <p>Precio especial: $<%= product.discount %></p>
-                          <p>Precio de lista: $<%= product.price %></p>
-                        </a>
-                      </div>
+                    <div class="col-12 col-lg-4 mt-lg-3 my-3">
+                      <a href="/product/detail/<%= product.id %>" class="card text-decoration-none text-dark">  
+                          <img src="/images/products/<%= product.image %>" class="card-img-top" alt="Imagen del producto">
+                          <div class="card-body">
+                            <h2 class="card-title fs-4"><%= product.name %></h2>
+                            <p class="card-text">Precio especial: $<%= product.discount %></p>
+                            <p class="card-text">Precio de lista: $<%= product.price %></p>
+                          </div>
+                      </a>
                     </div>
                   <% }) %>                
                 </div>
