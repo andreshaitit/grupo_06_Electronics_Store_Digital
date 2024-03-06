@@ -87,6 +87,7 @@ const usersController = {
 
                 //Recordamos la sesion del usuario en una cookie si asi lo desea
                 if(req.body.remember_user){
+                    console.log('Ingreso el usuario');
                     res.cookie('userEmail', req.body.email,{maxAge:(1000*60)*2})
                 }
 

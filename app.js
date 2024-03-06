@@ -14,7 +14,7 @@ const mainRoutes = require('./src/routes/mainRoutes');
 const productsRoutes = require('./src/routes/productsRoutes');
 const usersController = require('./src/routes/usersRoutes');
 const userLogged = require('./src/middlewares/userLoggedMiddleware');
-const { cookie } = require('express-validator');
+//const { cookie } = require('express-validator');
 
 //configuraciones
 app.use(express.static(path.join(__dirname, 'public'))) // Necesario para los archivos estáticos en el folder /public
