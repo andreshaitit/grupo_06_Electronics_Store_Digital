@@ -38,9 +38,28 @@
                         <li><a href="/">Contacto</a></li>
                         
                     </ul>
-                    <ul class="menu-login">
-                        <li><a href="/user/register"><i class="fa-solid fa-user"></i> Registro</a></li>
-                        <li><a href="/user/login"><i class="fa-solid fa-right-to-bracket"></i> Acceso</a></li>
+                    <ul class="navbar-nav align-items-center">
+
+                        <% if (locals.isLogged) { %>
+                        
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropUser" role="button" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="/images/users/default-image.jpg" width="40" style="border-radius: 100%;">
+                                    Hola bienvenido
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropUser">
+                                    <li><a class="dropdown-item" href="/user/profile">Mi perfil</a></li>
+                                    <li><a class="dropdown-item" href="/user/logout">Cerrar sesion</a></li>
+                                </ul>
+                            </li>
+
+                        <% } else { %>
+
+                            <li class="nav-item"><a class="nav-link" href="/user/register"><i class="fa-solid fa-user"></i> Registro</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/user/login"><i class="fa-solid fa-right-to-bracket"></i> Acceso</a></li>
+
+                        <% } %>                        
+                    
                     </ul>
                 </nav>
             </div>
