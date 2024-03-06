@@ -15,139 +15,116 @@
 
 <!--Cuerpo-->
 <main>
-    <div class="container">
-        
     <form action="/product/create" method="POST" enctype="multipart/form-data">
-        <div class="col-12 text-center">
-            <h2>Formulario de creacion</h2>
-        </div>
-        <div class="contenedor-detalle">
-            
-            <div class="imagenes" style="flex-direction: column;">
-                <img src="/images/products/default-image.png"   width="360px" height="360px" />
-                <!--AQUI SE INGRESAN LAS IMAGENES-->
-                <div>
-                    <label class="label-control" for="image">Imagen:</label>
-				    <input class="form-control" type="file" name="image" id="image">
-                </div>
-            </div>
-            <div class="detalle">
-                <div>
-                    <label class="label-control" for="mark">Marca</label>
-                    <input class="form-control" type="text" name="mark" id="mark" placeholder="Ingresar la marca" required>
-                </div>
-                <!--AQUI SE INGRESA LA MARCA DEL PRODUCTO-->
-                <!--<h1>Apple Macbook Pro 13 M2 8gb 256gb Gris Esp Ñ</h1>
-                AQUI SE INGRESA EN NOMBRE DEL PRODUCTO-->
-                <div>
-                    <label class="label-control" for="name">Nombre del producto</label>
-                    <input class="form-control" type="text" name="name" id="name" 
-                    placeholder="Ingrear un nombre descriptivo" required>
-                </div>
-
-                <!--AQUI SE INGRESA LAS CARACTERISTICAS DEL PRODUCTO-->
-
-                <div>
-                    <label class="label-control">Caracteristicas</label>
-                    <!--AQUI SE INGRESAN LAs caracteristicas-->
-                    <textarea placeholder="Aqui puedes espcificar las principales caracteristicas de tu producto" class="form-control" name="characteristics" id="characteristics" required>
-                    </textarea>
+        <div class="container"> 
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>Formulario de creacion</h2>
                 </div>
                 
-                <!--<ul class="lista-descripcion">
-                    <li>Capacidad:<strong>8 GB RAM | 256 GB SSD</strong></li>
-                    <li>Procesador:<strong>8 GB RAM | 256 GB SSD</strong></li>
-                    <li>Placa de video:<strong>8 GB RAM | 256 GB SSD</strong></li>
-                    <li>Color :<strong>8 GB RAM | 256 GB SSD</strong></li>
-                </ul>-->
-            </div>
-            <div class="precio">
-                <div class="precio-item">
+                <div class="col-lg-3 text-center text-lg-start">
+                    <img src="/images/products/default-image.png" class="w-75 h-50" />
+                    <!--AQUI SE INGRESAN LAS IMAGENES-->
                     <div>
-                        <label class="label-control">Precio de lista:</label>
-                        <!--<h2>$2.350.000</h2> AQUI SE MUESTRA EL PRECIO-->
-                        <!--<label for="price">Precio de Lista</label>-->
-                        <input class="form-control"type="text" name="price" id="price" placeholder="Ingresar precio" required>
-                    </div>
-                </div>
-                <div class="precio-item">
-                    <d>
-                        <label class="label-control">Descuento:</label>
-                        <!--<h2>$3.150.000</h2> AQUI SE MUESTRA EL DESCUENTO-->
-                        <input class="form-control" type="text" name="discount" id="discount" placeholder="Ingresar en porcentaje" required>
+                        <label class="label-control" for="image">Imagen:</label>
+                        <input class="form-control" type="file" name="image" id="image">
                     </div>
                 </div>
                 
-                <div>
-                    <div class="form-control">
+                <div class="col-lg-3">
+                    <div>
+                        <label class="label-control" for="mark">Marca</label>
+                        <input class="form-control" type="text" name="mark" id="mark" placeholder="Ingresar la marca" required>
+                    </div>
+                    <!--AQUI SE INGRESA LA MARCA DEL PRODUCTO-->
+                    <!--<h1>Apple Macbook Pro 13 M2 8gb 256gb Gris Esp Ñ</h1>
+                    AQUI SE INGRESA EN NOMBRE DEL PRODUCTO-->
+                    <div>
+                        <label class="label-control" for="name">Nombre del producto</label>
+                        <input class="form-control" type="text" name="name" id="name" 
+                        placeholder="Ingrear un nombre descriptivo" required>
+                    </div>
+    
+                    <!--AQUI SE INGRESA LAS CARACTERISTICAS DEL PRODUCTO-->
+    
+                    <div>
+                        <label class="label-control">Caracteristicas</label>
+                        <!--AQUI SE INGRESAN LAs caracteristicas-->
+                        <textarea placeholder="Aqui puedes espcificar las principales caracteristicas de tu producto" class="form-control" name="characteristics" id="characteristics" required>
+                        </textarea>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3">
+                    <div class="precio-item">
+                        <div>
+                            <label class="label-control">Precio de lista:</label>
+                            <!--<h2>$2.350.000</h2> AQUI SE MUESTRA EL PRECIO-->
+                            <!--<label for="price">Precio de Lista</label>-->
+                            <input class="form-control"type="text" name="price" id="price" placeholder="Ingresar precio" required>
+                        </div>
+                    </div>
+                    <div class="precio-item">
+                        <d>
+                            <label class="label-control">Descuento:</label>
+                            <!--<h2>$3.150.000</h2> AQUI SE MUESTRA EL DESCUENTO-->
+                            <input class="form-control" type="text" name="discount" id="discount" placeholder="Ingresar en porcentaje" required>
+                        </div>
+                </div>
+                    
+                <div class="col-lg-3">
                         <!--<input class="w-10" type="checkbox" id="warranty" name="warranty">
                         AQUI SE INGRESA LA GARANTIA-->
-                        <label for="warranty">Garantía:</label><br>
-                        <input type="text" name="warranty" id="warranty" placeholder="Ingresar en meses" required>
-                    </div>
+                        <label class="label-control" for="warranty">Garantía:</label><br>
+                        <input class="form-control" type="text" name="warranty" id="warranty" placeholder="Ingresar en meses" required>
                     
-                    <div class="form-control">
                         <!--<input class="w-10" type="checkbox" id="shipping" name="shipping">
                         AQUI SE INGRESA EL COSTO DEL ENVIO-->
-                        <label for="shipping">Envío:</label>
-                        <input type="text" name="shipping" id="shipping" placeholder="Ingresar precio" required>
-                        <br>
-                    </div>
-                  
-                    <div class="form-control">
-                        <label for="stock">Stock:</label>
-                        <input type="number" name="stock" id="stock" placeholder="Ingresar cantidad" required>
+                        <label class="label-control" for="shipping">Envío:</label>
+                        <input class="form-control" type="text" name="shipping" id="shipping" placeholder="Ingresar precio" required>
+
+                
+                        <label class="label-control" for="stock">Stock:</label>
+                        <input class="form-control" type="number" name="stock" id="stock" placeholder="Ingresar cantidad" required>
                         <!--<input class="w-30" type="number" id="quantity" name="quantity" value="1" max="100">
                         AQUI SE INGRESA EL STOCK DISPONIBLE-->
-                    </div>
-                    <hr>
                     
-                    <div>
-                        <!--AQUI SE INGRESA LA CARACTERISTICA-->
-                        <div style="padding: 20px;">
-                            <label for="category">Categoria </label>
-                            <select id="category" name="category">
-                                <option value="notebook">Notebook</option>
-                                <option value="pc-escritorio">PC de escritorio</option>
-                                <option value="monitor">Monitor</option>
-                                <option value="teclado">Teclado</option>
-                                <option value="mouse">Mouse</option>
-                                <option value="almacenamiento">Almacenamiento</option>
-                            </select>
-                        </div>
+
+                        <label class="label-control" for="category">Categoria </label>
+                        <select class="form-control" id="category" name="category">
+                            <option value="notebook">Notebook</option>
+                            <option value="pc-escritorio">PC de escritorio</option>
+                            <option value="monitor">Monitor</option>
+                            <option value="teclado">Teclado</option>
+                            <option value="mouse">Mouse</option>
+                            <option value="almacenamiento">Almacenamiento</option>
+                        </select>
                         <!--AQUI SE INGRESA EL ESTADO-->
-                        <div style="padding: 20px;">
-                            <label for="state">Estado</label>
-                            <select name="state" id="state">
-                                <option value="DISPONIBLE">DISPONIBLE</option>
-                                <option value="PAUSADO">PAUSADO</option>
-                                <option value="NUEVO">NUEVO</option>
-                                <option value="NO DISPONIBLE">NO DISPONIBLE</option>
-                            </select>
-                        </div>
+                        <label class="label-control mt-3" for="state">Estado</label>
+                        <select class="form-control" name="state" id="state">
+                            <option value="DISPONIBLE">DISPONIBLE</option>
+                            <option value="PAUSADO">PAUSADO</option>
+                            <option value="NUEVO">NUEVO</option>
+                            <option value="NO DISPONIBLE">NO DISPONIBLE</option>
+                        </select>
                     </div>
-                 
-                    <hr>
                 </div>
-            </div>
+                
+                <div class="col-12">
+                    <label class="label-control">Descripción</label>
+                        <!--AQUI SE INGRESAN LA DESCRIPCION-->
+                        <textarea name="description" id="description" class="form-control" style="width: 100%; height: 400px;" required>
+                            Describe como quieres vender tu producto
+                        </textarea>
+                </div>
+                
+                <div class="col-12 my-5 d-flex justify-content-end gap-2">
+                    <a href="/product/list" class="btn btn-secondary">Cancelar</a>
+                    <button class="btn btn-primary" type="submit">Guardar</button>
+                </div>
+            </div>         
         </div>
-        <div class="caracteristicas">
-            <hr />
-            <h1>Descripción</h1>
-                <!--AQUI SE INGRESAN LA DESCRIPCION-->
-                <textarea name="description" id="description" style="width: 100%; height: 400px;" required>
-                    Describe como quieres vender tu producto
-                </textarea>
-
-        </div>
-
-        <div class="contenedor-detalle">
-            <a href="/product/list" class="btn-agregar" style="width:100px">Cancelar</a>
-            <button class="btn-comprar" type="submit" style="width:100px">Guardar</button>
-        </div>
-    
-    </form>
-</div>
+</form>
     
 </main>
 <!--Fin Cuerpo-->
