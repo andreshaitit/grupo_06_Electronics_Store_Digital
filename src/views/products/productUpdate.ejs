@@ -6,7 +6,7 @@
     <script src="https://kit.fontawesome.com/aad721d8a3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <title>Edicion de Producto</title>
+    <title>Creacion de Producto</title>
 </head>
 <body>
     <!--Menu-->
@@ -16,136 +16,117 @@
 <!--Cuerpo-->
 <main>
     <form action="/product/edit/<%= productEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-        <h2 class="contenedor-detalle">Formulario de edición</h2>
-        <div class="contenedor-detalle">
-            
-            <div class="imagenes" style="flex-direction: column;"">
-                <img src="/images/products/<%= productEdit.image %>"  width="480px" height="480px" />
-                <!--AQUI SE INGRESAN LAS IMAGENES-->
-                <div>
-                    <label for="image">Imagen:</label>
-				    <input type="file" name="image" id="image">
-                </div>
-            </div>
-            <div class="detalle">
-                <div>
-                    <label for="mark">Marca</label>
-                    <input type="text" name="mark" id="mark" placeholder="Apple" value="<%= productEdit.mark %>">
-                </div>
-                <!--AQUI SE INGRESA LA MARCA DEL PRODUCTO-->
-                <!--<h1>Apple Macbook Pro 13 M2 8gb 256gb Gris Esp Ñ</h1>
-                AQUI SE INGRESA EN NOMBRE DEL PRODUCTO-->
-                <div>
-                    <label for="name">Nombre del producto</label>
-                    <input type="text" name="name" id="name" 
-                    placeholder="Apple Macbook Pro 13 M2 8gb 256gb Gris Esp Ñ" value="<%= productEdit.name %>">
-                </div>
-
-                <!--AQUI SE INGRESA LAS CARACTERISTICAS DEL PRODUCTO-->
-
-                <div>
-                    <h2>Caracteristicas</h2>
-                    <!--AQUI SE INGRESAN LAs caracteristicas-->
-                    <textarea name="characteristics" id="characteristics" style="width: 100%; height: 200px;"><%= productEdit.characteristics %></textarea>
+        <div class="container"> 
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>Editar Producto</h2>
                 </div>
                 
-                <!--<ul class="lista-descripcion">
-                    <li>Capacidad:<strong>8 GB RAM | 256 GB SSD</strong></li>
-                    <li>Procesador:<strong>8 GB RAM | 256 GB SSD</strong></li>
-                    <li>Placa de video:<strong>8 GB RAM | 256 GB SSD</strong></li>
-                    <li>Color :<strong>8 GB RAM | 256 GB SSD</strong></li>
-                </ul>-->
-            </div>
-            <div class="precio">
-                <div class="precio-item">
+                <div class="col-lg-3 text-center text-lg-start">
+                    <img src="/images/products/<%= productEdit.image %>" class="w-75 h-50" />
+                    <!--AQUI SE INGRESAN LAS IMAGENES-->
                     <div>
-                        <h2>Precio de lista:</h2>
-                    </div>
-                    <div>
-                        <!--<h2>$2.350.000</h2> AQUI SE MUESTRA EL PRECIO-->
-                        <!--<label for="price">Precio de Lista</label>-->
-                        <input type="text" name="price" id="price" placeholder="$2.350.000" value="<%= productEdit.price %>">
-                    </div>
-                </div>
-                <div class="precio-item">
-                    <div>
-                        <h2>Descuento:</h2>
-                    </div>
-                    <div>
-                        <!--<h2>$3.150.000</h2> AQUI SE MUESTRA EL DESCUENTO-->
-                        <input type="text" name="discount" id="discount" placeholder="25% OFF" value="<%= productEdit.discount %>">
+                        <label class="label-control" for="image">Imagen:</label>
+                        <input class="form-control" type="file" name="image" id="image">
                     </div>
                 </div>
                 
-                <hr />
+                <div class="col-lg-3">
+                    <div>
+                        <label class="label-control" for="mark">Marca</label>
+                        <input class="form-control" type="text" name="mark" id="mark" value="<%= productEdit.mark %>" placeholder="Ingresar la marca" required>
+                    </div>
+                    <!--AQUI SE INGRESA LA MARCA DEL PRODUCTO-->
+                    <!--<h1>Apple Macbook Pro 13 M2 8gb 256gb Gris Esp Ñ</h1>
+                    AQUI SE INGRESA EN NOMBRE DEL PRODUCTO-->
+                    <div>
+                        <label class="label-control" for="name">Nombre del producto</label>
+                        <input class="form-control" type="text" name="name" id="name" value="<%= productEdit.name %>"
+                        placeholder="Ingrear un nombre descriptivo" required>
+                    </div>
+    
+                    <!--AQUI SE INGRESA LAS CARACTERISTICAS DEL PRODUCTO-->
+    
+                    <div>
+                        <label class="label-control">Caracteristicas</label>
+                        <!--AQUI SE INGRESAN LAs caracteristicas-->
+                        <textarea placeholder="Aqui puedes espcificar las principales caracteristicas de tu producto" class="form-control" name="characteristics" id="characteristics" required>
+                            <%= productEdit.characteristics %>
+                        </textarea>
+                    </div>
+                </div>
                 
-                <div>
-                    <div class="form-control">
+                <div class="col-lg-3">
+                    <div class="precio-item">
+                        <div>
+                            <label class="label-control">Precio de lista:</label>
+                            <!--<h2>$2.350.000</h2> AQUI SE MUESTRA EL PRECIO-->
+                            <!--<label for="price">Precio de Lista</label>-->
+                            <input class="form-control"type="text" name="price" id="price" placeholder="Ingresar precio"  value="<%= productEdit.price %>" required>
+                        </div>
+                    </div>
+                    <div class="precio-item">
+                        <d>
+                            <label class="label-control">Descuento:</label>
+                            <!--<h2>$3.150.000</h2> AQUI SE MUESTRA EL DESCUENTO-->
+                            <input class="form-control" type="text" name="discount" id="discount" placeholder="Ingresar en porcentaje" value="<%= productEdit.discount %>" required>
+                        </div>
+                </div>
+                    
+                <div class="col-lg-3">
                         <!--<input class="w-10" type="checkbox" id="warranty" name="warranty">
                         AQUI SE INGRESA LA GARANTIA-->
-                        <label for="warranty">Garantía:</label><br>
-                        <input type="text" name="warranty" id="warranty" placeholder="12 meses" value="<%= productEdit.warranty %>">
-                    </div>
+                        <label class="label-control" for="warranty">Garantía:</label><br>
+                        <input class="form-control" type="text" name="warranty" id="warranty" placeholder="Ingresar en meses" value="<%= productEdit.warranty %>" required>
                     
-                    <div class="form-control">
                         <!--<input class="w-10" type="checkbox" id="shipping" name="shipping">
                         AQUI SE INGRESA EL COSTO DEL ENVIO-->
-                        <label for="shipping">Envío:</label>
-                        <input type="text" name="shipping" id="shipping" placeholder="Gratis" value="<%= productEdit.shipping %>">
-                        <br>
-                    </div>
-                  
-                    <div class="form-control">
-                        <label for="stock">Stock:</label>
-                        <input type="number" name="stock" id="stock" placeholder="50 unidades" value="<%= productEdit.stock %>">
+                        <label class="label-control" for="shipping">Envío:</label>
+                        <input class="form-control" type="text" name="shipping" id="shipping" placeholder="Ingresar precio"  value="<%= productEdit.shipping %>" required>
+
+                
+                        <label class="label-control" for="stock">Stock:</label>
+                        <input class="form-control" type="number" name="stock" id="stock" placeholder="Ingresar cantidad" value="<%= productEdit.stock %>" required>
                         <!--<input class="w-30" type="number" id="quantity" name="quantity" value="1" max="100">
                         AQUI SE INGRESA EL STOCK DISPONIBLE-->
-                    </div>
-                    <hr>
                     
-                    <div>
-                        <!--AQUI SE INGRESA LA CARACTERISTICA-->
-                        <div style="padding: 20px;">
-                            <label for="category">Categoria </label>
-                            <select id="category" name="category">
-                                <option value="notebook" <%= productEdit.category == 'notebook' ? 'selected' : null%>>Notebook</option>
-                                <option value="pc-escritorio" <%= productEdit.category == 'pc-escritorio' ? 'selected' : null%>>PC de escritorio</option>
-                                <option value="monitor" <%= productEdit.category == 'monitor' ? 'selected' : null%>>Monitor</option>
-                                <option value="teclado" <%= productEdit.category == 'teclado' ? 'selected' : null%>>Teclado</option>
-                                <option value="mouse" <%= productEdit.category == 'mouse' ? 'selected' : null%>>Mouse</option>
-                                <option value="almacenamiento" <%= productEdit.category == 'almacenamiento' ? 'selected' : null%>>Almacenamiento</option>
-                            </select>
-                        </div>
+
+                        <label class="label-control" for="category">Categoria </label>
+                        <select class="form-control" id="category" name="category">
+                            <option value="notebook">Notebook</option>
+                            <option value="pc-escritorio">PC de escritorio</option>
+                            <option value="monitor">Monitor</option>
+                            <option value="teclado">Teclado</option>
+                            <option value="mouse">Mouse</option>
+                            <option value="almacenamiento">Almacenamiento</option>
+                        </select>
                         <!--AQUI SE INGRESA EL ESTADO-->
-                        <div style="padding: 20px;">
-                            <label for="state">Estado</label>
-                            <select name="state" id="state">
-                                <option value="DISPONIBLE" <%= productEdit.category == 'DISPONIBLE' ? 'selected' : null%>>DISPONIBLE</option>
-                                <option value="PAUSADO" <%= productEdit.category == 'PAUSADO' ? 'selected' : null%>>PAUSADO</option>
-                                <option value="NUEVO" <%= productEdit.category == 'NUEVO' ? 'selected' : null%>>NUEVO</option>
-                                <option value="NO DISPONIBLE" <%= productEdit.category == 'NO DISPONIBLE' ? 'selected' : null%>></option>
-                            </select>
-                        </div>
+                        <label class="label-control mt-3" for="state">Estado</label>
+                        <select class="form-control" name="state" id="state">
+                            <option value="DISPONIBLE">DISPONIBLE</option>
+                            <option value="PAUSADO">PAUSADO</option>
+                            <option value="NUEVO">NUEVO</option>
+                            <option value="NO DISPONIBLE">NO DISPONIBLE</option>
+                        </select>
                     </div>
-                 
-                    <hr>
                 </div>
-            </div>
+                
+                <div class="col-12">
+                    <label class="label-control">Descripción</label>
+                        <!--AQUI SE INGRESAN LA DESCRIPCION-->
+                        <textarea name="description" id="description" class="form-control" style="width: 100%; height: 400px;" required>
+                            <%= productEdit.description %>
+                        </textarea>
+                </div>
+                
+                <div class="col-12 my-5 d-flex justify-content-end gap-2">
+                    <a href="/product/list" class="btn btn-secondary">Cancelar</a>
+                    <button class="btn btn-primary" type="submit">Guardar</button>
+                </div>
+            </div>         
         </div>
-        <div class="caracteristicas">
-            <hr />
-            <h1>Descripción</h1>
-                <!--AQUI SE INGRESAN LA DESCRIPCION-->
-                <textarea name="description" id="description" style="width: 100%; height: 400px;"><%= productEdit.description %></textarea>
-
-        </div>
-
-        <div class="contenedor-detalle">
-            <a href="/product/detail/<%= productEdit.id %>" class="btn-agregar" style="width:100px">Cancelar</a>
-            <button class="btn-comprar" type="submit" style="width:100px">Guardar</button>
-        </div>
+</form>
     
-    </form>
 </main>
 <!--Fin Cuerpo-->
 
