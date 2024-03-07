@@ -1,4 +1,4 @@
-<header class="pb-5 pb-lg-0">
+<header>
     <div class="container-fluid p-0">
         <div class="container-fluid bg-white"> 
             <div class="container">
@@ -10,9 +10,11 @@
                     <div class="col-12 col-lg-9">
                         <div class="row">                        
                             <div class="col-8 pt-lg-4">
-                                <form class="header_search">
-                                    <input type="search" id="busqueda" name="busqueda" placeholder="Buscar productos, marcas y mas..." aria-label="Campo de búsqueda" />
-                                    <i class="fas fa-search"></i>
+                                <form>                                    
+                                    <div class="d-none d-lg-flex align-items-center">
+                                        <input type="text" class="form-control" placeholder="Buscar productos, marcas y mas..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                                        <button class="btn border" style="margin-top: 11px;" type="submit" id="button-addon2"><i class="fas fa-search" style="font-size: 20px;"></i></button>
+                                      </div>
                                 </form>
                             </div>
                             <div class="col-2 pt-lg-4">
@@ -30,7 +32,7 @@
         
         <div class="container-fluid bg-menu">
             <div class="container bg-menu">
-                <nav class="menu bg-menu">
+                <!-- <nav class="menu bg-menu">
                     <ul class="menu-izquierdo">
                         <li><a href="/"><i class="fa-solid fa-house"></i> Inicio</a></li>
                         <li><a href="/product/list"><i class="fa-solid fa-computer"></i> Productos</a></li>
@@ -61,7 +63,54 @@
                         <% } %>                        
                     
                     </ul>
-                </nav>
+                </nav> -->
+                
+                <nav class="navbar navbar-expand-lg navbar-dark bg-menu">
+                    <div class="container-fluid">
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/"><i class="fa-solid fa-house"></i> Inicio</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link active" href="/product/list"><i class="fa-solid fa-computer"></i> Productos</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link active" href="#">Sobre nosotros</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link active" href="#">Contacto</a>
+                          </li>
+                        <% if (locals.isLogged) { %>
+                          
+                          <li class="nav-item">
+                            <a class="nav-link active"  href="/user/profile"><i class="fa-solid fa-user"></i> Mi perfil</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link active" href="/user/logout"><i class="fa-solid fa-right-to-bracket"></i> Cerrar sesion</a>
+                          </li>
+                        <% } else { %>
+                          
+                          <li class="nav-item">
+                            <a class="nav-link active"  href="/user/register"><i class="fa-solid fa-user"></i> Registro</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link active" href="/user/login"><i class="fa-solid fa-right-to-bracket"></i> Acceso</a>
+                          </li>
+                          <% } %>                        
+                        
+                          
+                        </ul>
+                        <form class="d-flex d-lg-none">
+                          <input class="form-control me-2" type="search" placeholder="Buscar productos, marcas y mas..." aria-label="Search">
+                          <button class="btn btn-outline-light" type="submit">Buscar</button>
+                        </form>
+                      </div>
+                    </div>
+                  </nav>
             </div>
         </div>
     </div>
