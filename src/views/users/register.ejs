@@ -24,11 +24,25 @@
             <div class="offset-lg-4 col-lg-4 text-center">
                 <form action="/login" method="POST">
                     
-                    <input class="form-control" type="text" name="usuario" placeholder="Usuario">
-
+                    <input class="form-control" type="text" name="nombre" placeholder="Nombre">
+                    
+                    <input class="form-control" type="text" name="apellido" placeholder="Apellido">
+                    
                     <input class="form-control" type="email" name="email" placeholder="Correo">
                     
+                    <input class="form-control" type="password" name="password" placeholder="Contraseña" />
+                    
+                    <input class="form-control" type="password" name="password2" placeholder="Repite la contraseña" />
+                  
+                    <input class="form-control" type="file" name="image" id="image" />
+                    
+                    <input type="checkbox" id="cbox1" value="first_checkbox" class="checkbox mt-3" required/> 
+                    <label class="label-control">
+                        Al registrarse acepta nuestro <a href="#" style="color: #7b3ec8;">términos y condiciones</a>
+                    </label>
+                    
                     <button class="btn btn-primary w-100 mt-3" type="submit">Registrarme</button>
+                    
                 </form>
                     
                 
@@ -38,7 +52,7 @@
             </div>
         </div>
 
-        <section class="login">
+        <!-- <section class="login">
             <div class="login-formulario item-flex">
                 <h2><i class="fa-solid fa-user"></i> Registrarse</h2>
                 <form action="/user/register" method="POST" enctype="multipart/form-data">
@@ -78,7 +92,7 @@
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam repudiandae maxime et reiciendis, nemo dolores, facilis excepturi rem necessitatibus voluptates a officia accusantium possimus impedit ipsum, temporibus similique hic id?</p>
                 <button type="submit" class="butonn"><a href="/user/login"> Iniciar Sesión</a></button>
             </div>
-        </section>
+        </section> -->
 
     </div>
 </main>
