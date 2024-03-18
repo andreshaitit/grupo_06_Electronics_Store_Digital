@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/aad721d8a3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Perfil</title>
+</head>
+<body>
+    <!--Menu-->
+    <%- include('../partials/header.ejs') %>
+    <!--Fin Menu-->
+
+<!--Cuerpo-->
+<main>
+    <div class="container my-lg-5">
+        <div class="row">
+            <div class="col-12 mb-3">
+                <h2>Perfil</h2>
+            </div>
+            <div class="col-12 border rounded p-5">
+                <div class="row">
+                    <div class="col-4 d-flex flex-column align-items-center">
+                        <div class="w-50 h-50 bg-secondary rounded-circle shadow"></div>
+                        <p class="text-center">Juan Perez</p>
+                        <p class="text-center">juanperez@gmail.com</p>
+                    </div>
+                    <div class="col-8">
+                        <p>Apellido y Nombre</p>
+                        <p class="text-secondary">Juan Perez</p>
+                        
+                        <p>Email</p>
+                        <p class="text-secondary">juanperez@gmail.com</p>
+                        
+                        <p>Contraseña</p>
+                        <p class="text-secondary">*********</p>
+                        
+                        <p>Apellido y Nombre</p>
+                        <p class="text-secondary">Juan Perez</p>
+                        
+                        <div>
+                            <button class="btn btn-warning">Editar</button>
+                            <button class="btn btn-danger">Eliminar</button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!--Fin Cuerpo-->
+
+    <!--Pie de Página-->
+    <%- include('../partials/footer.ejs') %>
+     <!--Fin Pie de Página-->
+</body>
+</html>

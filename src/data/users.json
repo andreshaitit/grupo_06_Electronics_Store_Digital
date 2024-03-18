@@ -58,5 +58,13 @@
   "category": "Admin",
   "lastAccess": "2024-02-23T04:33:10.835Z",
   "image": "/images/users/default-image.jpg"
+ },
+ {
+  "userId": "06f49c11-d7d2-4b2a-98f0-cd582c071154",
+  "email": "andreshaitit@gmail.com",
+  "password": "$2a$10$Tx.LWVdjjNkYwVbMD3zU7us6lyK..x3gI5q.w4w2WOqL.DgBKf5Na",
+  "category": "Usuario",
+  "lastAccess": "2024-03-14T21:18:03.263Z",
+  "image": "/images/users/default-image.jpg"
  }
 ]

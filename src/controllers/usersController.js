@@ -91,8 +91,8 @@ const usersController = {
                     res.cookie('userEmail', req.body.email,{maxAge:(1000*60)*2})
                 }
 
-                res.send('Has ingresado a tu cuenta')
-                //res.redirect('/user/profile/')
+                // res.send('Has ingresado a tu cuenta')
+                res.redirect('/user/profile/')
                 //Si la contraseña es correcta se redirige al perfil del usuario
             } else{
                 res.render('./users/login', {
@@ -118,7 +118,8 @@ const usersController = {
 
     profile: function (req, res) {
         console.log(req.cookies.userEmail)
-        res.send(req.session.userLogged)
+        // res.send(req.session.userLogged)
+        res.render('./users/profile')
     },
 
     logout: function(req, res){
