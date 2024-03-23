@@ -1,55 +1,5 @@
 [
  {
-  "userId": "7c312c8f-d473-4e43-b0a8-651c5db7b209",
-  "firstName": "Juan",
-  "lastName": "Perez",
-  "email": "juan@example.com",
-  "password": "contraseña123",
-  "category": "Usuario",
-  "lastAccess": "2024-02-22T00:00:00.000Z",
-  "image": "/images/users/default-image.jpg"
- },
- {
-  "userId": "9a1f4d3e-16ab-42fd-8d1c-af3e9b4a9bdc",
-  "firstName": "Maria",
-  "lastName": "Gomez",
-  "email": "maria@example.com",
-  "password": "clave456",
-  "category": "Admin",
-  "lastAccess": "2024-02-22T00:00:00.000Z",
-  "image": "/images/users/default-image.jpg"
- },
- {
-  "userId": "10e6384d-06ad-4c46-8f7a-ae41af4e0b8f",
-  "firstName": "Ana",
-  "lastName": "Lopez",
-  "email": "ana@example.com",
-  "password": "password123",
-  "category": "Usuario",
-  "lastAccess": "2024-02-22T00:00:00.000Z",
-  "image": "/images/users/default-image.jpg"
- },
- {
-  "userId": "20f1457b-0971-4a77-b4b7-26b12e4a52c9",
-  "firstName": "Carlos",
-  "lastName": "Martinez",
-  "email": "carlos@example.com",
-  "password": "qwerty",
-  "category": "Usuario",
-  "lastAccess": "2024-02-22T00:00:00.000Z",
-  "image": "/images/users/default-image.jpg"
- },
- {
-  "userId": "31b9c8e2-84d2-4d46-9d14-ade5e8948d1e",
-  "firstName": "Luis",
-  "lastName": "Gonzalez",
-  "email": "luis@example.com",
-  "password": "abcd1234",
-  "category": "Admin",
-  "lastAccess": "2024-02-22T00:00:00.000Z",
-  "image": "/images/users/default-image.jpg"
- },
- {
   "userId": "4565a517-cc4e-4c34-8f67-6b44c6e2d524",
   "firstName": "Brian",
   "lastName": "Valeriano",
@@ -61,10 +11,62 @@
  },
  {
   "userId": "06f49c11-d7d2-4b2a-98f0-cd582c071154",
+  "firstName": "Andres",
+  "lastName": "Haitit",
   "email": "andreshaitit@gmail.com",
   "password": "$2a$10$Tx.LWVdjjNkYwVbMD3zU7us6lyK..x3gI5q.w4w2WOqL.DgBKf5Na",
   "category": "Usuario",
   "lastAccess": "2024-03-14T21:18:03.263Z",
+  "image": "/images/users/default-image.jpg"
+ },
+ {
+  "userId": "0236daee-ec4f-47c9-8b1f-dce0cb7bb95e",
+  "firstName": "Juan",
+  "lastName": "Perez",
+  "email": "juan@example.com",
+  "password": "$2a$10$1fHO0r7r6APzeXJmLXds0uJjRSqwJA0wyc8p1XquGCNZUnjzmNGHq",
+  "category": "Usuario",
+  "lastAccess": "2024-03-23T01:56:12.133Z",
+  "image": "/images/users/default-image.jpg"
+ },
+ {
+  "userId": "483379f2-8890-491d-8433-917cfd725681",
+  "firstName": "Maria",
+  "lastName": "Gomez",
+  "email": "maria@example.com",
+  "password": "$2a$10$mBEbtuprHJLCa1XWRwrrJ.J7O37A5nZLFa5yP2cR34wx.2Ssunkgu",
+  "category": "Admin",
+  "lastAccess": "2024-03-23T01:56:59.052Z",
+  "image": "/images/users/default-image.jpg"
+ },
+ {
+  "userId": "f06a720f-62ea-4eec-8570-1983f1ad7acf",
+  "firstName": "Ana",
+  "lastName": "Lopez",
+  "email": "ana@example.com",
+  "password": "$2a$10$rA3Ij7AqvMqMgDcTsWK30OqYlFP6a1CuuoVn1U6Oytz3Rm.3b2DAe",
+  "category": "Usuario",
+  "lastAccess": "2024-03-23T01:57:32.706Z",
+  "image": "/images/users/default-image.jpg"
+ },
+ {
+  "userId": "35498632-b4b2-4b7b-a52f-65fe0ff3c98f",
+  "firstName": "Carlos",
+  "lastName": "Martinez",
+  "email": "carlos@example.com",
+  "password": "$2a$10$BzVDktLEr9QrONQQP2oE2.jEQOPCN.0jhyYC3Jc87.wl1qBbP4TLq",
+  "category": "Usuario",
+  "lastAccess": "2024-03-23T01:58:26.667Z",
+  "image": "/images/users/default-image.jpg"
+ },
+ {
+  "userId": "17799276-26c2-4a5b-b35c-7dd4d67f1fda",
+  "firstName": "Luis",
+  "lastName": "Gonzales",
+  "email": "luis@example.com",
+  "password": "$2a$10$UV1D8KEFrr1MaARium.1KunZGVRmqx/o6NF6l2Mf5QZCyNXnGkKRO",
+  "category": "Admin",
+  "lastAccess": "2024-03-23T01:59:12.438Z",
   "image": "/images/users/default-image.jpg"
  }
 ]

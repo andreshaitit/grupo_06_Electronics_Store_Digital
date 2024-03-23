@@ -119,7 +119,7 @@ const usersController = {
     profile: function (req, res) {
         console.log(req.cookies.userEmail)
         // res.send(req.session.userLogged)
-        res.render('./users/profile')
+        res.render('./users/profile',{usuario:req.session.userLogged})
     },
 
     logout: function(req, res){

@@ -15,7 +15,28 @@ const productsController = {
         //res.sendFile(path.join(__dirname,'../views/productList.ejs'));
         let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
         //console.log('Lista de productos',products);
+
+         // Función de comparación aleatoria para el método sort
+        function compareRandom() {
+            return Math.random() - 0.5; // Devuelve un número positivo o negativo aleatorio
+        }
+
+        // Desordena el array de productos utilizando la función de comparación aleatoria
+        products.sort(compareRandom);
+
         res.render('./products/productList',{products:products});
+    },
+
+    listByCategory: function(req,res){
+
+        const productsByCategory = products.filter(p => p.category == req.params.category);
+
+        if(productsByCategory){
+            res.render('./products/productList',{products:productsByCategory});
+        } else {
+            res.send(`Error, no se encontraron productos para la categoria seleccionada`)
+        }
+
     },
 
     // Detail - Detail from one product

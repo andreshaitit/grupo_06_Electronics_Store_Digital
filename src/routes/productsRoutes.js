@@ -8,9 +8,13 @@ const update = require('../middlewares/multer');
 const validations = require('../middlewares/validateProduct');
 const isLogged = require('../middlewares/authMiddleware');
 const isAdmin = require('../middlewares/adminRequired');
+const { Router } = require('express');
 
 /*** GET ALL PRODUCTS ***/ 
 router.get('/list', productsController.list);
+
+/*** GET ALL PRODUCTS BY CATEGORY  ***/
+router.get('/category/:category', productsController.listByCategory);
 
 /*** CREATE ONE PRODUCT ***/ 
 router.get('/create', isLogged, isAdmin, productsController.create);
