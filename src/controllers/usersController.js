@@ -117,9 +117,19 @@ const usersController = {
     },
 
     profile: function (req, res) {
-        console.log(req.cookies.userEmail)
+        console.log(req.session.userLogged)
         // res.send(req.session.userLogged)
         res.render('./users/profile',{usuario:req.session.userLogged})
+    },
+    
+    edit: function (req, res) {
+        console.log(req.cookies.userEmail)
+        // res.send(req.session.userLogged)
+        res.render('./users/edit',{usuario:req.session.userLogged})
+    },
+    
+    editProfile: function (req, res) {
+        console.log(req.body)
     },
 
     logout: function(req, res){

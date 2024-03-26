@@ -23,26 +23,23 @@
             <div class="col-lg-12 border rounded p-lg-5">
                 <div class="row">
                     <div class="col-lg-4 d-flex flex-column align-items-center">
-                        <div class="w-50 h-50 bg-secondary rounded-circle shadow"></div>
+                        <img src="<%= userLogged.image %>" class="w-50 h-50">
                         <p class="text-center"><%= userLogged.firstName %></p>
                         <p class="text-center"><%= userLogged.email %></p>
                     </div>
                     <div class="col-lg-8 p-4">
                         <p>Apellido y Nombre</p>
-                        <p class="text-secondary">Juan Perez</p>
+                        <p class="text-secondary"><%= userLogged.lastName + " " + userLogged.firstName %></p>
                         
                         <p>Email</p>
-                        <p class="text-secondary">juanperez@gmail.com</p>
+                        <p class="text-secondary"><%= userLogged.email %></p>
                         
                         <p>Contraseña</p>
                         <p class="text-secondary">*********</p>
                         
-                        <p>Apellido y Nombre</p>
-                        <p class="text-secondary">Juan Perez</p>
-                        
                         <div class="d-flex justify-content-center gap-3">
-                            <button class="btn btn-warning">Editar</button>
-                            <button class="btn btn-danger">Eliminar</button>
+                            <a href="/user/edit/<%= userLogged.userId %>" class="btn btn-warning">Editar</a>
+                            <a class="btn btn-danger">Eliminar</a>
                         </div>
                     </div>
                     
