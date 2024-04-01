@@ -3,27 +3,68 @@ const {body} = require('express-validator')
 module.exports = [
 
     //Validacion de campos en el formulario
+    // Validación del campo "name"
+    body('name').notEmpty().withMessage('El nombre es requerido')
+        .isLength({ min: 1, max: 200 }).withMessage('El nombre puede tener entre 1 y 200 caracteres'),
 
-    body('name').notEmpty().withMessage('Debe tener un nombre').bail()
-    .isLength({min: 1, max:40}).withMessage('El nombre debe contener de 1 a 40 caracteres'),
-    body('price').notEmpty().withMessage('Debe tener un precio')
-    .isNumeric().withMessage('El precio debe ser un número válido')
-    .isFloat({ min: 0 }).withMessage('El precio debe ser un número positivo'),
-    body('discount').notEmpty().withMessage('Debe tener un descuento')
-    .isNumeric().withMessage('El descuento debe ser un número válido')
-    .isFloat({ min: 0, max: 100 }).withMessage('El descuento debe estar entre 0 y 100'),
-    body('category').notEmpty().withMessage('Debe seleccionar una categoría'),
-    body('description').notEmpty().withMessage('Debe tener una descripcion')
-    .isString().withMessage('La descripción debe ser un texto'),
-    // Validación de la imagen
+    // (SELECCION) Validación del campo "mark" (marca)
+    body('mark').notEmpty().withMessage('La marca es requerida'),
+
+    // Validación del campo "characteristics" (características)
+    body('characteristics').notEmpty().withMessage('Las características son requeridas')
+        .isLength({ max: 1000 }).withMessage('Las características no pueden tener más de 1000 caracteres'),
+
+    // Validación del campo "price" (precio)
+    body('price').notEmpty().withMessage('El precio es requerido')
+        .isDecimal({ decimal_digits: '10,2' }).withMessage('El precio debe ser un número decimal válido'),
+
+    // Validación del campo "discount" (descuento)
+    body('discount').optional({ nullable: true })
+        .isDecimal({ decimal_digits: '10,2' }).withMessage('El descuento debe ser un número decimal válido'),
+
+    // Validación del campo "warranty" (garantía)
+    body('warranty').optional({ nullable: true })
+        .isInt().withMessage('La garantía debe ser un número entero'),
+
+    // Validación del campo "shipping" (envío)
+    body('shipping').optional({ nullable: true })
+        .isBoolean().withMessage('El valor de envío debe ser verdadero o falso'),
+
+    // Validación del campo "stock" (unidades disponibles)
+    body('stock').notEmpty().withMessage('El stock del producto es requerido')
+        .isInt().withMessage('El stock debe ser un número entero')
+        .custom(value => {
+            if (parseInt(value) <= 0) {
+                throw new Error('El stock debe ser mayor que cero');
+            }
+            return true; // La validación pasó
+        }),
+
+    // (SELECCION) Validación del campo "category" (categoría)
+    body('category').notEmpty().withMessage('La categoría es requerida')
+        .isInt().withMessage('Debe seleccionar una categoria para el producto'),
+
+    // (SELECCION) Validación del campo "state" (estado)
+    body('state').notEmpty().withMessage('El estado es requerido')
+        .isInt().withMessage('Debe seleccionar el estado para el producto'),
+
+    // Validación del campo "description" (descripción)
+    body('description').optional({ nullable: true })
+        .isLength({ max: 3000 }).withMessage('La descripción no puede tener más de 3000 caracteres'),
+
+    // Validación del campo "visualizations" (visualizaciones)
+    body('visualizations').optional({ nullable: true })
+        .isInt().withMessage('Las visualizaciones deben representarse con un número entero'),
+
+    // Validación del campo "image" (imagen)
     body('image').custom((value, { req }) => {
         if (!req.file) {
             throw new Error('Debe subir una imagen');
         }
         // Verificar el tipo de archivo
-        const allowedFormats = ['image/jpeg', 'image/png', 'image/gif'];
+        const allowedFormats = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
         if (!allowedFormats.includes(req.file.mimetype)) {
-            throw new Error('Formato de imagen no válido. Debe ser JPEG, PNG o GIF');
+            throw new Error('Formato de imagen no válido. Debe ser JPEG, JPG, PNG o GIF');
         }
         // Verificar el tamaño del archivo (por ejemplo, máximo 5 MB)
         const maxSize = 5 * 1024 * 1024; // 5 MB en bytes

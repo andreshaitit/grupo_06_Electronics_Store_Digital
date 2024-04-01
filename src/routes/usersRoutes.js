@@ -4,7 +4,7 @@ const router = express.Router();
 // ************ Controller Require ************
 const usersController = require('../controllers/usersController');
 const update = require('../middlewares/multer');
-const validations = require('../middlewares/validateProduct');
+const validations = require('../middlewares/validateUser');
 const checkLogged = require('../middlewares/guestMiddleware');
 const isLogged = require('../middlewares/authMiddleware');
 
