@@ -31,12 +31,37 @@ const productsController = {
 
         const productsByCategory = products.filter(p => p.category == req.params.category);
 
-        if(productsByCategory){
+        if(productsByCategory.length > 0){
             res.render('./products/productList',{products:productsByCategory});
         } else {
-            res.send(`Error, no se encontraron productos para la categoria seleccionada`)
+            res.render('./products/productList',{products:productsByCategory,
+                keywords:req.params.category ,
+            error: {
+                msg: 'No se encontraron productos para está categoria'
+            }});
         }
 
+    },
+
+    search: (req, res) => {
+
+        //Obtenemos la informacion del formulario
+        let keyword = req.query.keywords;
+
+        //Filtramos los productos con la palabra buscada
+        let resultSearch = products.filter(product =>{
+            return product.name.toLowerCase().includes(keyword.toLowerCase());
+        })
+
+        if (resultSearch.length > 0){
+            res.render('./products/productList',{products: resultSearch, keywords: keyword});
+        }
+        else {
+            res.render('./products/productList',{products: resultSearch, keywords: keyword,
+            error:{
+                msg: 'No se encontraron productos que coincidan con tu busqueda'
+            }})
+        }
     },
 
     // Detail - Detail from one product

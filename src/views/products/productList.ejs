@@ -51,8 +51,9 @@
             </div>
           </div>
           
-          
-          
+          <% if (locals?.keywords) { %>
+            <h2 class="products-title">Resultados de la búsqueda: <%= keywords %></h2>
+          <% } %>
           
           <div class="container">
             <div class="row">
@@ -84,6 +85,15 @@
                 
               <div class="col-12 col-lg-9">
                 <div class="row">
+
+                  <% if (locals?.error) { %>
+                    <div style="align-items: center">
+                      <img src="/img/search-error.png" style="width: 400px;">
+                      <h4><%= error.msg %></h4>
+                    </div>
+                    
+                  <% } %>
+
                   <!-- Repite el div .product-card para cada producto -->
                   <% products.forEach(product => { %>
                     <div class="col-12 col-lg-4 mt-lg-3 my-3">

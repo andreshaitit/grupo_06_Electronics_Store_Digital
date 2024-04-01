@@ -16,6 +16,9 @@ router.get('/list', productsController.list);
 /*** GET ALL PRODUCTS BY CATEGORY  ***/
 router.get('/category/:category', productsController.listByCategory);
 
+/*** GET ALL PRODUCT SEARCHS ***/
+router.get('/search', productsController.search);
+
 /*** CREATE ONE PRODUCT ***/ 
 router.get('/create', isLogged, isAdmin, productsController.create);
 router.post('/create', isLogged, isAdmin, update.single('image'), productsController.keep);
