@@ -23,6 +23,11 @@ router.post('/login', checkLogged, usersController.processLogin)
 //Perfil del usuario
 router.get('/profile', isLogged, usersController.profile)
 
+//Editar usuario
+router.get('/edit/:id', isLogged, usersController.edit)
+
+router.post('/edit/:id', isLogged, usersController.editProfile)
+
 //Logout
 router.get('/logout', usersController.logout)
 
