@@ -14,7 +14,10 @@ const mainRoutes = require('./src/routes/mainRoutes');
 const productsRoutes = require('./src/routes/productsRoutes');
 const usersController = require('./src/routes/usersRoutes');
 const userLogged = require('./src/middlewares/userLoggedMiddleware');
+const db = require('./src/db/db');
 //const { cookie } = require('express-validator');
+
+require('./src/db/models/Usuarios')
 
 //configuraciones
 app.use(express.static(path.join(__dirname, 'public'))) // Necesario para los archivos estáticos en el folder /public
@@ -28,6 +31,10 @@ app.use(session({
   saveUninitialized: false
 }))
 app.use(cookies());
+
+db.sync()
+    .then(()=> console.log('Conectando al Servidor'))
+    .catch(error => console.log(error));
 
 
 //Configuracion de motor de vista o template engine

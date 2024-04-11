@@ -1,10 +1,9 @@
 const fs = require('fs');
 const path = require('path');
-const { v4: uuidv4 } = require('uuid');
 const  bcrypt = require('bcryptjs');
+const Usuarios = require('../db/models/Usuarios');
 
 const usersFilePath = path.join(__dirname, '../data/users.json');
-let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const usersController = {
 
@@ -13,15 +12,11 @@ const usersController = {
         res.render('./users/register');
     },
 
-    processRegister: function (req, res) {
+    processRegister: async function (req, res) {
         //let result = validationResult(req)
-
-        if(true){
-
-            console.log(req.body)
-
+        try {
+            // crear el usuario
             const newUser = {
-                userId: uuidv4(), //para generar IDs únicos basados en estándares universales.
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 email: req.body.email,
@@ -30,36 +25,11 @@ const usersController = {
                 lastAccess: new Date(),             
                 image: req.file?.filename || "/images/users/default-image.jpg"
             }
-
-            //Buscamos si ya existe un usuario con el mismo correo
-            const userFound = users.find(user => user.email == newUser.email)
-
-            if(userFound){
-                res.render('./users/register',{
-                    old: req.body,
-                    errors: {
-                        email: {
-                            msg: 'El email ya está registrado'
-                        }
-                    }
-                })
-
-            }else{
-                //Agregamos el nuevo usuario al listado
-                users.push(newUser);
-                //Convertimos a json el objeto javascript
-                let usersJSON = JSON.stringify(users, null, ' ');
-                //Procedimiento para cargarlo en el JSON
-                fs.writeFileSync(usersFilePath, usersJSON)
-                res.redirect('/user/login');
-            }
             
-        } else{
-            
-            res.render('./users/register',{
-                old: req.body,
-                error: result.mapped()
-            })
+            await Usuarios.create(newUser);
+            res.redirect('/user/register');
+        } catch (error) {
+            console.log(error)
         }
     },
 
