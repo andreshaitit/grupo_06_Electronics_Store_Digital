@@ -40,11 +40,9 @@
                 <form class="d-flex">
                   <label for="sort">Ordenar por:</label>
                   <select id="sort" name="sort" class="form-control">
+                    <option value="" disabled selected hidden>Seleccionar</option>
                     <option value="price-asc">Precio: Menor a Mayor</option>
                     <option value="price-desc">Precio: Mayor a Menor</option>
-                    <option value="rating">Calificación</option>
-                    <option value="popularity">Popularidad</option>
-                    <option value="newest">Más reciente</option>
                   </select>
                 </form>              
               </div>
@@ -97,7 +95,7 @@
                   <!-- Repite el div .product-card para cada producto -->
                   <% products.forEach(product => { %>
                     <div class="col-12 col-lg-4 mt-lg-3 my-3">
-                      <a href="/product/detail/<%= product.id %>" class="card text-decoration-none text-dark">  
+                      <a href="/product/detail/<%= product.id_product%>" class="card text-decoration-none text-dark">  
                           <img src="/images/products/<%= product.image %>" class="card-img-top" alt="Imagen del producto">
                           <div class="card-body">
                             <h2 class="card-title fs-4"><%= product.name %></h2>

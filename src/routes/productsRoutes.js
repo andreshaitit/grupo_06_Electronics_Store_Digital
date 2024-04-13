@@ -15,20 +15,21 @@ router.get('/list', productsController.list);
 
 /*** GET ALL PRODUCTS BY CATEGORY  ***/
 router.get('/category/:category', productsController.listByCategory);
+router.get('/brand/:category', productsController.listBrandsByCategory);
 
 /*** GET ALL PRODUCT SEARCHS ***/
 router.get('/search', productsController.search);
 
 /*** CREATE ONE PRODUCT ***/ 
 router.get('/create', isLogged, isAdmin, productsController.create);
-router.post('/create', isLogged, isAdmin, update.single('image'), productsController.keep);
+router.post('/create', isLogged, isAdmin, update.single('image'), validations, productsController.keep);
 
 /*** GET ONE PRODUCT ***/ 
 router.get('/detail/:id', productsController.detail);
 
 /*** EDIT ONE PRODUCT ***/ 
 router.get('/edit/:id', isLogged, isAdmin, productsController.edit);
-router.put('/edit/:id', isLogged, isAdmin, update.single('image'), productsController.update);
+router.put('/edit/:id', isLogged, isAdmin, update.single('image'), validations, productsController.update);
 
 /*** DELETE ONE PRODUCT***/
 router.delete('/delete/:id', isLogged, isAdmin, productsController.delete); 

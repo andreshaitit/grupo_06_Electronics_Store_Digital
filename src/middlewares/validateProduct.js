@@ -3,12 +3,13 @@ const {body} = require('express-validator')
 module.exports = [
 
     //Validacion de campos en el formulario
+    
+    // (SELECCION) Validación del campo "mark" (marca)
+    body('mark').notEmpty().withMessage('La marca es requerida'),
+
     // Validación del campo "name"
     body('name').notEmpty().withMessage('El nombre es requerido')
         .isLength({ min: 1, max: 200 }).withMessage('El nombre puede tener entre 1 y 200 caracteres'),
-
-    // (SELECCION) Validación del campo "mark" (marca)
-    body('mark').notEmpty().withMessage('La marca es requerida'),
 
     // Validación del campo "characteristics" (características)
     body('characteristics').notEmpty().withMessage('Las características son requeridas')
@@ -16,11 +17,25 @@ module.exports = [
 
     // Validación del campo "price" (precio)
     body('price').notEmpty().withMessage('El precio es requerido')
-        .isDecimal({ decimal_digits: '10,2' }).withMessage('El precio debe ser un número decimal válido'),
+        .isInt().withMessage('El precio debe ser un numero')
+        .custom(value => {
+            if (parseInt(value) <= 0) {
+                throw new Error('El precio debe ser mayor que cero');
+            }
+            return true; // La validación pasó
+        }),
+        //.isDecimal({ decimal_digits: '10,2' }).withMessage('El precio debe ser un número decimal válido'),
 
     // Validación del campo "discount" (descuento)
     body('discount').optional({ nullable: true })
-        .isDecimal({ decimal_digits: '10,2' }).withMessage('El descuento debe ser un número decimal válido'),
+        .isInt().withMessage('El descuento debe ser un numero')
+        .custom(value => {
+            if ((parseInt(value) < 0) || (parseInt(value) >100)) {
+                throw new Error('El descuento debe encontrarse en el rango del 0% a 100%');
+            }
+            return true; // La validación pasó
+        }),
+        //.isDecimal({ decimal_digits: '10,2' }).withMessage('El descuento debe ser un número decimal válido'),
 
     // Validación del campo "warranty" (garantía)
     body('warranty').optional({ nullable: true })
@@ -58,19 +73,19 @@ module.exports = [
 
     // Validación del campo "image" (imagen)
     body('image').custom((value, { req }) => {
-        if (!req.file) {
-            throw new Error('Debe subir una imagen');
+        if (req.file) {
+            // Verificar el tipo de archivo
+            const allowedFormats = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
+            if (!allowedFormats.includes(req.file.mimetype)) {
+                throw new Error('Formato de imagen no válido. Debe ser JPEG, JPG, PNG o GIF');
+            }
+            // Verificar el tamaño del archivo (por ejemplo, máximo 5 MB)
+            const maxSize = 5 * 1024 * 1024; // 5 MB en bytes
+            if (req.file.size > maxSize) {
+                throw new Error('La imagen es demasiado grande. El tamaño máximo permitido es de 5 MB');
+            }
         }
-        // Verificar el tipo de archivo
-        const allowedFormats = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
-        if (!allowedFormats.includes(req.file.mimetype)) {
-            throw new Error('Formato de imagen no válido. Debe ser JPEG, JPG, PNG o GIF');
-        }
-        // Verificar el tamaño del archivo (por ejemplo, máximo 5 MB)
-        const maxSize = 5 * 1024 * 1024; // 5 MB en bytes
-        if (req.file.size > maxSize) {
-            throw new Error('La imagen es demasiado grande. El tamaño máximo permitido es de 5 MB');
-        }
+        
         return true; // La validación pasó
     }),
 ]

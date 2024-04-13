@@ -90,6 +90,7 @@
     "semver": "^7.5.4",
     "send": "^0.18.0",
     "sequelize": "^6.37.1",
+    "sequelize-cli": "^6.6.2",
     "serve-static": "^1.15.0",
     "set-function-length": "^1.1.1",
     "setprototypeof": "^1.2.0",

@@ -34,7 +34,14 @@
                 <div class="col-lg-3">
                     <div>
                         <label class="label-control" for="mark">Marca</label>
-                        <input class="form-control" type="text" name="mark" id="mark" placeholder="Ingresar la marca" required>
+                        <select class="form-control" id="mark" name="mark" onchange="checkOther(this)">
+                            <option value="" disabled selected hidden>Seleccionar</option>
+                            <% marcas.forEach(marca => { %>
+                                <option value="<%= marca.id %>"><%= marca.name %></option>
+                            <% }) %>
+                            <option value="other">Otra marca</option>
+                        </select>
+                        <!--<input class="form-control" type="text" name="mark" id="mark" placeholder="Ingresar la marca" style="display: none;">-->
                     </div>
                     <!--AQUI SE INGRESA LA MARCA DEL PRODUCTO-->
                     <!--<h1>Apple Macbook Pro 13 M2 8gb 256gb Gris Esp Ñ</h1>
@@ -61,14 +68,14 @@
                             <label class="label-control">Precio de lista:</label>
                             <!--<h2>$2.350.000</h2> AQUI SE MUESTRA EL PRECIO-->
                             <!--<label for="price">Precio de Lista</label>-->
-                            <input class="form-control"type="text" name="price" id="price" placeholder="Ingresar precio" required>
+                            <input class="form-control"type="number" name="price" id="price" placeholder="Ingresar precio" required>
                         </div>
                     </div>
                     <div class="precio-item">
                         <d>
                             <label class="label-control">Descuento:</label>
                             <!--<h2>$3.150.000</h2> AQUI SE MUESTRA EL DESCUENTO-->
-                            <input class="form-control" type="text" name="discount" id="discount" placeholder="Ingresar en porcentaje" required>
+                            <input class="form-control" type="number" name="discount" id="discount" placeholder="Ingresar en porcentaje" required>
                         </div>
                 </div>
                     
@@ -76,14 +83,17 @@
                         <!--<input class="w-10" type="checkbox" id="warranty" name="warranty">
                         AQUI SE INGRESA LA GARANTIA-->
                         <label class="label-control" for="warranty">Garantía:</label><br>
-                        <input class="form-control" type="text" name="warranty" id="warranty" placeholder="Ingresar en meses" required>
+                        <input class="form-control" type="number" name="warranty" id="warranty" placeholder="Ingresar en meses" required>
                     
                         <!--<input class="w-10" type="checkbox" id="shipping" name="shipping">
                         AQUI SE INGRESA EL COSTO DEL ENVIO-->
                         <label class="label-control" for="shipping">Envío:</label>
-                        <input class="form-control" type="text" name="shipping" id="shipping" placeholder="Ingresar precio" required>
+                        <select class="form-control" id="shipping" name="shipping" required>
+                            <option value="" disabled selected hidden>Seleccionar</option>
+                            <option value="true">Gratis</option>
+                            <option value="false">A acordar</option>
+                        </select>
 
-                
                         <label class="label-control" for="stock">Stock:</label>
                         <input class="form-control" type="number" name="stock" id="stock" placeholder="Ingresar cantidad" required>
                         <!--<input class="w-30" type="number" id="quantity" name="quantity" value="1" max="100">
@@ -92,20 +102,18 @@
 
                         <label class="label-control" for="category">Categoria </label>
                         <select class="form-control" id="category" name="category">
-                            <option value="notebook">Notebook</option>
-                            <option value="pc-escritorio">PC de escritorio</option>
-                            <option value="monitor">Monitor</option>
-                            <option value="teclado">Teclado</option>
-                            <option value="mouse">Mouse</option>
-                            <option value="almacenamiento">Almacenamiento</option>
+                            <option value="" disabled selected hidden>Seleccionar</option>
+                            <% categorias.forEach(categoria => { %>
+                                <option value="<%= categoria.id %>"><%= categoria.name %></option>
+                            <% }) %>
                         </select>
                         <!--AQUI SE INGRESA EL ESTADO-->
                         <label class="label-control mt-3" for="state">Estado</label>
                         <select class="form-control" name="state" id="state">
-                            <option value="DISPONIBLE">DISPONIBLE</option>
-                            <option value="PAUSADO">PAUSADO</option>
-                            <option value="NUEVO">NUEVO</option>
-                            <option value="NO DISPONIBLE">NO DISPONIBLE</option>
+                            <option value="" disabled selected hidden>Seleccionar</option>
+                            <% estados.forEach(estado => { %>
+                                <option value="<%= estado.id %>"><%= estado.name %></option>
+                            <% }) %>
                         </select>
                     </div>
                 </div>
