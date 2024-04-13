@@ -51,7 +51,7 @@ const usersController = {
 
         if(userToLogin){
 
-            let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password)
+            let isOkThePassword = bcrypt.recompaSync(req.body.password, userToLogin.password)
 
             if( isOkThePassword){
 
@@ -111,7 +111,6 @@ const usersController = {
         res.clearCookie('userEmail');
         req.session.destroy();
         return res.redirect('/');
-
     }
 }
 

@@ -37,19 +37,19 @@ module.exports = [
 
     // Validación del campo "image" (imagen de perfil)
     body('image').custom((value, { req }) => {
-        if (!req.file) {
-            throw new Error('Debe subir una imagen');
+        if (req.file) {
+            // Verificar el tipo de archivo
+            const allowedFormats = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
+            if (!allowedFormats.includes(req.file.mimetype)) {
+                throw new Error('Formato de imagen no válido. Debe ser JPEG, JPG, PNG o GIF');
+            }
+            // Verificar el tamaño del archivo (por ejemplo, máximo 5 MB)
+            const maxSize = 5 * 1024 * 1024; // 5 MB en bytes
+            if (req.file.size > maxSize) {
+                throw new Error('La imagen es demasiado grande. El tamaño máximo permitido es de 5 MB');
+            }
         }
-        // Verificar el tipo de archivo
-        const allowedFormats = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
-        if (!allowedFormats.includes(req.file.mimetype)) {
-            throw new Error('Formato de imagen no válido. Debe ser JPEG, JPG, PNG o GIF');
-        }
-        // Verificar el tamaño del archivo (por ejemplo, máximo 5 MB)
-        const maxSize = 5 * 1024 * 1024; // 5 MB en bytes
-        if (req.file.size > maxSize) {
-            throw new Error('La imagen es demasiado grande. El tamaño máximo permitido es de 5 MB');
-        }
+        
         return true; // La validación pasó
     }),
 ];

@@ -17,7 +17,7 @@ module.exports = [
 
     // Validación del campo "price" (precio)
     body('price').notEmpty().withMessage('El precio es requerido')
-        .isInt().withMessage('El precio debe ser un numero')
+        .isDecimal({ decimal_digits: '10,2' }).withMessage('El precio debe ser un número decimal válido')
         .custom(value => {
             if (parseInt(value) <= 0) {
                 throw new Error('El precio debe ser mayor que cero');
