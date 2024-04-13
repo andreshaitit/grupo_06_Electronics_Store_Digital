@@ -5,15 +5,84 @@ const db = require('../db/models')
 const sequelize = require('sequelize');
 const Op = db.Sequelize.Op;
 const productsFilePath = path.join(__dirname, '../data/products.json');
-let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+//let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const {validationResult} = require('express-validator')
-const { log, error } = require('console');
+//const { log, error } = require('console');
 
 // Función para eliminar la imagen anterior
 async function deleteOldImage(imageName) {
     if (imageName !== 'default-image.png') {
         fs.unlinkSync(path.join(__dirname, '../../public/images/products/', imageName));
+    }
+}
+
+async function brandsOnAllProducts(category){
+    try {
+        
+        // Ejecutar la consulta utilizando el modelo Producto
+        const allBrands = await db.Marca.findAll({
+            attributes: [
+                [sequelize.literal('id'), 'id_marca'],
+                [sequelize.literal('name'), 'marca'],
+                [sequelize.fn('COUNT', sequelize.col('products.id_brand')), 'numero_productos']
+            ],
+            include: [
+                {
+                    model: db.Producto,
+                    as: 'products',
+                    attributes: [],
+                    required: false
+                }
+            ],
+            group: ['Marca.id','Marca.name']
+        });
+
+        if (allBrands.length > 0) {
+            return allBrands;
+        } else {
+            throw new Error('No se encontraron marcas');
+        }
+    } catch (error) {
+        throw error;
+    }
+}
+
+async function brandsByCategory(category){
+    try {
+        // Consulta para obtener las marcas de los productos según una categoría dada
+        
+        // Ejecutar la consulta utilizando el modelo Producto
+        const brandsByCategory = await db.Producto.findAll({
+            // Seleccionar las columnas de marca y contar el número de productos por marca
+            attributes: [
+                [sequelize.literal('brand.id'), 'id_marca'],
+                [sequelize.literal('brand.name'), 'marca'],
+                [sequelize.fn('COUNT', sequelize.col('brand.name')), 'numero_productos']
+            ],
+            // Incluir las asociaciones con la marca y la categoría
+            include: [
+                {
+                    association: "brand", // Incluir la asociación con la marca
+                    attributes: [] // No seleccionar ninguna columna adicional de la marca
+                },
+                { 
+                    association: "category", // Incluir la asociación con la categoría
+                    attributes: [], // No seleccionar ninguna columna adicional de la categoría
+                    where: { name: category } // Filtrar por el nombre de la categoría proporcionado en la solicitud
+                }
+            ],
+            // Agrupar por el nombre e ID de la marca para contar correctamente el número de productos por marca
+            group: ['brand.name', 'brand.id'] 
+        });
+
+        if (brandsByCategory.length > 0) {
+            return brandsByCategory;
+        } else {
+            throw new Error('No se encontraron marcas para esta categoría');
+        }
+    } catch (error) {
+        throw error;
     }
 }
 

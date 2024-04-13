@@ -1,79 +1,56 @@
-const Sequelize = require('sequelize');
-const  bcrypt = require('bcryptjs');
-const db = require('../db');
+const sequelize = require('sequelize');
+const {DataTypes} = require('sequelize');
+const bcrypt = require('bcryptjs');
 
-const Usuarios = db.define('usuarios', {
-    id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-    },
-    firstName: {
-        type: Sequelize.STRING(60),
-        allowNull: false,
-        validate: {
-            notEmpty: {
-                msg: 'El nombre es requerido'
-            }
-        }
-    },
-    lastName: {
-        type: Sequelize.STRING(60),
-        allowNull: false,
-        validate: {
-            notEmpty: {
-                msg: 'El apellido es requerido'
-            }
-        }
-    },
-    email: {
-        type: Sequelize.STRING(60),
-        allowNull : false,
-        validate: {
-            isEmail: {
-                msg: 'Agrega un correo válido'
-            },
-            notEmpty: {
-                msg: 'El e-mail no puede ir vacio'
-            }
+module.exports = (sequelize, DataTypes) => {
+    const cols = {
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
         },
-        unique: {
-            args: true,
-            msg: 'Usuario ya registrado'
+        firstName: {
+            type: DataTypes.STRING(60),
+            allowNull: false,
+        },
+        lastName: {
+            type: DataTypes.STRING(60),
+            allowNull: false,
+        },
+        email: {
+            type: DataTypes.STRING(60),
+            allowNull: false,
+            unique: true
+        },
+        password: {
+            type: DataTypes.STRING(60),
+            allowNull: false,
+        },
+        category: {
+            type: DataTypes.STRING(60),
+            allowNull: false,
+        },
+        lastAccess: {
+            type: DataTypes.TIME,
+            allowNull: true,
+        },
+        image: {
+            type: DataTypes.STRING(60),
+            allowNull: true,
         }
-    },
-    password: {
-        type: Sequelize.STRING(60),
-        allowNull: false,
-        validate: {
-            notEmpty: {
-                msg: 'El password no puede ir vacio'
+    };
+
+    const config = {
+        tableName: 'usuarios',
+        timestamps: false,
+        hooks: {
+            beforeCreate(usuario) {
+                usuario.password = bcrypt.hashSync(usuario.password, bcrypt.genSaltSync(10));
             }
-        }
-    },
-    category: {
-        type: Sequelize.STRING(60),
-        allowNull: false,
-        validate: {
-            notEmpty: {
-                msg: 'La categoria es requerida'
-            }
-        }
-    },
-    lastAccess: {
-        type: Sequelize.TIME,
-        allowNull: true,
-    },
-    image: {
-        type: Sequelize.STRING(60),
-        allowNull: true
-    },
-},{
-    hooks: {
-        beforeCreate(usuario) {
-            usuario.password = bcrypt.hashSync(usuario.password, bcrypt.genSaltSync(10));
         }
     }
-});
 
-module.exports = Usuarios;
+    const Usuario = sequelize.define("Usuario", cols, config);
+
+    return Usuario;
+};

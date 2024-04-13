@@ -1,7 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 const  bcrypt = require('bcryptjs');
-const Usuarios = require('../db/models/Usuarios');
+const db = require('../db/models')
+const sequelize = require('sequelize');
+const Op = db.Sequelize.Op;
 
 const usersFilePath = path.join(__dirname, '../data/users.json');
 
@@ -26,7 +28,7 @@ const usersController = {
                 image: req.file?.filename || "/images/users/default-image.jpg"
             }
             
-            await Usuarios.create(newUser);
+            await db.Usuarios.create(newUser);
             res.redirect('/user/register');
         } catch (error) {
             console.log(error)
