@@ -4,6 +4,7 @@ const  bcrypt = require('bcryptjs');
 const db = require('../db/models')
 const sequelize = require('sequelize');
 const Op = db.Sequelize.Op;
+const { v4: uuidv4 } = require('uuid');
 
 const usersFilePath = path.join(__dirname, '../data/users.json');
 
@@ -19,16 +20,17 @@ const usersController = {
         try {
             // crear el usuario
             const newUser = {
+                userId: uuidv4(),
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10), //Encriptamos la contraseña
-                category: 'Usuario',
+                category: false,
                 lastAccess: new Date(),             
                 image: req.file?.filename || "/images/users/default-image.jpg"
             }
             
-            await db.Usuarios.create(newUser);
+            await db.Usuario.create(newUser);
             res.redirect('/user/register');
         } catch (error) {
             console.log(error)

@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 
 module.exports = (sequelize, DataTypes) => {
     const cols = {
-        id: {
+        userId: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
@@ -41,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     const config = {
-        tableName: 'usuarios',
+        tableName: 'users',
         timestamps: false,
         hooks: {
             beforeCreate(usuario) {
