@@ -49,9 +49,9 @@
                                     <img class="card-img-top" src="/images/products/<%= product.image %>">
                                     <div class="card-body">
                                         <h3 class="card-title"><%= product.name %></h3>
-                                        <p>Precio especial: $<%= product.discount %></p>
+                                        <p>Precio especial: $<%= (product.price - (product.price * product.discount / 100)).toFixed(2) %></p>
                                         <p>Precio de lista: $<%= product.price %></p>
-                                        <a href="/product/detail/<%= product.id %>">Ver mas</a>
+                                        <a href="/product/detail/<%= product.id_product %>">Ver mas</a>
                                     </div>
                                 </div>
                             </div>
@@ -77,9 +77,9 @@
                                     <img class="card-img-top" src="/images/products/<%= product.image %>">
                                     <div class="card-body">
                                         <h3 class="card-title"><%= product.name %></h3>
-                                        <p>Precio especial: $<%= product.discount %></p>
+                                        <p>Precio especial: $<%= (product.price - (product.price * product.discount / 100)).toFixed(2) %></p>
                                         <p>Precio de lista: $<%= product.price %></p>
-                                        <a href="/product/detail/<%= product.id %>">Ver mas</a>
+                                        <a href="/product/detail/<%= product.id_product %>">Ver mas</a>
                                     </div>
                                 </div>
                             </div>
