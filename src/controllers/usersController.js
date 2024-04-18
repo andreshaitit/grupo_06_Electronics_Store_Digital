@@ -5,8 +5,7 @@ const db = require('../db/models')
 const sequelize = require('sequelize');
 const Op = db.Sequelize.Op;
 const { v4: uuidv4 } = require('uuid');
-
-const usersFilePath = path.join(__dirname, '../data/users.json');
+const passport = require("passport");
 
 const usersController = {
 
@@ -41,55 +40,12 @@ const usersController = {
         //res.sendFile(path.join(__dirname, '../views/login.ejs'));
         res.render('./users/login');
     },
-
-    processLogin: function (req, res) {
-        
-        //Se lee nuevamente el JSON por modificacion de la variable contenedora
-        let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8')); 
-        //Buscamos si existe un usuario registrado con ese correo
-        let userToLogin = users.find(user => user.email == req.body.email);
-
-        if(userToLogin){
-
-            let isOkThePassword = bcrypt.recompaSync(req.body.password, userToLogin.password)
-
-            if( isOkThePassword){
-
-                //Mantenemos la sesion del usuario loqueado
-                delete userToLogin.password; //Borramos la contraseña
-                req.session.userLogged = userToLogin;
-
-                //Recordamos la sesion del usuario en una cookie si asi lo desea
-                if(req.body.remember_user){
-                    console.log('Ingreso el usuario');
-                    res.cookie('userEmail', req.body.email,{maxAge:(1000*60)*2})
-                }
-
-                // res.send('Has ingresado a tu cuenta')
-                res.redirect('/user/profile/')
-                //Si la contraseña es correcta se redirige al perfil del usuario
-            } else{
-                res.render('./users/login', {
-                    errors: {
-                        password: {
-                            msg: 'Las credenciales son invalidas'
-                        }
-                    }
-                });
-            }
-            
-        } else{
-            res.render('./users/login', {
-                errors: {
-                    email: {
-                        msg: 'El correo ingresado no se corresponde a un usuario registrado'
-                    }
-                }
-            });
-        }
-
-    },
-
+    processLogin : passport.authenticate('local', {
+        successRedirect:'/',
+        failureRedirect: '/',
+        failureFlash: true,
+        badRequestMessage: 'Todos los campos son obligatorios'
+    }),
     profile: function (req, res) {
         console.log(req.session.userLogged)
         // res.send(req.session.userLogged)

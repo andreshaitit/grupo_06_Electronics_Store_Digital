@@ -4,9 +4,10 @@ const logger = require('morgan');
 const path = require ('path');
 const session = require('express-session');
 const cookies = require('cookie-parser');
+const flash = require('connect-flash');
 
 const app = express();
-const port = 3005;
+const port = 3000;
 
 const methodOverride = require('method-override');
 
@@ -14,6 +15,7 @@ const mainRoutes = require('./src/routes/mainRoutes');
 const productsRoutes = require('./src/routes/productsRoutes');
 const usersController = require('./src/routes/usersRoutes');
 const userLogged = require('./src/middlewares/userLoggedMiddleware');
+const passport = require('./src/db/config/passport');
 //const { cookie } = require('express-validator');
 
 //configuraciones
@@ -28,6 +30,11 @@ app.use(session({
   saveUninitialized: false
 }))
 app.use(cookies());
+
+app.use(flash())
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Configuracion de motor de vista o template engine
 app.set('view engine', 'ejs');
