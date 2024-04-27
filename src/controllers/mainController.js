@@ -8,6 +8,8 @@ let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const mainController = {
     home: async (req, res) =>{
+        
+        console.log(req.user, "USUARIO")
         //let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
         // Ordenar productos por precio de menor a mayor

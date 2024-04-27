@@ -81,6 +81,10 @@ app.post('/register', (req, res)=>{
 app.get('/productCart', (req, res)=>{
   res.sendFile(path.join(__dirname, 'views', 'productCart.html'))
 })*/
+app.use((req, res, next) => {
+  res.locals.mensajes = req.flash();
+  next();
+})
 
 app.listen(port, ()=>{
   console.log(`Nuestra app corre en http://localhost:${port}`);
