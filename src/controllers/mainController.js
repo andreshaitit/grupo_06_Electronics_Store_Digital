@@ -8,8 +8,6 @@ let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const mainController = {
     home: async (req, res) =>{
-        
-        console.log(req.user, "USUARIO")
         //let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
         // Ordenar productos por precio de menor a mayor
@@ -19,6 +17,7 @@ const mainController = {
         // Ordenar productos por cantidad de visualizaciones de mayor a menor
         // productsByVisualizations = products.sort((a, b) => b.visualizations - a.visualizations).slice(0, 4);
         //console.log('Lista de productos por visualizaciones',productsByVisualizations);
+        const isAuthenticated = req.user ? true : false;
 
         try {
             // Obtener productos en promoción (con descuento)
@@ -36,7 +35,7 @@ const mainController = {
                 limit: 4
             });
     
-            res.render('index', { productsByPrice, productsByVisualizations });
+            res.render('index', { productsByPrice, productsByVisualizations, isAuthenticated });
         } catch (error) {
             console.log(error);
             res.status(500).json({error:'Error al cargar la página de inicio'});

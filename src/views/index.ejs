@@ -7,6 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/aad721d8a3.js" crossorigin="anonymous"></script>
     <title>Electronic Digital Store</title>
 </head>
@@ -155,9 +157,32 @@
 
     </main>
     <!--Fin Cuerpo-->
-
+    
     <!--Pie de Página-->
     <%- include('./partials/footer.ejs') %>
+    <% if (isAuthenticated) { %>
+        <script>
+            toastr.success('Ya puedes hacer compras','Se inicio sesion correctamente!')
+
+            toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+            }
+        </script>
+    <% } %>
     <!--Fin Pie de Página-->
         
 </body>
