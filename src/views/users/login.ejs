@@ -22,6 +22,24 @@
                 <h1>Iniciar Sesión</h1>
                 <p>Ingresa tus datos para acceder a tu cuenta</p>
             </div>
+            
+            <% if (typeof error !== 'undefined') { %>
+                <div class="alert alert-danger" role="alert">
+                    <%= error %>
+                </div>
+            <% } %>
+            
+            <% if (locals && locals.mensajes) { %>
+                <% Object.keys(locals.mensajes).forEach(function(categoria) { %>
+                    <% locals.mensajes[categoria].forEach(function(error) { %>
+                        <div class="alert alert-<%= categoria %>" role="alert">
+                            <%= error %>
+                        </div>
+                    <% }); %>
+                <% }); %>
+            <% } %>
+            
+            
             <div class="offset-lg-4 col-lg-4 text-center">
                 <form action="/user/login" method="POST">
                     

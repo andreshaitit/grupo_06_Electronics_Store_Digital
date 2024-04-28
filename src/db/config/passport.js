@@ -2,7 +2,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 // Referencia al modelo donde vamos a autenticar
-const Usuarios = require('../models/Usuario');
+const db = require('../models');
 
 passport.use(
     new LocalStrategy(
@@ -13,7 +13,7 @@ passport.use(
         },
         async (email, password, done) => {
             try {
-                const usuario = await Usuarios.findOne({
+                const usuario = await db.Usuario.findOne({
                     where: {email: email}
                 });
                 
@@ -21,7 +21,7 @@ passport.use(
                 if(!usuario.verificarPassword(password)) {
                     return done(null, false, {
                         message: 'Password Incorrecto'
-                    })  
+                    })
                 }
                 
                 // El email existe y el password correcto
