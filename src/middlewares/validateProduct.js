@@ -9,7 +9,7 @@ module.exports = [
 
     // Validación del campo "name"
     body('name').notEmpty().withMessage('El nombre es requerido')
-        .isLength({ min: 1, max: 200 }).withMessage('El nombre puede tener entre 1 y 200 caracteres'),
+        .isLength({ min: 5, max: 200 }).withMessage('El nombre puede tener entre 1 y 200 caracteres'),
 
     // Validación del campo "characteristics" (características)
     body('characteristics').notEmpty().withMessage('Las características son requeridas')
@@ -65,7 +65,7 @@ module.exports = [
 
     // Validación del campo "description" (descripción)
     body('description').optional({ nullable: true })
-        .isLength({ max: 3000 }).withMessage('La descripción no puede tener más de 3000 caracteres'),
+        .isLength({min: 20 , max: 3000 }).withMessage('La descripción no puede tener más de 3000 caracteres'),
 
     // Validación del campo "visualizations" (visualizaciones)
     body('visualizations').optional({ nullable: true })
