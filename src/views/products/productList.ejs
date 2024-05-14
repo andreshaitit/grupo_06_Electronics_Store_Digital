@@ -96,9 +96,9 @@
                   <% products.forEach(product => { %>
                     <div class="col-12 col-lg-4 mt-lg-3 my-3">
                       <a href="/product/detail/<%= product.id_product%>" class="card text-decoration-none text-dark">  
-                          <img src="/images/products/<%= product.image %>" class="card-img-top" alt="Imagen del producto">
+                          <img src="/images/products/<%= product.image %>" class="card-img-top product-image" alt="Imagen del producto">
                           <div class="card-body">
-                            <h2 class="card-title fs-4"><%= product.name %></h2>
+                            <h2 class="card-title product-title fs-4"><%= product.name %></h2>
                             <p class="card-text">Precio especial: $<%= (product.price - (product.price * product.discount / 100)).toFixed(2) %></p>
                             <p class="card-text">Precio de lista: $<%= product.price %></p>
                           </div>
