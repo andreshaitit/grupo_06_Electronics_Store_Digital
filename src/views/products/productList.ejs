@@ -58,32 +58,41 @@
             <div class="row">
               <div class="col-12 mt-3 col-lg-3">
                 <div class="border rounded p-3">                  
-                  <form>
-                    <h2>Marca:</h2>
-                    <label for="apple">Apple</label>
-                    <input type="checkbox" id="apple" name="brand" value="Apple">
-                    <label for="dell">Dell</label>
-                    <input type="checkbox" id="dell" name="brand" value="Dell">
-                    <label for="hp">HP</label>
-                    <input type="checkbox" id="hp" name="brand" value="HP">
-                    <label for="lenovo">Lenovo</label>
-                    <input type="checkbox" id="lenovo" name="brand" value="Lenovo">
-                    <label for="asus">Asus</label>
-                    <input type="checkbox" id="asus" name="brand" value="Asus">
-                    <!-- Añade más marcas según sea necesario -->
-                  
-                    <label class="label-control" for="max-price">Precio máximo:</label>
-                    <input class="form-control" type="number" id="max-price" name="max-price">
-                  
-                    <label class="label-control" for="min-price">Precio mínimo:</label>
-                    <input class="form-control" type="number" id="min-price" name="min-price">
-                  </form>
+
+                  <% if (locals?.keywords) { %>
+                    <form action="">
+                      <h2>Marca:</h2>
+                      <!-- Añade más marcas según la categoria -->
+                      <% brand?.forEach(e => { %>
+                        <label for="brand"> <%= e.nombre %> (<%= e.cantidad %>)</label>
+                        <input type="checkbox" id="brand" name="brand" value="<%= e.id %>">
+                      <% }) %>
+
+                      <label class="label-control" for="max-price">Precio máximo:</label>
+                      <input class="form-control" type="number" id="max-price" name="max-price">
+                    
+                      <label class="label-control" for="min-price">Precio mínimo:</label>
+                      <input class="form-control" type="number" id="min-price" name="min-price">
+                    </form>
+                    
+                  <% } else {%>
+                    <h2>Categoria:</h2>
+                    <% if (categories && categories.length > 0) { %>
+                      <div class="list-group">
+                        <% categories.forEach(e => { %>
+                          <a href="/product/category/<%= e.name %>" class="list-group-item list-group-item-action"><%= e.name %></a>
+                        <% }) %>
+                      </div>
+                    <% } else { %>
+                      <p>No hay categorías disponibles.</p>
+                    <% } %>
+                  <% }%>
                   
                 </div>
               </div>
                 
               <div class="col-12 col-lg-9">
-                <div class="row">
+                <div class="row" id="list">
 
                   <% if (locals?.error) { %>
                     <div style="align-items: center">
@@ -95,7 +104,7 @@
 
                   <!-- Repite el div .product-card para cada producto -->
                   <% products.forEach(product => { %>
-                    <div class="col-12 col-lg-4 mt-lg-3 my-3">
+                    <div class="col-12 col-lg-4 mt-lg-3 my-3" id="item">
                       <a href="/product/detail/<%= product.id_product%>" class="card text-decoration-none text-dark">  
                           <img src="/images/products/<%= product.image %>" class="card-img-top" alt="Imagen del producto">
                           <div class="card-body">
@@ -107,14 +116,35 @@
                     </div>
                   <% }) %>                
                 </div>
+
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination justify-content-center"">
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+
               </div>
             </div>
             </div>
+
     </main>
     <!--Fin Cuerpo-->
 
     <!--Pie de Página-->
     <%- include('../partials/footer.ejs') %>
     <!--Fin Pie de Página-->
+    <script src="../../../public/js/pagination.js"></script>
 </body>
 </html>

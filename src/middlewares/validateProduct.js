@@ -9,7 +9,7 @@ module.exports = [
 
     // Validación del campo "name"
     body('name').notEmpty().withMessage('El nombre es requerido')
-        .isLength({ min: 5, max: 200 }).withMessage('El nombre puede tener entre 1 y 200 caracteres'),
+        .isLength({ min: 5, max: 200 }).withMessage('El nombre puede tener entre 5 y 200 caracteres'),
 
     // Validación del campo "characteristics" (características)
     body('characteristics').notEmpty().withMessage('Las características son requeridas')

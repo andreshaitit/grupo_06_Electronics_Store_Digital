@@ -15,7 +15,7 @@
 
 <!--Cuerpo-->
 <main>
-    <form action="/product/create" method="POST" enctype="multipart/form-data">
+    <form id="productForm" action="/product/create" method="POST" enctype="multipart/form-data">
         <div class="container"> 
             <div class="row">
                 <div class="col-12 text-center">
@@ -34,7 +34,7 @@
                 <div class="col-lg-3">
                     <div>
                         <label class="label-control" for="mark">Marca</label>
-                        <select class="form-control" id="mark" name="mark" onchange="checkOther(this)">
+                        <select class="form-control" id="mark" name="mark" onchange="checkOther(this)" required>
                             <option value="" disabled selected hidden>Seleccionar</option>
                             <% marcas.forEach(marca => { %>
                                 <option value="<%= marca.id %>"><%= marca.name %></option>
@@ -57,8 +57,7 @@
                     <div>
                         <label class="label-control">Caracteristicas</label>
                         <!--AQUI SE INGRESAN LAs caracteristicas-->
-                        <textarea placeholder="Aqui puedes espcificar las principales caracteristicas de tu producto" class="form-control" name="characteristics" id="characteristics" required>
-                        </textarea>
+                        <textarea placeholder="Aqui puedes espcificar las principales caracteristicas de tu producto" class="form-control" name="characteristics" id="characteristics" required></textarea>
                     </div>
                 </div>
                 
@@ -72,11 +71,12 @@
                         </div>
                     </div>
                     <div class="precio-item">
-                        <d>
+                        <div>
                             <label class="label-control">Descuento:</label>
                             <!--<h2>$3.150.000</h2> AQUI SE MUESTRA EL DESCUENTO-->
                             <input class="form-control" type="number" name="discount" id="discount" placeholder="Ingresar en porcentaje" required>
                         </div>
+                    </div>
                 </div>
                     
                 <div class="col-lg-3">
@@ -84,7 +84,6 @@
                         AQUI SE INGRESA LA GARANTIA-->
                         <label class="label-control" for="warranty">Garantía:</label><br>
                         <input class="form-control" type="number" name="warranty" id="warranty" placeholder="Ingresar en meses" required>
-                    
                         <!--<input class="w-10" type="checkbox" id="shipping" name="shipping">
                         AQUI SE INGRESA EL COSTO DEL ENVIO-->
                         <label class="label-control" for="shipping">Envío:</label>
@@ -93,7 +92,6 @@
                             <option value="true">Gratis</option>
                             <option value="false">A acordar</option>
                         </select>
-
                         <label class="label-control" for="stock">Stock:</label>
                         <input class="form-control" type="number" name="stock" id="stock" placeholder="Ingresar cantidad" required>
                         <!--<input class="w-30" type="number" id="quantity" name="quantity" value="1" max="100">
@@ -101,7 +99,7 @@
                     
 
                         <label class="label-control" for="category">Categoria </label>
-                        <select class="form-control" id="category" name="category">
+                        <select class="form-control" id="category" name="category" required>
                             <option value="" disabled selected hidden>Seleccionar</option>
                             <% categorias.forEach(categoria => { %>
                                 <option value="<%= categoria.id %>"><%= categoria.name %></option>
@@ -109,7 +107,7 @@
                         </select>
                         <!--AQUI SE INGRESA EL ESTADO-->
                         <label class="label-control mt-3" for="state">Estado</label>
-                        <select class="form-control" name="state" id="state">
+                        <select class="form-control" name="state" id="state" required>
                             <option value="" disabled selected hidden>Seleccionar</option>
                             <% estados.forEach(estado => { %>
                                 <option value="<%= estado.id %>"><%= estado.name %></option>
@@ -120,10 +118,8 @@
                 
                 <div class="col-12">
                     <label class="label-control">Descripción</label>
-                        <!--AQUI SE INGRESAN LA DESCRIPCION-->
-                        <textarea name="description" id="description" class="form-control" style="width: 100%; height: 400px;" required>
-                            Describe como quieres vender tu producto
-                        </textarea>
+                    <!--AQUI SE INGRESAN LA DESCRIPCION-->
+                    <textarea name="description" id="description" class="form-control" style="width: 100%; height: 400px;" placeholder="Describe como quieres vender tu producto" required></textarea>
                 </div>
                 
                 <div class="col-12 my-5 d-flex justify-content-end gap-2">
@@ -140,5 +136,6 @@
     <!--Pie de Página-->
     <%- include('../partials/footer.ejs') %>
      <!--Fin Pie de Página-->
+     <script src="/js/productValidation.js"></script>
 </body>
 </html>

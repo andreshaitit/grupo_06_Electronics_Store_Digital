@@ -17,37 +17,6 @@ async function deleteOldImage(imageName) {
     }
 }
 
-async function brandsOnAllProducts(category){
-    try {
-        
-        // Ejecutar la consulta utilizando el modelo Producto
-        const allBrands = await db.Marca.findAll({
-            attributes: [
-                [sequelize.literal('id'), 'id_marca'],
-                [sequelize.literal('name'), 'marca'],
-                [sequelize.fn('COUNT', sequelize.col('products.id_brand')), 'numero_productos']
-            ],
-            include: [
-                {
-                    model: db.Producto,
-                    as: 'products',
-                    attributes: [],
-                    required: false
-                }
-            ],
-            group: ['Marca.id','Marca.name']
-        });
-
-        if (allBrands.length > 0) {
-            return allBrands;
-        } else {
-            throw new Error('No se encontraron marcas');
-        }
-    } catch (error) {
-        throw error;
-    }
-}
-
 async function brandsByCategory(category){
     try {
         // Consulta para obtener las marcas de los productos según una categoría dada
@@ -56,9 +25,9 @@ async function brandsByCategory(category){
         const brandsByCategory = await db.Producto.findAll({
             // Seleccionar las columnas de marca y contar el número de productos por marca
             attributes: [
-                [sequelize.literal('brand.id'), 'id_marca'],
-                [sequelize.literal('brand.name'), 'marca'],
-                [sequelize.fn('COUNT', sequelize.col('brand.name')), 'numero_productos']
+                [sequelize.literal('brand.id'), 'id'],
+                [sequelize.literal('brand.name'), 'nombre'],
+                [sequelize.fn('COUNT', sequelize.col('brand.name')), 'cantidad']
             ],
             // Incluir las asociaciones con la marca y la categoría
             include: [
@@ -77,7 +46,11 @@ async function brandsByCategory(category){
         });
 
         if (brandsByCategory.length > 0) {
-            return brandsByCategory;
+            return brandsByCategory.map(producto => ({
+                id: producto.dataValues.id,
+                nombre: producto.dataValues.nombre,
+                cantidad: producto.dataValues.cantidad
+            }));
         } else {
             throw new Error('No se encontraron marcas para esta categoría');
         }
@@ -121,8 +94,10 @@ const productsController = {
     
             // Desordena el array de productos utilizando la función de comparación aleatoria
             products.sort(compareRandom);
+
+            const categories = await db.Categoria.findAll()
     
-            res.render('./products/productList', { products: products });
+            res.render('./products/productList', { products: products, categories: categories });
         } catch (error) {
             console.log(error);
             return res.status(500).json({ error: "Error al buscar productos" });
@@ -155,7 +130,8 @@ const productsController = {
     
             //return res.json(productsByCategory);
             if(productsByCategory.length > 0){
-                res.render('./products/productList',{products:productsByCategory});
+                const brands = await brandsByCategory(req.params.category)
+                res.render('./products/productList',{products:productsByCategory, keywords:req.params.category, brand:brands});
             } else {
                 res.render('./products/productList',{products:productsByCategory,
                     keywords:req.params.category ,
