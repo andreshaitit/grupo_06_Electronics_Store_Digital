@@ -47,14 +47,15 @@
                     <div class="row">
                         <% productsByPrice.forEach(product => { %>
                             <div class="col-lg-3 mt-2 mt-lg-0">
-                                <a class="card text-decoration-none text-dark" href="/product/detail/<%= product.id_product %>">
-                                    <img class="card-img-top product-image" src="/images/products/<%= product.image %>">
+                                <div class="card">
+                                    <img class="card-img-top" src="/images/products/<%= product.image %>">
                                     <div class="card-body">
-                                        <h3 class="card-title product-title"><%= product.name %></h3>
+                                        <h3 class="card-title"><%= product.name %></h3>
                                         <p>Precio especial: $<%= (product.price - (product.price * product.discount / 100)).toFixed(2) %></p>
                                         <p>Precio de lista: $<%= product.price %></p>
+                                        <a href="/product/detail/<%= product.id_product %>">Ver mas</a>
                                     </div>
-                                </a>
+                                </div>
                             </div>
                         <% }) %>
                     </div>
@@ -74,14 +75,15 @@
                     <div class="row">
                         <% productsByVisualizations.forEach(product => { %>
                             <div class="col-lg-3 mt-2 mt-lg-0">
-                                <a class="card text-decoration-none text-dark" href="/product/detail/<%= product.id_product %>">
-                                    <img class="card-img-top product-image" src="/images/products/<%= product.image %>">
+                                <div class="card">
+                                    <img class="card-img-top" src="/images/products/<%= product.image %>">
                                     <div class="card-body">
-                                        <h3 class="card-title product-title"><%= product.name %></h3>
+                                        <h3 class="card-title"><%= product.name %></h3>
                                         <p>Precio especial: $<%= (product.price - (product.price * product.discount / 100)).toFixed(2) %></p>
                                         <p>Precio de lista: $<%= product.price %></p>
+                                        <a href="/product/detail/<%= product.id_product %>">Ver mas</a>
                                     </div>
-                                </a>
+                                </div>
                             </div>
                         <% }) %>
                     </div>
