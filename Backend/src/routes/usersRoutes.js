@@ -8,6 +8,9 @@ const validations = require('../middlewares/validateUser');
 const checkLogged = require('../middlewares/guestMiddleware');
 const isLogged = require('../middlewares/authMiddleware');
 
+//Total usuarios
+router.get('/users', usersController.allUsers)
+
 //Formulario de registro
 router.get('/register', checkLogged, usersController.register)
 
@@ -30,5 +33,8 @@ router.post('/edit/:id', isLogged, usersController.editProfile)
 
 //Logout
 router.get('/logout', usersController.logout)
+
+//Eliminar
+router.delete('/delete/:id', usersController.delete)
 
 module.exports = router;
