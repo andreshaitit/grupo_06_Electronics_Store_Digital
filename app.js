@@ -13,7 +13,10 @@ const methodOverride = require('method-override');
 
 const mainRoutes = require('./src/routes/mainRoutes');
 const productsRoutes = require('./src/routes/productsRoutes');
-const usersController = require('./src/routes/usersRoutes');
+const usersRoutes = require('./src/routes/usersRoutes');
+const shoppingCartRoutes = require('./src/routes/shoppingCartRoutes');
+
+
 const userLogged = require('./src/middlewares/userLoggedMiddleware');
 const passport = require('./src/db/config/passport');
 //const { cookie } = require('express-validator');
@@ -62,7 +65,7 @@ app.get('/productDetail', (req, res)=>{
   res.sendFile(path.join(__dirname, 'views', 'productDetail.html'))
 })*/
 
-app.use('/user',usersController);
+app.use('/user',usersRoutes);
 
 /*
 app.get('/login', (req, res)=>{
@@ -81,6 +84,13 @@ app.post('/register', (req, res)=>{
 app.get('/productCart', (req, res)=>{
   res.sendFile(path.join(__dirname, 'views', 'productCart.html'))
 })*/
+
+app.use('/cart',shoppingCartRoutes);
+
+/*app.use('/cart',(req, res)=>{
+  console.log("Carrito: datos del usuario",req.user);
+  res.redirect("/")});*/
+
 app.use((req, res, next) => {
   res.locals.mensajes = req.flash();
   next();

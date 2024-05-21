@@ -1,21 +1,24 @@
-let thispage = 1;
-let limit = 9;
-let list = document.querySelectorAll('#list #item');
-let totalPages = Math.ceil(list.length / limit);
+document.addEventListener('DOMContentLoaded', function () {
+    let thisPage = 1;
+    let limit = 9;
+    let list = document.querySelectorAll('.item');
+    let totalPages = Math.ceil(list.length / limit);
 
-console.log(list.length)
+    console.log(list.length);
 
-function loadItems() {
-    let beginGet = limit * (thisPage - 1);
-    let endGet = limit * thisPage;
+    function loadItems() {
+        let beginGet = limit * (thisPage - 1);
+        let endGet = limit * thisPage;
 
-    list.forEach((item, index) => {
-        if (index >= beginGet && index < endGet) {
-            item.style.display = 'block';
-        } else {
-            item.style.display = 'none';
-        }
-    });
-}
+        list.forEach((item, index) => {
+            
+            if (index >= beginGet && index < endGet) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
 
-loadItems();
+    loadItems();
+});

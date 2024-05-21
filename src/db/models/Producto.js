@@ -88,10 +88,16 @@ module.exports = (sequelize, DataTypes) => {
         })
 
         //Relacion pertenece a un estado
-        Producto.belongsTo(models.Categoria, {
+        Producto.belongsTo(models.EstadoProducto, {
             as: "state",
             foreignKey: "id_state"
         })
+
+        //Relacion pertenece a muchos detalles de orden
+        Producto.hasMany(models.DetalleOrden, {
+            as: "order_details",
+            foreignKey: "id_product"
+        });
     }
 
     return Producto;

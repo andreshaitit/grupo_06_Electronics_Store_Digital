@@ -163,6 +163,13 @@
     background-color: #0056b3;
 }
 
+.empty-cart{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
 @media (min-width: 768px){
     .payment-method{
         border-right: 1px solid #ccc;

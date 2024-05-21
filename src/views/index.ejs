@@ -20,7 +20,7 @@
     <!--Cuerpo-->
     <main>
         <!--Slider-->
-            <div class="swiffy-slider">
+            <div id="my-slider" class="swiffy-slider">
                 <ul class="slider-container">
                     <li><img class="w-100" src="/img/Banner-productos.jpg"></li>
                     <li><img class="w-100" src="/img/Banner-lenovo.jpg"></li>
@@ -33,13 +33,15 @@
                 <div class="slider-indicators">
                     <button class="active"></button>
                     <button></button>
+                    <button></button>
                 </div>
             </div>
 
         <!--Tarjetas-->
         <div class="container mb-lg-5">
             <div class="row">
-                <div class="col-12 my-3 mt-lg-0">
+
+                <div class="col-12 mt-5">
                     <h2>Nuestras Ofertas</h2>
                 </div>
 
@@ -92,7 +94,7 @@
 
 
         <!--Slider-->
-        <div class="swiffy-slider">
+        <div id="my-slider" class="swiffy-slider">
             <ul class="slider-container">
                 <li><img class="w-100" src="/img/Banner-Promociones-bancarias.png"></li>
                 <li><img class="w-100" src="/img/BANNER-CREDICOOP.jpg"></li>
@@ -104,6 +106,7 @@
 
             <div class="slider-indicators">
                 <button class="active"></button>
+                <button></button>
                 <button></button>
             </div>
         </div>
@@ -182,6 +185,32 @@
         </script>
     <% } %>
     <!--Fin Pie de Página-->
-        
+     <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                const slider = document.getElementById('my-slider');
+                const slides = slider.querySelectorAll('.slider-container li');
+                const indicators = slider.querySelectorAll('.slider-indicators button');
+                let currentIndex = 0;
+                const slideInterval = 3000; // Intervalo de tiempo en milisegundos
+
+                function showSlide(index) {
+                    slides.forEach((slide, i) => {
+                        slide.style.display = i === index ? 'block' : 'none';
+                        indicators[i].classList.toggle('active', i === index);
+                    });
+                }
+
+                function nextSlide() {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    showSlide(currentIndex);
+                }
+
+                // Inicializa el carrusel
+                showSlide(currentIndex);
+
+                // Configura el intervalo para cambiar las diapositivas automáticamente
+                setInterval(nextSlide, slideInterval);
+            });
+        </script>  
 </body>
 </html>

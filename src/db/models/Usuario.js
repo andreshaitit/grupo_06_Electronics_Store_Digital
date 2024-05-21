@@ -55,5 +55,14 @@ module.exports = (sequelize, DataTypes) => {
         // return bcrypt.compareSync(password, this.password);
     }
 
+    //Definimos las relaciones
+    Usuario.associate = function (models){
+        //Relacion tiene muchas ordenes de compra
+        Usuario.hasMany(models.OrdenDeCompra, {
+            as: "purchase_orders",
+            foreignKey: "id_user"
+        })
+    }
+
     return Usuario;
 };

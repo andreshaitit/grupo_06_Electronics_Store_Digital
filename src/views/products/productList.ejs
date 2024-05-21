@@ -63,10 +63,13 @@
                     <form action="">
                       <h2>Marca:</h2>
                       <!-- Añade más marcas según la categoria -->
-                      <% brand?.forEach(e => { %>
-                        <label for="brand"> <%= e.nombre %> (<%= e.cantidad %>)</label>
-                        <input type="checkbox" id="brand" name="brand" value="<%= e.id %>">
-                      <% }) %>
+                      <% if (locals?.brand) { %>
+                        <% brand?.forEach(e => { %>
+                          <label for="brand"> <%= e.nombre %> (<%= e.cantidad %>)</label>
+                          <input type="checkbox" id="brand" name="brand" value="<%= e.id %>">
+                        <% }) %>
+                      <% } %>
+                      
 
                       <label class="label-control" for="max-price">Precio máximo:</label>
                       <input class="form-control" type="number" id="max-price" name="max-price">
@@ -104,7 +107,7 @@
 
                   <!-- Repite el div .product-card para cada producto -->
                   <% products.forEach(product => { %>
-                    <div class="col-12 col-lg-4 mt-lg-3 my-3" id="item">
+                    <div class="col-12 col-lg-4 mt-lg-3 my-3 item-list">
                       <a href="/product/detail/<%= product.id_product%>" class="card text-decoration-none text-dark">  
                           <img src="/images/products/<%= product.image %>" class="card-img-top product-image" alt="Imagen del producto">
                           <div class="card-body">
@@ -117,22 +120,9 @@
                   <% }) %>                
                 </div>
 
+                <!-- Paginación de Bootstrap -->
                 <nav aria-label="Page navigation example">
-                  <ul class="pagination justify-content-center"">
-                    <li class="page-item">
-                      <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                      </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                      <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                      </a>
-                    </li>
-                  </ul>
+                  <ul class="pagination justify-content-center listPage"></ul>
                 </nav>
 
               </div>
@@ -145,6 +135,69 @@
     <!--Pie de Página-->
     <%- include('../partials/footer.ejs') %>
     <!--Fin Pie de Página-->
-    <script src="../../../public/js/pagination.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          let thisPage = 1;
+          let limit = 9;
+          let list = document.querySelectorAll('.item');
+          let totalPages = Math.ceil(list.length / limit);
+
+          console.log(list.length);
+
+          function loadItems() {
+              let beginGet = limit * (thisPage - 1);
+              let endGet = limit * thisPage;
+
+              list.forEach((item, index) => {
+                  if (index >= beginGet && index < endGet) {
+                      item.style.display = 'block';
+                  } else {
+                      item.style.display = 'none';
+                  }
+              });
+
+              listPage();
+          }
+
+          function listPage() {
+              let pagination = document.querySelector('.listPage');
+              pagination.innerHTML = '';
+
+              if (thisPage != 1) {
+                  let prev = document.createElement('li');
+                  prev.classList.add('page-item');
+                  prev.innerHTML = '<a class="page-link" href="#" onclick="changePage(' + (thisPage - 1) + ')">Previous</a>';
+                  pagination.appendChild(prev);
+              }
+
+              for (let i = 1; i <= totalPages; i++) {
+                  let newPage = document.createElement('li');
+                  newPage.classList.add('page-item');
+                  newPage.innerHTML = '<a class="page-link" href="#" onclick="changePage(' + i + ')">' + i + '</a>';
+
+                  if (i == thisPage) {
+                      newPage.classList.add('active');
+                  }
+
+                  pagination.appendChild(newPage);
+              }
+
+              if (thisPage != totalPages) {
+                  let next = document.createElement('li');
+                  next.classList.add('page-item');
+                  next.innerHTML = '<a class="page-link" href="#" onclick="changePage(' + (thisPage + 1) + ')">Next</a>';
+                  pagination.appendChild(next);
+              }
+          }
+
+          window.changePage = function (i) {
+              thisPage = i;
+              loadItems();
+          }
+
+          loadItems();
+      });
+
+    </script>
 </body>
 </html>

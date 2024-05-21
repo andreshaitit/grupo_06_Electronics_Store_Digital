@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const category = document.querySelector("#category");
     const state = document.querySelector("#state");
     const description = document.querySelector("#description");
-
+    
     form.addEventListener('submit', function(e) {
 
         if(checkInputs()){
@@ -25,6 +25,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         
     })
+    
+
+    // MANEJO DE EVENTOS EN TODOS LOS INPUTS
 
     mark.addEventListener('input', () => {
         validateField(mark,
@@ -93,6 +96,8 @@ document.addEventListener("DOMContentLoaded", function() {
             descriptionInput.msg);
     });
 
+    // FUNCIONES EMPLEADAS EN LOS EVENTOS
+
     function checkInputs() {
         let isValid = true;
         
@@ -153,6 +158,8 @@ document.addEventListener("DOMContentLoaded", function() {
             input.classList.add('is-invalid');
         }
     }
+
+    // VALIDACIONES DE LAS DIFERENTES ENTRADAS
 
     function validateName(name) {
         // Comprobar si el nombre está vacío

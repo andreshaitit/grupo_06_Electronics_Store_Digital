@@ -7,7 +7,8 @@ const Op = db.Sequelize.Op;
 const productsFilePath = path.join(__dirname, '../data/products.json');
 //let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-const {validationResult} = require('express-validator')
+const {validationResult} = require('express-validator');
+const { message } = require('statuses');
 //const { log, error } = require('console');
 
 // Función para eliminar la imagen anterior
@@ -97,7 +98,7 @@ const productsController = {
 
             const categories = await db.Categoria.findAll()
     
-            res.render('./products/productList', { products: products, categories: categories });
+            return res.render('./products/productList', { products: products, categories: categories });
         } catch (error) {
             console.log(error);
             return res.status(500).json({ error: "Error al buscar productos" });
@@ -131,12 +132,12 @@ const productsController = {
             //return res.json(productsByCategory);
             if(productsByCategory.length > 0){
                 const brands = await brandsByCategory(req.params.category)
-                res.render('./products/productList',{products:productsByCategory, keywords:req.params.category, brand:brands});
+                return res.render('./products/productList',{products:productsByCategory, keywords:req.params.category, brand:brands});
             } else {
-                res.render('./products/productList',{products:productsByCategory,
+                return res.render('./products/productList',{products:productsByCategory,
                     keywords:req.params.category ,
-                error: {
-                    msg: 'No se encontraron productos para está categoria'
+                    error: {
+                        msg: 'No se encontraron productos para está categoria'
                 }});
             }
 
@@ -252,9 +253,9 @@ const productsController = {
             
             //Renderizar la vista con los productos encontrados
             if (resultSearch.length > 0) {
-                res.render('./products/productList', { products: resultSearch, keywords: keywords });
+                return res.render('./products/productList', { products: resultSearch, keywords: keywords });
             } else {
-                res.render('./products/productList', { products: resultSearch, keywords: keywords, error: { msg: 'No se encontraron productos que coincidan con tu búsqueda' } });
+                return res.render('./products/productList', { products: resultSearch, keywords: keywords, error: { msg: 'No se encontraron productos que coincidan con tu búsqueda' } });
             }
     
         } catch (err) {
@@ -287,14 +288,14 @@ const productsController = {
                 return res.status(404).json({ error: `No se encontró el producto con ID ${req.params.id}` });
             }
     
-            // Renderizar la vista del detalle del producto
-            res.render('./products/productDetail', { product: result });
-    
             // Incrementar las visualizaciones de manera asincrónica
             db.Producto.increment('visualizations', { 
                 by: 1, 
                 where: { id_product: req.params.id } 
             });
+
+            // Renderizar la vista del detalle del producto
+            return res.render('./products/productDetail', { product: result });
             
         } catch (error) {
             console.log(error);
@@ -314,7 +315,7 @@ const productsController = {
             const marcas = await db.Marca.findAll()
             
             //res.json({categorias: categorias, estados: estados});
-            res.render('./products/productCreate',{marcas,categorias,estados});
+            return res.render('./products/productCreate',{marcas,categorias,estados});
         } catch (error){
             console.log(error);
             return res.status(500).json({ error:"Error interno del servidor" });
@@ -384,7 +385,7 @@ const productsController = {
                     image: req.file?.filename || "default-image.png"
                 })
 
-                res.redirect('/product/list');
+                return res.redirect('/product/list');
 
             } else{
                 
@@ -395,7 +396,7 @@ const productsController = {
             }
         }catch (error) {
             console.log(error);
-            res.status(500).json({error:'Error interno del servidor'});
+            return res.status(500).json({error:'Error interno del servidor'});
         }
     },
 
@@ -422,13 +423,13 @@ const productsController = {
     
             // Renderizar la vista con los datos
             if (productEdit) {
-                res.render('./products/productUpdate', { productEdit, marcas, estados, categorias });
+                return res.render('./products/productUpdate', { productEdit, marcas, estados, categorias });
             } else {
-                res.status(404).json({error:'El producto no se encontró'});
+                return res.status(404).json({error:'El producto no se encontró'});
             }
         } catch (error) {
             console.log(error);
-            res.status(500).json({error:'Error interno del servidor'});
+            return res.status(500).json({error:'Error interno del servidor'});
         }
     },    // FUNCIONAL
 
@@ -477,47 +478,47 @@ const productsController = {
 
             let result = validationResult(req)
 
-        if(result.isEmpty()){
-            // Obtener los datos del producto a actualizar
-            const productUpdate = await db.Producto.findByPk(req.params.id);
-    
-            if (!productUpdate) {
-                return res.redirect('/product/list');
-            }
-    
-            // Comprobar si hay una nueva imagen
-            if (req.file) {
-                await deleteOldImage(productUpdate.image);
-                productUpdate.image = req.file.filename;
-            }
-    
-            // Modificar el producto solo con los campos proporcionados
-            await productUpdate.update({
-                name: req.body.name || productUpdate.name,
-                id_brand: req.body.mark || productUpdate.mark,
-                characteristics: req.body.characteristics || productUpdate.characteristics,
-                price: req.body.price || productUpdate.price,
-                discount: req.body.discount || productUpdate.discount,
-                warranty: req.body.warranty || productUpdate.warranty,
-                shipping: req.body.shipping || productUpdate.shipping,
-                stock: req.body.stock || productUpdate.stock,
-                id_category: req.body.category || productUpdate.category,
-                id_state: req.body.state || productUpdate.state,
-                description: req.body.description || productUpdate.description,
-            });
-    
-            res.redirect(`/product/detail/${req.params.id}`);
+            if(result.isEmpty()){
+                // Obtener los datos del producto a actualizar
+                const productUpdate = await db.Producto.findByPk(req.params.id);
         
-        } else{
+                if (!productUpdate) {
+                    return res.redirect('/product/list');
+                }
+        
+                // Comprobar si hay una nueva imagen
+                if (req.file) {
+                    await deleteOldImage(productUpdate.image);
+                    productUpdate.image = req.file.filename;
+                }
+        
+                // Modificar el producto solo con los campos proporcionados
+                await productUpdate.update({
+                    name: req.body.name || productUpdate.name,
+                    id_brand: req.body.mark || productUpdate.mark,
+                    characteristics: req.body.characteristics || productUpdate.characteristics,
+                    price: req.body.price || productUpdate.price,
+                    discount: req.body.discount || productUpdate.discount,
+                    warranty: req.body.warranty || productUpdate.warranty,
+                    shipping: req.body.shipping || productUpdate.shipping,
+                    stock: req.body.stock || productUpdate.stock,
+                    id_category: req.body.category || productUpdate.category,
+                    id_state: req.body.state || productUpdate.state,
+                    description: req.body.description || productUpdate.description,
+                });
+        
+                return res.redirect(`/product/detail/${req.params.id}`);
             
-            return res.status(404).json({
-                old: req.body,
-                error: result.mapped()
-            })
-        }
+            } else{
+                
+                return res.status(404).json({
+                    old: req.body,
+                    error: result.mapped()
+                })
+            }
         } catch (error) {
             console.log(error);
-            res.status(500).json({error:'Error interno del servidor'});
+            return res.status(500).json({error:'Error interno del servidor'});
         }
     },
     
@@ -568,10 +569,10 @@ const productsController = {
                 }
             });
     
-            res.redirect('/product/list');
+            return res.redirect('/product/list');
         } catch (error) {
             console.log(`Error al eliminar el producto: ${error.message}`);
-            res.status(500).json({ error: 'Error interno del servidor al eliminar el producto' });
+            return res.status(500).json({ error: 'Error interno del servidor al eliminar el producto' });
         }
     }
     

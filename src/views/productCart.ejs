@@ -19,165 +19,161 @@
 
     <h2 id="cart-title">Carrito de compras</h2>
 
-    <section class="cart-list">
+    <% if (products) { %>
+        
+        <section class="cart-list">
 
-        <article class="cart-item">
-
-            <div class="article-info">
-                <img src="/img/macbook_pro.png" alt="Nombre del producto">
+            <% products.forEach(product => { %>
+                <article class="cart-item">
+                    <form id="edit-cart-form-<%= product.id_product %>" action="/cart/update/<%= product.id_product %>?_method=PUT" method="POST">
+                        <div class="article-info">
+                            <img src="/images/products/<%= product.image %>" alt="Nombre del producto">
+                        
+                            <div class="item-details">
+                                <h3><%= product.name %></h3>
+                                <p>Descripción del producto</p>
+                            </div>
             
-                <div class="item-details">
-                    <h3>Nombre del producto</h3>
-                    <p>Descripción del producto</p>
-                </div>
-
-                <div class="item-amount">
-                    <label>
-                        <button class="more-less"><i class="fas fa-plus-circle"></i></button>
-                        <input type="number" id="cantidad" name="cantidad" min="1" max="10" value="1">
-                        <button class="more-less"><i class="fas fa-minus-circle"></i></button>
-                    </label>
-                    <p>Unidades disponibles: 2</p>
-                </div>
-
-                <div class="item-price">
-                    <p>Precio unitario: $20.00</p>
-                    <h5>25% Off</h5>
-                </div>
-            </div>
-
-            <div class="item-actions">
-                <button class="btn-delete">Eliminar</button>
-                <button class="btn-buy">Comprar</button>
-            </div>
-
-        </article>
-
-        <article class="cart-item">
-
-            <div class="article-info">
-                <img src="/img/monitor-dell.png" alt="Nombre del producto">
+                            <div class="item-amount">
+                                <label>
+                                    <button class="more-less"><i class="fas fa-plus-circle"></i></button>
+                                    <input type="number" id="cantidad-<%= product.id_product %>" name="cantidad" min="1" max="<%= product.stock %>" value="<%= product.amount %>">
+                                    <button class="more-less"><i class="fas fa-minus-circle"></i></button>
+                                </label>
+                                <p>Unidades disponibles: <%= product.stock %></p>
+                            </div>
             
-                <div class="item-details">
-                    <h3>Nombre del producto</h3>
-                    <p>Descripción del producto</p>
-                </div>
-
-                <div class="item-amount">
-                    <label>
-                        <button class="more-less"><i class="fas fa-plus-circle"></i></button>
-                        <input type="number" id="cantidad" name="cantidad" min="1" max="10" value="1">
-                        <button class="more-less"><i class="fas fa-minus-circle"></i></button>
-                    </label>
-                    <p>Unidades disponibles: 2</p>
-                </div>
-
-                <div class="item-price">
-                    <p>Precio unitario: $20.00</p>
-                    <h5>25% Off</h5>
-            </div>
-            </div>
-
-            <div class="item-actions">
-                <button class="btn-delete">Eliminar</button>
-                <button class="btn-buy">Comprar</button>
-            </div>
-
-        </article>
-
-        <article class="cart-item">
-
-            <div class="article-info">
-                <img src="/img/pc-escritorio.png" alt="Nombre del producto">
+                            <div class="item-price">
+                                <p>Precio unitario: $20.00</p>
+                                <h5>25% Off</h5>
+                            </div>
+                        </div>
             
-                <div class="item-details">
-                    <h3>Nombre del producto</h3>
-                    <p>Descripción del producto</p>
-                </div>
-
-                <div class="item-amount">
-                    <label>
-                        <button class="more-less"><i class="fas fa-plus-circle"></i></button>
-                        <input type="number" id="cantidad" name="cantidad" min="1" max="10" value="1">
-                        <button class="more-less"><i class="fas fa-minus-circle"></i></button>
-                    </label>
-                    <p>Unidades disponibles: 2</p>
-                </div>
-
-                <div class="item-price">
-                    <p>Precio unitario: $20.00</p>
-                    <h5>25% Off</h5>
-                </div>
-            </div>
-
-            <div class="item-actions">
-                <button class="btn-delete">Eliminar</button>
-                <button class="btn-buy">Comprar</button>
-            </div>
-
-        </article>
-
-        <article class="cart-item">
-
-            <div class="article-info">
-                <img src="/img/teclado-asus.png" alt="Nombre del producto">
+                        <div class="item-actions">
+                            <button class="btn-delete" type="button" data-product-id="<%= product.id_product %>">Eliminar</button>
+                            <button class="btn-buy" type="button" id="edit-cart-btn-<%= product.id_product %>">Editar</button>
+                        </div>
+                    </form>
+                </article>
+            <% }) %>
             
-                <div class="item-details">
-                    <h3>Nombre del producto</h3>
-                    <p>Descripción del producto</p>
-                </div>
+        </section>
 
-                <div class="item-amount">
-                    <label>
-                        <button class="more-less"><i class="fas fa-plus-circle"></i></button>
-                        <input type="number" id="cantidad" name="cantidad" min="1" max="10" value="1">
-                        <button class="more-less"><i class="fas fa-minus-circle"></i></button>
-                    </label>
-                    <p>Unidades disponibles: 2</p>
-                </div>
+        <section class="cart-payment">
 
-                <div class="item-price">
-                    <p>Precio unitario: $20.00</p>
-                    <h5>25% Off</h5>
+            <div class="cart-monto">
+                <div class="cart-monto-detalle">
+                    <div>
+                        <h6>Articulos (numero)</h6>
+                        <h5>$ Precio productos</h5>
+                    </div>
+                    <div>
+                        <h6>Envio</h6>
+                        <h5>$ Precio de envio</h5>
+                    </div>
                 </div>
+                
+                <h3>Total: $40.00</h3>
             </div>
-
-            <div class="item-actions">
-                <button class="btn-delete">Eliminar</button>
-                <button class="btn-buy">Comprar</button>
+        
+            <div class="payment-method">
+                <h4>Medio de pago</h4>
+                <img src="/img/medios-pago.png" style="width: 250px; margin-bottom: 10px;">
+                <label><input type="radio" name="payment-method" value="1">Deposio o Transferencia Bancaria</label>
+                <label><input type="radio" name="payment-method" value="2">Mercadopago - Tarjetas online, PagoFacil, RapiPago</label>
+                <label><input type="radio" name="payment-method" value="3">Tarjeta de credito ¡Hasta 12 cuotas!</label>
             </div>
+        </section>
+        
+        <button class="btn-checkout">Completar transacción</button>
 
-        </article>
-          
-    </section>
-
-    <section class="cart-payment">
-
-        <div class="cart-monto">
-            <div class="cart-monto-detalle">
-                <div>
-                    <h6>Articulos (numero)</h6>
-                    <h5>$ Precio productos</h5>
-                </div>
-                <div>
-                    <h6>Envio</h6>
-                    <h5>$ Precio de envio</h5>
-                </div>
-            </div>
-            
-            <h3>Total: $40.00</h3>
+    <% } else {%>
+        <div class="empty-cart">
+            <img src="/img/carrito_vacio_nuevo.png" style="width: 400px;">
         </div>
-    
-        <div class="payment-method">
-            <h4>Medio de pago</h4>
-            <img src="/img/medios-pago.png" style="width: 250px; margin-bottom: 10px;">
-            <label><input type="radio" name="payment-method" value="1">Deposio o Transferencia Bancaria</label>
-            <label><input type="radio" name="payment-method" value="2">Mercadopago - Tarjetas online, PagoFacil, RapiPago</label>
-            <label><input type="radio" name="payment-method" value="3">Tarjeta de credito ¡Hasta 12 cuotas!</label>
-        </div>
-    </section>
-    
-    <button class="btn-checkout">Completar transacción</button>
+    <% }%>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Seleccionar todos los botones con la clase 'btn-buy' para editar el carrito
+            const editCartButtons = document.querySelectorAll('.btn-buy');
+
+            // Agregar un event listener a cada botón
+            editCartButtons.forEach(button => {
+                button.addEventListener('click', function (event) {
+                    // Prevenir el comportamiento predeterminado del botón
+                    event.preventDefault();
+
+                    // Obtener el ID del producto desde el botón
+                    const productId = button.id.replace('edit-cart-btn-', '');
+                    const form = document.querySelector(`#edit-cart-form-${productId}`);
+                    const cantidad = form.querySelector(`#cantidad-${productId}`).value;
+
+                    // Enviar una solicitud fetch al endpoint de editar el carrito
+                    fetch(form.action, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ cantidad: cantidad })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Mostrar un mensaje de éxito y actualizar la página si es necesario
+                            alert('Producto actualizado correctamente en el carrito');
+                        } else {
+                            alert('Error al actualizar el producto en el carrito');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Error al actualizar el producto en el carrito');
+                    });
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Seleccionar todos los botones con la clase 'btn-delete'
+            const deleteButtons = document.querySelectorAll('.btn-delete');
+        
+            // Agregar un event listener a cada botón
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function (event) {
+                    // Prevenir el comportamiento predeterminado del botón
+                    event.preventDefault();
+
+                    // Obtener el ID del producto desde el atributo data-product-id
+                    const productId = event.target.getAttribute('data-product-id');
+        
+                    // Confirmar la eliminación
+                    if (confirm('¿Estás seguro de que quieres eliminar este producto?')) {
+                        // Enviar una solicitud fetch al endpoint de eliminación
+                        fetch(`/cart/remove/${productId}`, {
+                            method: 'DELETE',
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                // Eliminar el elemento del DOM o refrescar la página
+                                alert('Producto eliminado correctamente');
+                                location.reload(); // Refrescar la página
+                            } else {
+                                alert('Error al eliminar el producto');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('Error al eliminar el producto');
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 
 </main>
 <!--Fin Cuerpo-->

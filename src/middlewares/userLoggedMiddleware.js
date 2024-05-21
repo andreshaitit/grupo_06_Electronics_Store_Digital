@@ -21,6 +21,8 @@ function userLoggedMiddleware(req, res, next){
         res.locals.userLogged = req.user;
     }
 
+    //console.log("Middleware: datos del usuario",req.user)
+
     next();
 }
 

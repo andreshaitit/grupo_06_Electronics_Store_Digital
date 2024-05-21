@@ -17,14 +17,13 @@ module.exports = [
 
     // Validación del campo "price" (precio)
     body('price').notEmpty().withMessage('El precio es requerido')
-        .isDecimal({ decimal_digits: '10,2' }).withMessage('El precio debe ser un número decimal válido')
-        .custom(value => {
-            if (parseInt(value) <= 0) {
-                throw new Error('El precio debe ser mayor que cero');
-            }
-            return true; // La validación pasó
-        }),
-        //.isDecimal({ decimal_digits: '10,2' }).withMessage('El precio debe ser un número decimal válido'),
+    .isDecimal({ decimal_digits: '1,2' }).withMessage('El precio debe ser un número decimal válido')
+    .custom(value => {
+        if (parseFloat(value) <= 0) {
+            throw new Error('El precio debe ser mayor que cero');
+        }
+        return true; // La validación pasó
+    }),
 
     // Validación del campo "discount" (descuento)
     body('discount').optional({ nullable: true })
@@ -35,7 +34,6 @@ module.exports = [
             }
             return true; // La validación pasó
         }),
-        //.isDecimal({ decimal_digits: '10,2' }).withMessage('El descuento debe ser un número decimal válido'),
 
     // Validación del campo "warranty" (garantía)
     body('warranty').optional({ nullable: true })

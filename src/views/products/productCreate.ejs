@@ -57,7 +57,7 @@
                     <div>
                         <label class="label-control">Caracteristicas</label>
                         <!--AQUI SE INGRESAN LAs caracteristicas-->
-                        <textarea placeholder="Aqui puedes espcificar las principales caracteristicas de tu producto" class="form-control" name="characteristics" id="characteristics" required></textarea>
+                        <textarea placeholder="Aqui puedes espcificar las principales caracteristicas de tu producto" style="height: 200px;" class="form-control" name="characteristics" id="characteristics" required></textarea>
                     </div>
                 </div>
                 
@@ -92,7 +92,7 @@
                             <option value="true">Gratis</option>
                             <option value="false">A acordar</option>
                         </select>
-                        <label class="label-control" for="stock">Stock:</label>
+                        <label class="label-control mt-3" for="stock">Stock:</label>
                         <input class="form-control" type="number" name="stock" id="stock" placeholder="Ingresar cantidad" required>
                         <!--<input class="w-30" type="number" id="quantity" name="quantity" value="1" max="100">
                         AQUI SE INGRESA EL STOCK DISPONIBLE-->
@@ -119,7 +119,7 @@
                 <div class="col-12">
                     <label class="label-control">Descripción</label>
                     <!--AQUI SE INGRESAN LA DESCRIPCION-->
-                    <textarea name="description" id="description" class="form-control" style="width: 100%; height: 400px;" placeholder="Describe como quieres vender tu producto" required></textarea>
+                    <textarea name="description" id="description" class="form-control" style="width: 100%; height: 200px;" placeholder="Describe como quieres vender tu producto" required></textarea>
                 </div>
                 
                 <div class="col-12 my-5 d-flex justify-content-end gap-2">
@@ -137,5 +137,20 @@
     <%- include('../partials/footer.ejs') %>
      <!--Fin Pie de Página-->
      <script src="/js/productValidation.js"></script>
+     <script>
+         document.getElementById('price').addEventListener('input', function(e) {
+            let input = e.target.value.replace(/\D/g, ''); // Eliminar cualquier carácter que no sea dígito
+            if (input === '') {
+                e.target.value = '';
+                return;
+            }
+
+            // Convertir el input en un número y dividirlo por 100 para obtener los decimales correctos
+            let formattedValue = (parseInt(input) / 100).toFixed(2);
+
+            // Actualizar el valor del input
+            e.target.value = formattedValue;
+        });
+     </script>
 </body>
 </html>
