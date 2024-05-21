@@ -116,27 +116,6 @@ body {
     max-width: 100%;
     height: auto;
 }
-
-.product-title {
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* Ajusta este valor según tus necesidades */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.product-image {
-    width: 100%; /* Esto hará que la imagen ocupe todo el ancho de su contenedor */
-    height: 250px; /* Ajusta este valor según tus necesidades */
-    object-fit: contain; /* Esto hará que la imagen se recorte para ajustarse al tamaño especificado, manteniendo su aspecto */
-}
-.card:hover {
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.3); /* Agrega una sombra */
-    transition: box-shadow .2s; /* Controla la velocidad del efecto hover */
-    transform: scale(1.05); /* Aumenta el tamaño de la tarjeta */
-  transition: transform .2s; 
-  }
-  
 /*Formulario Registro
 .formulario{
 padding: 20px 15px;
