@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
 
     //Definimos las relaciones
     DetalleOrden.associate = function (models) {
-        
+
         //Relacion pertenece a una orden de compra
         DetalleOrden.belongsTo(models.OrdenDeCompra, {
             as: "purchase_orders",

@@ -128,7 +128,7 @@ const productsController = {
                 include: [{ association: "brand" }, { association: "category" },],
                 where: { '$category.name$': req.params.category }
             });
-    
+
             //return res.json(productsByCategory);
             if(productsByCategory.length > 0){
                 const brands = await brandsByCategory(req.params.category)
@@ -169,14 +169,14 @@ const productsController = {
                         ],
                         group: ['Categoria.name','Categoria.id']
         });
-            
+
 
     */
-     
+
     listBrandsByCategory: async (req, res) => {
         try {
             // Consulta para obtener las marcas de los productos según una categoría dada
-    
+
             // Ejecutar la consulta utilizando el modelo Producto
             const brandsByCategory = await db.Producto.findAll({
                 // Seleccionar las columnas de marca y contar el número de productos por marca
@@ -190,16 +190,16 @@ const productsController = {
                         association: "brand", // Incluir la asociación con la marca
                         attributes: [] // No seleccionar ninguna columna adicional de la marca
                     },
-                    { 
+                    {
                         association: "category", // Incluir la asociación con la categoría
                         attributes: [], // No seleccionar ninguna columna adicional de la categoría
                         where: { name: req.params.category } // Filtrar por el nombre de la categoría proporcionado en la solicitud
                     }
                 ],
                 // Agrupar por el nombre e ID de la marca para contar correctamente el número de productos por marca
-                group: ['brand.name', 'brand.id'] 
+                group: ['brand.name', 'brand.id']
             });
-    
+
             // Verificar si se encontraron marcas para la categoría dada
             if (brandsByCategory.length > 0) {
                 // Devolver los resultados como JSON si se encontraron marcas
@@ -213,8 +213,8 @@ const productsController = {
             console.log(error);
             return res.status(500).json({ error: 'Error al buscar marcas por categoría' });
         }
-    },                
-    
+    },
+
     // Impmenent search for products *******************************************************************
     /*search: (req, res) => {
 
@@ -250,14 +250,14 @@ const productsController = {
                     name: { [Op.like]: `%${keywords}%` }
                 }
             });
-            
+
             //Renderizar la vista con los productos encontrados
             if (resultSearch.length > 0) {
                 return res.render('./products/productList', { products: resultSearch, keywords: keywords });
             } else {
                 return res.render('./products/productList', { products: resultSearch, keywords: keywords, error: { msg: 'No se encontraron productos que coincidan con tu búsqueda' } });
             }
-    
+
         } catch (err) {
             console.log(err);
             return res.status(500).json({ error: "Error interno del servidor" });
@@ -275,34 +275,34 @@ const productsController = {
         } else {
             res.send(`Error, no se encontro el producto con id: ${req.params.id}`)
         }
-        
+
     },*/
-    
+
     detail: async (req, res) => {
         try {
             let result = await db.Producto.findByPk(req.params.id, {
                 include: [{ association: "brand" }, { association: "category" }, { association: "state" }]
             });
-            
+
             if (!result) {
                 return res.status(404).json({ error: `No se encontró el producto con ID ${req.params.id}` });
             }
-    
+
             // Incrementar las visualizaciones de manera asincrónica
-            db.Producto.increment('visualizations', { 
-                by: 1, 
-                where: { id_product: req.params.id } 
+            db.Producto.increment('visualizations', {
+                by: 1,
+                where: { id_product: req.params.id }
             });
 
             // Renderizar la vista del detalle del producto
             return res.render('./products/productDetail', { product: result });
-            
+
         } catch (error) {
             console.log(error);
             return res.status(500).json({ error: "Error interno del servidor" });
         }
     },    // FUNCIONAL
-    
+
     // Create - Form to create *************************************************************************
     /*create: function(req,res){
         res.render('./products/productCreate');
@@ -313,7 +313,7 @@ const productsController = {
             const categorias = await db.Categoria.findAll()
             const estados = await db.EstadoProducto.findAll()
             const marcas = await db.Marca.findAll()
-            
+
             //res.json({categorias: categorias, estados: estados});
             return res.render('./products/productCreate',{marcas,categorias,estados});
         } catch (error){
@@ -353,7 +353,7 @@ const productsController = {
 			fs.writeFileSync(productsFilePath, productsJSON)
             res.redirect('/product/list');
         } else{
-            
+
             res.render('./products/productCreate',{
                 old: req.body,
                 error: result.mapped()
@@ -388,7 +388,7 @@ const productsController = {
                 return res.redirect('/product/list');
 
             } else{
-                
+
                 return res.status(404).json({
                     old: req.body,
                     error: result.mapped()
@@ -410,7 +410,7 @@ const productsController = {
         } else {
             res.redirect(`/product/detail/${req.params.id}`)
         }
-        
+
     },*/
 
     edit: async (req, res) => {
@@ -420,7 +420,7 @@ const productsController = {
             const categorias = await db.Categoria.findAll();
             const estados = await db.EstadoProducto.findAll();
             const marcas = await db.Marca.findAll();
-    
+
             // Renderizar la vista con los datos
             if (productEdit) {
                 return res.render('./products/productUpdate', { productEdit, marcas, estados, categorias });
@@ -481,17 +481,16 @@ const productsController = {
             if(result.isEmpty()){
                 // Obtener los datos del producto a actualizar
                 const productUpdate = await db.Producto.findByPk(req.params.id);
-        
+
                 if (!productUpdate) {
                     return res.redirect('/product/list');
                 }
-        
+
                 // Comprobar si hay una nueva imagen
                 if (req.file) {
                     await deleteOldImage(productUpdate.image);
                     productUpdate.image = req.file.filename;
                 }
-        
                 // Modificar el producto solo con los campos proporcionados
                 await productUpdate.update({
                     name: req.body.name || productUpdate.name,
@@ -506,11 +505,9 @@ const productsController = {
                     id_state: req.body.state || productUpdate.state,
                     description: req.body.description || productUpdate.description,
                 });
-        
                 return res.redirect(`/product/detail/${req.params.id}`);
-            
+
             } else{
-                
                 return res.status(404).json({
                     old: req.body,
                     error: result.mapped()
@@ -521,7 +518,7 @@ const productsController = {
             return res.status(500).json({error:'Error interno del servidor'});
         }
     },
-    
+
     // Delete - Delete one product from DB **************************************************************
     /*delete: function(req,res){
 
@@ -545,11 +542,10 @@ const productsController = {
     delete: async (req, res) => {
         try {
             const productToDelete = await db.Producto.findByPk(req.params.id);
-            
+
             if (!productToDelete) {
                 return res.status(404).json({ error: 'Producto no encontrado' });
             }
-    
             // Verificar si la imagen no es la predeterminada antes de intentar eliminarla
             if (productToDelete.image !== 'default-image.png') {
                 try {
@@ -561,21 +557,19 @@ const productsController = {
                     return res.status(500).json({ error: 'Error interno del servidor al eliminar la imagen' });
                 }
             }
-    
             // Eliminar el producto de la base de datos
             await db.Producto.destroy({
                 where: {
                     id_product: req.params.id
                 }
             });
-    
+
             return res.redirect('/product/list');
         } catch (error) {
             console.log(`Error al eliminar el producto: ${error.message}`);
             return res.status(500).json({ error: 'Error interno del servidor al eliminar el producto' });
         }
     }
-    
 }
 
 module.exports = productsController;

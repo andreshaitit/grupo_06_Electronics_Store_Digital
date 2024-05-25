@@ -28,7 +28,7 @@
                     <%= error %>
                 </div>
             <% } %>
-            
+
             <% if (locals && locals.mensajes) { %>
                 <% Object.keys(locals.mensajes).forEach(function(categoria) { %>
                     <% locals.mensajes[categoria].forEach(function(error) { %>
@@ -38,29 +38,29 @@
                     <% }); %>
                 <% }); %>
             <% } %>
-            
-            
+
+
             <div class="offset-lg-4 col-lg-4 text-center">
                 <form action="/user/login" method="POST">
-                    
-                    <input class="form-control" type="email" name="email" placeholder="Correo">
-                    
-                    <input class="form-control" type="password" name="password" placeholder="Contraseña">
-                    
+
+                    <input class="form-control" type="email" name="email" placeholder="Correo" required>
+
+                    <input class="form-control" type="password" name="password" placeholder="Contraseña" required>
+
                     <div class="form-check text-start mt-3">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="remember_user">
                         <label class="form-check-label ms-2 mt-1" for="flexCheckDefault">
                             Recordar mi usuario
                         </label>
                       </div>
-                    
+
                     <button class="btn btn-primary w-100 mt-3" type="submit">Iniciar Sesion</button>
                 </form>
-                
+
                 <a href="/user/register"><button class="btn btn-secondary w-100 mt-2 mb-5">Crear Cuenta</button></a>
-                    
+
                     <a href="#">¿Olvidaste tu contraseña?</a>
-                    
+
                     <div>
                         <p class="mt-2">o Inicia sesión con</p>
                         <button type="submit" class="btn btn-primary"><i class="fa fa-facebook me-1" aria-hidden="true"></i>Facebook</button>

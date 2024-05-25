@@ -34,12 +34,12 @@
         </section>
 
     <% } %>
-    
+
     <div class="container mt-5">
-        <div class="row">   
+        <div class="row">
             <div class="col-lg-4">
                 <img src="/images/products/<%= product.image %>"  class="w-100 h-50" />
-                
+
                 <h6 class="mt-3"><%= product.state.name %></h6>
                 <h3><%= product.name %></h3>
             </div>
@@ -70,31 +70,30 @@
                         <h4>$<%= product.price %></h4>
                     </div>
                 </div>
-                
+
                 <hr />
-                
+
                 <form id="add-to-cart-form-<%= product.id_product %>" action="/cart/add/<%= product.id_product %>" method="POST">
                     <label for="warranty">Garantía de <%= product.warranty %> meses</label><br>
-                
+
                     <label for="shipping">Envío <%= product.shipping == true ? 'gratis':'a acordar'%></label><br>
-                
+
                     <div class="d-flex align-items-center">
                         <label for="quantity" class="label-control">Cantidad:</label>
                         <input class="w-25 form-control" type="number" id="quantity-<%= product.id_product %>" name="quantity" min="1" max="<%= product.stock %>" value="1">
                     </div>
-                    
+
                     <p class="text-center">Unidades disponibles <%= product.stock %></p>
                     <hr>
-                    
+
                     <button class="btn btn-primary py-3" type="button" style="width:100%">Comprar ahora</button>
                     <button class="btn btn-secondary mt-2 py-3" type="button" id="add-to-cart-btn-<%= product.id_product %>" style="width:100%">Agregar al carrito</button>
-                    
+
                 </form>
             </div>
         <div>
     </div>
-    
-    
+
     <div class="caracteristicas">
         <hr />
         <h1>Descripción</h1>

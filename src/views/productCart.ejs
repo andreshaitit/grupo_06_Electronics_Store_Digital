@@ -20,7 +20,7 @@
     <h2 id="cart-title">Carrito de compras</h2>
 
     <% if (products) { %>
-        
+
         <section class="cart-list">
 
             <% products.forEach(product => { %>
@@ -28,12 +28,12 @@
                     <form id="edit-cart-form-<%= product.id_product %>" action="/cart/update/<%= product.id_product %>?_method=PUT" method="POST">
                         <div class="article-info">
                             <img src="/images/products/<%= product.image %>" alt="Nombre del producto">
-                        
+
                             <div class="item-details">
                                 <h3><%= product.name %></h3>
                                 <p>Descripción del producto</p>
                             </div>
-            
+
                             <div class="item-amount">
                                 <label>
                                     <button class="more-less"><i class="fas fa-plus-circle"></i></button>
@@ -42,13 +42,13 @@
                                 </label>
                                 <p>Unidades disponibles: <%= product.stock %></p>
                             </div>
-            
+
                             <div class="item-price">
-                                <p>Precio unitario: $20.00</p>
-                                <h5>25% Off</h5>
+                                <p>Precio unitario: $<%= product.price %></p>
+                                <h5><%= product.discount %>% Off</h5>
                             </div>
                         </div>
-            
+
                         <div class="item-actions">
                             <button class="btn-delete" type="button" data-product-id="<%= product.id_product %>">Eliminar</button>
                             <button class="btn-buy" type="button" id="edit-cart-btn-<%= product.id_product %>">Editar</button>
@@ -56,37 +56,37 @@
                     </form>
                 </article>
             <% }) %>
-            
+
         </section>
+        <form id="payment" action="/cart/payment?_method=PUT" method="POST" enctype="multipart/form-data">
+            <section class="cart-payment">
 
-        <section class="cart-payment">
+                <div class="cart-monto">
+                    <div class="cart-monto-detalle">
+                        <div>
+                            <h6>Articulos (<%= userCart?.quantity_products %>)</h6>
+                            <h5>$ <%= userCart?.total_amount %></h5>
+                        </div>
+                        <div>
+                            <h6>Envio</h6>
+                            <h5>$ 0.00</h5>
+                        </div>
+                    </div>
 
-            <div class="cart-monto">
-                <div class="cart-monto-detalle">
-                    <div>
-                        <h6>Articulos (numero)</h6>
-                        <h5>$ Precio productos</h5>
-                    </div>
-                    <div>
-                        <h6>Envio</h6>
-                        <h5>$ Precio de envio</h5>
-                    </div>
+                    <h3>Total: $ <%= userCart?.total_amount %></h3>
                 </div>
-                
-                <h3>Total: $40.00</h3>
-            </div>
-        
-            <div class="payment-method">
-                <h4>Medio de pago</h4>
-                <img src="/img/medios-pago.png" style="width: 250px; margin-bottom: 10px;">
-                <label><input type="radio" name="payment-method" value="1">Deposio o Transferencia Bancaria</label>
-                <label><input type="radio" name="payment-method" value="2">Mercadopago - Tarjetas online, PagoFacil, RapiPago</label>
-                <label><input type="radio" name="payment-method" value="3">Tarjeta de credito ¡Hasta 12 cuotas!</label>
-            </div>
-        </section>
-        
-        <button class="btn-checkout">Completar transacción</button>
 
+                <div class="payment-method">
+                    <h4>Medio de pago</h4>
+                    <img src="/img/medios-pago.png" style="width: 260px; margin-bottom: 10px;">
+                    <label><input type="radio" name="payment_method" value="Deposio o Transferencia Bancaria" >Deposio o Transferencia Bancaria</label>
+                    <label><input type="radio" name="payment_method" value="Mercadopago - Tarjetas online, PagoFacil, RapiPago" >Mercadopago - Tarjetas online, PagoFacil, RapiPago</label>
+                    <label><input type="radio" name="payment_method" value="Tarjeta de credito ¡Hasta 12 cuotas!" >Tarjeta de credito ¡Hasta 12 cuotas!</label>
+                </div>
+            </section>
+
+            <button id="btnCheckout" class="btn-checkout">Completar transacción</button>
+        </form>
     <% } else {%>
         <div class="empty-cart">
             <img src="/img/carrito_vacio_nuevo.png" style="width: 400px;">
@@ -122,6 +122,7 @@
                         if (data.success) {
                             // Mostrar un mensaje de éxito y actualizar la página si es necesario
                             alert('Producto actualizado correctamente en el carrito');
+                            location.reload(); // Refrescar la página
                         } else {
                             alert('Error al actualizar el producto en el carrito');
                         }
@@ -139,7 +140,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Seleccionar todos los botones con la clase 'btn-delete'
             const deleteButtons = document.querySelectorAll('.btn-delete');
-        
+
             // Agregar un event listener a cada botón
             deleteButtons.forEach(button => {
                 button.addEventListener('click', function (event) {
@@ -148,7 +149,7 @@
 
                     // Obtener el ID del producto desde el atributo data-product-id
                     const productId = event.target.getAttribute('data-product-id');
-        
+
                     // Confirmar la eliminación
                     if (confirm('¿Estás seguro de que quieres eliminar este producto?')) {
                         // Enviar una solicitud fetch al endpoint de eliminación
@@ -171,6 +172,29 @@
                         });
                     }
                 });
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnCheckout = document.getElementById('btnCheckout');
+
+            btnCheckout.addEventListener('click', function(event) {
+                // Prevenir el envío del formulario por defecto
+                event.preventDefault();
+
+                // Mostrar un mensaje de confirmación
+                const confirmarPago = confirm('¿Estás seguro que deseas completar la transacción?');
+
+                // Si el usuario confirma el pago, enviar el formulario
+                if (confirmarPago) {
+                    const form = document.getElementById('payment');
+                    form.submit();
+                } else {
+                    // Si el usuario cancela, mostrar un mensaje de alerta
+                    alert('La transacción ha sido cancelada.');
+                }
             });
         });
     </script>

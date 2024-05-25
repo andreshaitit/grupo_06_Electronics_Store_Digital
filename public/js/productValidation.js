@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const category = document.querySelector("#category");
     const state = document.querySelector("#state");
     const description = document.querySelector("#description");
-    
+
     form.addEventListener('submit', function(e) {
 
         if(checkInputs()){
@@ -23,9 +23,9 @@ document.addEventListener("DOMContentLoaded", function() {
             e.preventDefault();
             alert("Tienes campos por completar");
         }
-        
+
     })
-    
+
 
     // MANEJO DE EVENTOS EN TODOS LOS INPUTS
 
@@ -100,9 +100,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function checkInputs() {
         let isValid = true;
-        
+
         validateField(mark, (mark.value.trim() !== ''), 'La marca es requerida');
-        
+
         validateField(name,
             nameInput.msg === '',
             nameInput.msg);
@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function() {
             warrantyInput.msg);
 
         validateField(shipping, (shipping.value.trim() !== ""), 'El tipo de envio es requerido');
-        
+
         validateField(stock,
             stockInput.msg === '',
             stockInput.msg);
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function() {
         validateField(category, (category.value.trim() !== ""), 'La categoria es requerida');
 
         validateField(state, (state.value.trim() !== ""), 'El estado del producto es requerido');
-        
+
         validateField(description,
             descriptionInput.msg === '',
             descriptionInput.msg);
@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", function() {
             msg: '',
         };
     }
-    
+
     function validatePrice(price){
         // Comprobar si el precio está vacío
         if (price.trim() === '') {
@@ -231,7 +231,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Comprobar si el descuento está dentro del rango
-        if ((parseInt(discount) < 0 || parseInt(discount) > 100)) {     
+        if ((parseInt(discount) < 0 || parseInt(discount) > 100)) {
             return {
                 msg: 'El descuento debe encontrarse en el rango del 0% a 100%',
             };

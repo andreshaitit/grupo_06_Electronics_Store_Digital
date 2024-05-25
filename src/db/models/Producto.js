@@ -73,7 +73,7 @@ module.exports = (sequelize, DataTypes) => {
 
     //Definimos las relaciones
     Producto.associate = function (models) {
-        
+
         //Relacion pertenece a una marca
         Producto.belongsTo(models.Marca, {
             as: "brand",

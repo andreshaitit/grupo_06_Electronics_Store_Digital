@@ -19,7 +19,7 @@
       <div class="container rounded py-5 ">
 
         <% if (locals.userLogged?.category) { %>
-         
+
           <div class="row">
             <div class="col-12 col-lg-6">
               <h2></i> Opciones de administrador</h2>
@@ -45,19 +45,19 @@
                     <option value="price-asc">Menor Precio</option>
                     <option value="price-desc">Mayor precio</option>
                   </select>
-                </form>              
+                </form>
               </div>
             </div>
           </div>
-          
+
           <% if (locals?.keywords) { %>
             <h2 class="products-title">Resultados de la búsqueda: <%= keywords %></h2>
           <% } %>
-          
+
           <div class="container">
             <div class="row">
               <div class="col-12 mt-3 col-lg-3">
-                <div class="border rounded p-3">                  
+                <div class="border rounded p-3">
 
                   <% if (locals?.keywords) { %>
                     <form action="">
@@ -69,15 +69,13 @@
                           <input type="checkbox" id="brand" name="brand" value="<%= e.id %>">
                         <% }) %>
                       <% } %>
-                      
 
                       <label class="label-control" for="max-price">Precio máximo:</label>
                       <input class="form-control" type="number" id="max-price" name="max-price">
-                    
                       <label class="label-control" for="min-price">Precio mínimo:</label>
                       <input class="form-control" type="number" id="min-price" name="min-price">
                     </form>
-                    
+
                   <% } else {%>
                     <h2>Categoria:</h2>
                     <% if (categories && categories.length > 0) { %>
@@ -90,34 +88,32 @@
                       <p>No hay categorías disponibles.</p>
                     <% } %>
                   <% }%>
-                  
+
                 </div>
               </div>
-                
               <div class="col-12 col-lg-9">
                 <div class="row" id="list">
 
                   <% if (locals?.error) { %>
-                    <div style="align-items: center">
+                    <div class="text-center">
                       <img src="/img/search-error.png" style="width: 400px;">
                       <h4><%= error.msg %></h4>
                     </div>
-                    
                   <% } %>
 
                   <!-- Repite el div .product-card para cada producto -->
                   <% products.forEach(product => { %>
-                    <div class="col-12 col-lg-4 mt-lg-3 my-3 item-list">
-                      <a href="/product/detail/<%= product.id_product%>" class="card text-decoration-none text-dark">  
-                          <img src="/images/products/<%= product.image %>" class="card-img-top" alt="Imagen del producto">
+                    <div class="col-12 col-lg-4 mt-lg-3 my-3" id="item">
+                      <a href="/product/detail/<%= product.id_product%>" class="card text-decoration-none text-dark">
+                          <img src="/images/products/<%= product.image %>" class="card-img-top product-image" alt="Imagen del producto">
                           <div class="card-body">
-                            <h2 class="card-title fs-4"><%= product.name %></h2>
+                            <h2 class="card-title product-title fs-4"><%= product.name %></h2>
                             <p class="card-text">Precio especial: $<%= (product.price - (product.price * product.discount / 100)).toFixed(2) %></p>
                             <p class="card-text">Precio de lista: $<%= product.price %></p>
                           </div>
                       </a>
                     </div>
-                  <% }) %>                
+                  <% }) %>
                 </div>
 
                 <!-- Paginación de Bootstrap -->
