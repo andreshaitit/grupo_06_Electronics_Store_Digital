@@ -366,6 +366,8 @@ const productsController = {
         try{
             let result = validationResult(req)
 
+            //console.log("Producto", req.body);
+
             if(result.isEmpty()){
 
                 await db.Producto.create({
