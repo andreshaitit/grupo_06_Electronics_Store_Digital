@@ -50,3 +50,17 @@ Motivo: La informacion de los productos es clara, conteniendo todos los detalles
 Sitio 5: Ebay
 URL: https://www.ebay.com 
 Morivo: Encontramos una gran cantidad de productos que nos sirven de referencia como contenido del ecomerce que se desarrolla.
+
+## Vistas de la pagina
+
+![Inicio](presentation/home.png)
+
+![Lista de Productos](presentation/products.png)
+
+![Busqueda](presentation/search.png)
+
+![Registro de usuario](presentation/register.png)
+
+![Inicio de Sesión](presentation/login.png)
+
+![Carrito de Compras](presentation/shopping_cart.png)

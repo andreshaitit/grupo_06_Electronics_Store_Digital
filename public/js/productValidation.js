@@ -156,6 +156,7 @@ document.addEventListener("DOMContentLoaded", function() {
             //En caso de que exista un mensaje de error
             input.classList.remove('is-valid');
             input.classList.add('is-invalid');
+            //alert(errorMessage);
         }
     }
 
