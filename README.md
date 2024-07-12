@@ -53,14 +53,20 @@ Morivo: Encontramos una gran cantidad de productos que nos sirven de referencia 
 
 ## Vistas de la pagina
 
+###Inicio
 ![Inicio](presentation/home.png)
 
+###Lista de Productos
 ![Lista de Productos](presentation/products.png)
 
+###Busqueda
 ![Busqueda](presentation/search.png)
 
+###Registro de usuario
 ![Registro de usuario](presentation/register.png)
 
+###Inicio de Sesión
 ![Inicio de Sesión](presentation/login.png)
 
+###Carrito de Compras
 ![Carrito de Compras](presentation/shopping_cart.png)
